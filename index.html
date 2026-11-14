@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://media.orphiusmusic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@400;600;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=4">
+<link rel="stylesheet" href="/style.css?v=5">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MusicGroup","name":"Orphius","url":"https://www.orphiusmusic.com/","genre":["Dark pop","Experimental electronic","J-pop"],"sameAs":["https://www.youtube.com/@Orphius1"]}
 </script>
@@ -57,7 +57,7 @@
         <p class="feature-meta" id="fMeta"></p>
         <div class="actions">
           <button class="btn btn-solid btn-play" id="fPlay" type="button">Play</button>
-          <a class="btn btn-line" id="fOpen" href="/">Lyrics &amp; visuals</a>
+          <a class="btn btn-line" id="fOpen" href="/">Open with visuals</a>
           <a class="btn btn-text" id="fYt" href="/" target="_blank" rel="noopener" hidden>Watch on YouTube</a>
         </div>
       </div>
@@ -88,6 +88,24 @@
   <a href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">youtube.com/@Orphius1</a>
 </footer>
 
+<section class="sheet" id="sheet" aria-labelledby="sTitle" hidden>
+  <div class="sheet-bg" aria-hidden="true"><img id="sBg" alt=""></div>
+  <button class="sheet-close" id="sClose" type="button">Hide lyrics</button>
+  <div class="sheet-grid">
+    <div class="sheet-side">
+      <img class="sheet-cover" id="sCover" alt="">
+      <p class="sheet-label">Now playing</p>
+      <h2 class="sheet-title" id="sTitle"></h2>
+      <p class="sheet-sub" id="sSub"></p>
+      <div class="actions">
+        <a class="btn btn-solid" id="sOpen" href="/">Open with visuals</a>
+        <a class="btn btn-line" id="sYt" href="/" target="_blank" rel="noopener" hidden>Watch on YouTube</a>
+      </div>
+    </div>
+    <div class="sheet-lyrics" id="sLyrics" aria-label="Lyrics"></div>
+  </div>
+</section>
+
 <div class="player" id="player" hidden>
   <a class="p-art" id="pArt" href="/"><img id="pImg" alt=""></a>
   <div class="p-meta">
@@ -98,6 +116,7 @@
     <button type="button" id="pPrev" aria-label="Previous song"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
     <button type="button" id="pToggle" class="p-toggle" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M7 4v16l13-8z"/><path class="i-pause" d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
     <button type="button" id="pNext" aria-label="Next song"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+    <button type="button" id="pLyrics" class="p-lyrics" aria-expanded="false" aria-controls="sheet">Lyrics</button>
   </div>
   <div class="p-time">
     <span id="pCur">0:00</span>
@@ -107,6 +126,6 @@
 </div>
 
 <script src="/songs.js?v=3"></script>
-<script src="/app.js?v=5"></script>
+<script src="/app.js?v=6"></script>
 </body>
 </html>

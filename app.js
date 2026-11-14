@@ -24,6 +24,7 @@
     setAccent(song.accent);
     $("#player").hidden = false;
     document.body.classList.add("has-player");
+    setBar();
     $("#pImg").src = `${MEDIA}/${song.id}/card.jpg`;
     $("#pArt").href = $("#pTitle").href = page(song);
     $("#pTitle").textContent = song.title;
@@ -37,6 +38,8 @@
     }
     refresh();
   }
+  const setBar = () => document.documentElement.style.setProperty("--bar-h", $("#player").offsetHeight + "px");
+  addEventListener("resize", () => current && setBar());
   const play = song => { load(song); audio.play().catch(() => {}); };
   function toggle(song) {
     if (song && song !== current) return play(song);
@@ -72,7 +75,7 @@
   $("#fTitle").textContent = feat.title;
   $("#fSub").textContent = feat.sub;
   $("#fMeta").innerHTML = `${feat.date ? `<span>${esc(feat.date)}</span>` : ""}<span>${fmt(feat.dur)}</span>`;
-  $("#fPlay").onclick = () => toggle(feat);
+  $("#fPlay").onclick = () => { toggle(feat); if (!audio.paused || current === feat) openSheet(); };
   if (feat.yt) { $("#fYt").href = `https://www.youtube.com/watch?v=${feat.yt}`; $("#fYt").hidden = false; }
   setAccent(feat.accent);
 
@@ -80,17 +83,17 @@
   const grid = $("#grid");
   grid.innerHTML = SONGS.map(s => `
     <li class="card" data-id="${s.id}" style="--c:${s.accent}">
-      <div class="card-cover">
-        <a class="card-art" href="${page(s)}" tabindex="-1" aria-hidden="true"><img src="${MEDIA}/${s.id}/card.jpg" alt="" loading="lazy" width="320" height="320"></a>
-        <button class="card-play" type="button" aria-label="Play ${esc(s.title)}">${ICON}</button>
-      </div>
-      <a class="card-title" href="${page(s)}">${esc(s.title)}</a>
-      <span class="card-sub">${esc(s.sub || "")}</span>
-      <span class="card-meta">${s.date ? `<span>${esc(s.date)}</span>` : ""}<span>${fmt(s.dur)}</span></span>
+      <button class="card-btn" type="button" aria-label="Play ${esc(s.title)} and show lyrics">
+        <span class="card-art"><img src="${MEDIA}/${s.id}/card.jpg" alt="" loading="lazy" width="320" height="320"><span class="card-play" aria-hidden="true">${ICON}</span></span>
+        <span class="card-title">${esc(s.title)}</span>
+        <span class="card-sub">${esc(s.sub || "")}</span>
+        <span class="card-meta">${s.date ? `<span>${esc(s.date)}</span>` : ""}<span>${fmt(s.dur)}</span></span>
+      </button>
     </li>`).join("");
   grid.addEventListener("click", e => {
-    const b = e.target.closest(".card-play");
-    if (b) toggle(byId[b.closest(".card").dataset.id]);
+    const c = e.target.closest(".card"); if (!c) return;
+    const s = byId[c.dataset.id];
+    if (s === current) { toggle(); openSheet(); } else { play(s); openSheet(); }
   });
   $("#songCount").textContent = `${SONGS.length} songs`;
 
@@ -102,12 +105,80 @@
       const me = current && c.dataset.id === current.id;
       c.classList.toggle("is-current", !!me);
       c.classList.toggle("is-playing", !!me && on);
-      c.querySelector(".card-play").setAttribute("aria-label", `${me && on ? "Pause" : "Play"} ${byId[c.dataset.id].title}`);
+      c.querySelector(".card-btn").setAttribute("aria-label", `${me && on ? "Pause" : "Play"} ${byId[c.dataset.id].title} and show lyrics`);
     });
     const fOn = current === feat && on;
     $("#fPlay").classList.toggle("is-playing", fOn);
     $("#fPlay").textContent = fOn ? "Pause" : "Play";
   }
+
+  // ── Now playing: synced lyrics ─────────────────
+  const sheet = $("#sheet"), box = $("#sLyrics");
+  let lines = [], lineEls = [], shown = null, lastLine = -1, opener = null;
+  function openSheet() {
+    if (!current) return;
+    if (sheet.hidden) opener = document.activeElement;
+    sheet.hidden = false;
+    document.body.classList.add("sheet-open");
+    $("#pLyrics").setAttribute("aria-expanded", "true");
+    $("#pLyrics").textContent = "Hide lyrics";
+    fillSheet(current);
+    $("#sClose").focus({ preventScroll: true });
+  }
+  function closeSheet() {
+    sheet.hidden = true;
+    document.body.classList.remove("sheet-open");
+    $("#pLyrics").setAttribute("aria-expanded", "false");
+    $("#pLyrics").textContent = "Lyrics";
+    if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
+  }
+  $("#sClose").onclick = closeSheet;
+  $("#pLyrics").onclick = () => (sheet.hidden ? openSheet() : closeSheet());
+  addEventListener("keydown", e => { if (e.key === "Escape" && !sheet.hidden) closeSheet(); });
+
+  async function fillSheet(song) {
+    if (shown === song) return;
+    shown = song; lastLine = -1;
+    $("#sBg").src = $("#sCover").src = `${MEDIA}/${song.id}/card.jpg`;
+    $("#sTitle").textContent = song.title;
+    $("#sSub").textContent = song.sub;
+    $("#sOpen").href = page(song);
+    $("#sYt").hidden = !song.yt;
+    if (song.yt) $("#sYt").href = `https://www.youtube.com/watch?v=${song.yt}`;
+    box.innerHTML = ""; lines = []; lineEls = [];
+    if (song.lyrics !== false) {
+      try { const r = await fetch(file(song, "lyrics.json")); lines = r.ok ? await r.json() : []; } catch { lines = []; }
+    }
+    if (shown !== song) return;
+    if (!lines.length) { box.innerHTML = '<p class="none">This song has no lyrics yet.</p>'; return; }
+    box.innerHTML = lines.map((l, k) => `<p class="line" data-k="${k}"><span class="o">${l.w.map(([c, t]) => `<span class="ch" data-t="${t}">${esc(c)}</span>`).join("")}</span>${l.tr ? `<span class="t">${esc(l.tr)}</span>` : ""}</p>`).join("");
+    lineEls = [...box.querySelectorAll(".line")];
+    box.scrollTop = 0;
+  }
+  box.addEventListener("click", e => {
+    const p = e.target.closest(".line"); if (!p || shown !== current) return;
+    audio.currentTime = lines[p.dataset.k].t; audio.play().catch(() => {});
+  });
+  // when the song changes while the panel is open, follow it
+  audio.addEventListener("loadstart", () => { if (!sheet.hidden && current) fillSheet(current); });
+
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  (function tick() {
+    requestAnimationFrame(tick);
+    if (sheet.hidden || !lineEls.length || shown !== current) return;
+    const t = audio.currentTime;
+    let k = -1;
+    for (let i = 0; i < lines.length; i++) if (t >= lines[i].t) k = i; else break;
+    if (k !== lastLine) {
+      if (lastLine >= 0 && lineEls[lastLine]) { lineEls[lastLine].classList.remove("on"); lineEls[lastLine].querySelectorAll(".lit").forEach(c => c.classList.remove("lit")); }
+      lastLine = k;
+      if (k >= 0) {
+        const el = lineEls[k]; el.classList.add("on");
+        box.scrollTo({ top: el.offsetTop - box.clientHeight * 0.38, behavior: reduce ? "auto" : "smooth" });
+      }
+    }
+    if (k >= 0) lineEls[k].querySelectorAll(".ch:not(.lit)").forEach(c => { if (t >= +c.dataset.t) c.classList.add("lit"); });
+  })();
 
   $("#yr").textContent = new Date().getFullYear();
 })();
