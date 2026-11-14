@@ -4919,6 +4919,87 @@ void main(){
   };
 
 
+  // ═════════ 封面氛围（orphiusmusic.com）：不画具体物体，只用封面本身 + 光 + 浮尘 ═════════
+  // 封面铺满全屏（模糊、压暗），极慢地推近和平移；主题色的柔光跟着响度和低音呼吸；细小的浮尘缓缓上升。
+  SCENES.ambient = (song) => {
+    const th = song.theme || {}, glow = th.glow || "236,226,206";
+    const img = new Image(); img.crossOrigin = "anonymous";
+    img.src = `${MEDIA_BASE}/${song.id}/cover.jpg${song.rev ? "?r=" + song.rev : ""}`;
+    let off = null, dust = [], t0 = performance.now(), bassS = 0;
+    // 把封面缩小后重度模糊，只留下它的颜色；再用三层慢慢旋转、缩放的副本叠出流动的色块
+    let offR = null;
+    function bake() {
+      if (!img.complete || !img.naturalWidth) return;
+      const S = 360;
+      off = document.createElement("canvas"); off.width = off.height = S;
+      const o = off.getContext("2d"), k = Math.max(S / img.naturalWidth, S / img.naturalHeight);
+      o.filter = "blur(11px) saturate(1.45)";
+      o.drawImage(img, (S - img.naturalWidth * k) / 2, (S - img.naturalHeight * k) / 2, img.naturalWidth * k, img.naturalHeight * k);
+      // 同一张图裁成边缘柔和的圆，给上面那几层流动的色块用（不会出现直边）
+      offR = document.createElement("canvas"); offR.width = offR.height = S;
+      const r = offR.getContext("2d");
+      r.drawImage(off, 0, 0);
+      const m = r.createRadialGradient(S / 2, S / 2, S * .12, S / 2, S / 2, S * .5);
+      m.addColorStop(0, "rgba(0,0,0,1)"); m.addColorStop(1, "rgba(0,0,0,0)");
+      r.globalCompositeOperation = "destination-in"; r.fillStyle = m; r.fillRect(0, 0, S, S);
+    }
+    img.onload = bake;
+    const layers = [
+      { s: 1.25, r: .012, ph: 0, a: 1, ox: .5, oy: .5 },
+      { s: .85, r: -.02, ph: 2.1, a: .6, ox: .28, oy: .32 },
+      { s: .7, r: .026, ph: 4.2, a: .5, ox: .74, oy: .7 }
+    ];
+    return {
+      wet: false,
+      init() {
+        bake();
+        const n = Math.round(60 * Math.min(1.6, (W * H) / (dpr * dpr) / 900000));
+        dust = Array.from({ length: n }, () => ({ x: rand(0, W), y: rand(0, H), r: rand(.6, 2) * dpr, v: rand(.08, .3) * dpr, ph: rand(0, 6.28), sw: rand(.2, .8) }));
+      },
+      draw(I, lv) {
+        const t = (performance.now() - t0) / 1000, D = Math.hypot(W, H);
+        bassS += ((window.__bass || 0) - bassS) * .06;
+        ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+        if (off) {
+          const fade = Math.min(1, t / 2.5);
+          // 底层：铺满全屏，不旋转，只极慢地推近
+          const bs = Math.max(W, H) * (1.12 + .04 * Math.sin(t / 26));
+          ctx.globalAlpha = fade;
+          ctx.drawImage(off, (W - bs) / 2 + Math.sin(t / 41) * W * .03, (H - bs) / 2 + Math.cos(t / 53) * H * .03, bs, bs);
+          // 上面两层：柔边的圆形色块，慢慢漂移、旋转，叠出流动感
+          layers.slice(1).forEach((L, i) => {
+            const cx = W * (L.ox + .1 * Math.sin(t / (23 + i * 7) + L.ph)), cy = H * (L.oy + .1 * Math.cos(t / (29 + i * 5) + L.ph));
+            const size = D * L.s * (1 + .05 * Math.sin(t / 17 + L.ph) + bassS * .04);
+            ctx.save(); ctx.translate(cx, cy); ctx.rotate(t * L.r + L.ph);
+            ctx.globalAlpha = L.a * fade; ctx.globalCompositeOperation = "screen";
+            ctx.drawImage(offR, -size / 2, -size / 2, size, size);
+            ctx.restore();
+          });
+          ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
+          ctx.fillStyle = "rgba(0,0,0,.32)"; ctx.fillRect(0, 0, W, H);   // 压暗，保证上面的文字清楚
+        }
+        // 主题色柔光：随音乐呼吸
+        const a = .04 + lv * .2 + bassS * .1;
+        const g = ctx.createRadialGradient(W * .5, H * .42, 0, W * .5, H * .42, D * .45);
+        g.addColorStop(0, `rgba(${glow},${a.toFixed(3)})`); g.addColorStop(1, `rgba(${glow},0)`);
+        ctx.globalCompositeOperation = "screen"; ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+        ctx.globalCompositeOperation = "source-over";
+        const v = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * .3, W / 2, H / 2, D * .6);
+        v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(0,0,0,.55)");
+        ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
+        // 浮尘：副歌时更亮、升得更快
+        const speed = .5 + lv * 1.6;
+        for (const d of dust) {
+          d.y -= d.v * speed; d.x += Math.sin(t * d.sw + d.ph) * .15 * dpr;
+          if (d.y < -10) { d.y = H + 10; d.x = rand(0, W); }
+          const al = (.15 + .45 * lv) * (.5 + .5 * Math.sin(t * 1.3 + d.ph));
+          ctx.fillStyle = `rgba(${glow},${al.toFixed(3)})`;
+          ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, 6.283); ctx.fill();
+        }
+      }
+    };
+  };
+
   SCENES.none = () => ({ init() {}, draw() {} });
 
   // ═════════ 引擎 ═════════
