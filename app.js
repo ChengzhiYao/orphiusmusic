@@ -48,7 +48,7 @@
   $("#pNext").onclick = () => step(1);
   $("#pPrev").onclick = () => (audio.currentTime > 4 ? (audio.currentTime = 0) : step(-1));
   $("#pToggle").onclick = () => toggle();
-  $("#pArt").onclick = () => current && go(`/songs/${current.id}`);
+  $("#pArt").onclick = () => current && (location.href = `/songs/${current.id}`);
   audio.addEventListener("ended", () => step(1));
   if ("mediaSession" in navigator) {
     navigator.mediaSession.setActionHandler("nexttrack", () => step(1));
@@ -79,7 +79,7 @@
     <li class="row" data-id="${s.id}" style="--c:${s.accent}">
       <img src="${file(s, "thumb.jpg")}" alt="" loading="lazy" width="56" height="56">
       <div class="row-main">
-        <a class="row-title" href="/songs/${s.id}" data-link>${s.title}</a>
+        <a class="row-title" href="/songs/${s.id}">${s.title}</a>
         <span class="row-sub">${s.sub || "&nbsp;"}</span>
       </div>
       <span class="row-date">${fmtDate(s.date)}</span>

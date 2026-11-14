@@ -1,0 +1,428 @@
+// 素材（音频/视频/图片）放在 Cloudflare R2，不放在网站里，这样 Vercel 部署很小
+window.MEDIA_BASE = "https://media.orphiusmusic.com/orphius/songs";
+// 跨域素材要加 crossOrigin，否则音频分析和 WebGL 贴图会被浏览器拦下
+(function () {
+  const OImage = window.Image, OAudio = window.Audio, ce = document.createElement.bind(document);
+  window.Image = function (w, h) { const i = new OImage(w, h); i.crossOrigin = "anonymous"; return i; };
+  window.Image.prototype = OImage.prototype;
+  window.Audio = function (src) { const a = new OAudio(); a.crossOrigin = "anonymous"; if (src) a.src = src; return a; };
+  window.Audio.prototype = OAudio.prototype;
+  document.createElement = function (t, o) { const e = ce(t, o); if (/^(img|video|audio)$/i.test(t)) e.crossOrigin = "anonymous"; return e; };
+})();
+// ─────────────────────────────────────────────
+//  歌单数据：以后加歌只改这个文件
+//  每首歌的素材放在 /media/<id>/ 里：audio.m4a + cover.jpg (+ lyrics.json 歌词)
+//  每首歌的页面地址是 /s/<id>，二维码就指向它
+// ─────────────────────────────────────────────
+window.SONGS = [
+  {
+    id: "01",
+    title: "興味を少しずつ失っていく",
+    subtitle: "渐渐失去兴趣的日常生活",
+    date: "2025.08.08",
+    place: "",                      // 例如 "Brooklyn"，留空就不显示
+    scene: "rain",                  // 背景场景：歌开始时下雨，副歌雨更大，暂停变毛毛雨
+    note: []
+    // 歌词和逐字时间轴在 /media/01/lyrics.json
+  },
+  {
+    id: "02",
+    title: "The Wolf and the Lamb",
+    subtitle: "狼与羊",
+    date: "2025.08.08",
+    place: "",
+    scene: "meadow",                // 金色黄昏的草原：风吹草动、蒲公英绒毛
+    acts: [                         // 唱到 “Every night he'd cry where the moonlight fell” 时变成月夜
+      [49.3, 66.2, "night"],
+      [142.4, 164.5, "night"]
+    ],
+    theme: {                        // 这首歌的配色（不写就用第一首的深蓝夜色）
+      night: "#1a120a", nightRgb: "26,18,10", glow: "255,214,150", accent: "#e8b25c"
+    },
+    note: []
+  },
+  {
+    id: "03",
+    title: "暗くて青い空の下",
+    subtitle: "在昏暗而湛蓝的天空下",
+    date: "2025 · 秋",
+    place: "一个陌生的公园",
+    scene: "nightwalk",             // 夜里的公园：满月、路灯、湖面反光、飘落的叶子
+    sparks: [71.2, 149.9],          // 唱到 “この暗い夜に落ちた 微かな光” 时，一点光从天上落下来
+    sparkTarget: [0.517, 0.615],    // 落到封面里男孩掌心的位置（按封面宽高的比例）
+    sfx: [                          // 拟声词：[秒数, 文字]，唱到时在画面边上浮现
+      [7.3, "扑通"], [8.3, "扑通"], [14.3, "嗒"], [15.4, "嗒"], [16.5, "嗒"],
+      [18.7, "烦死了…"], [37.4, "咚"], [65.2, "呼——"], [68.0, "哗啦…"],
+      [96.8, "嗒 嗒"], [104.9, "扑通"], [105.9, "扑通"], [144.2, "呼——"], [146.7, "哗啦…"],
+      [189.3, "扑通"], [190.6, "扑通"], [191.5, "沙沙"], [192.6, "呼——"], [193.3, "哗啦啦"]
+    ],
+    theme: { night: "#0a1020", nightRgb: "10,16,32", glow: "255,228,170", accent: "#ffd98a" },
+    note: []
+  },
+  {
+    id: "04",
+    title: "この街で",
+    subtitle: "在这座城市 · Exist Here",
+    date: "2025.08.11",
+    place: "城市漫步",
+    scene: "city",                  // 金色雾里的纽约街头：楼缝里的光、天际线的窗、粉色泡泡糖
+    events: {                       // 跟着歌词出现的东西（秒数）
+      signal: [4.1, 94.0],          // “赤か白か 渡れ？待って？” / “信号の半拍のズレに” → 红色手掌 / 白色小人
+      pigeon: [7.9],                // “首に星の印の鳩が” → 鸽子飞过
+      subway: [24.5, 48.0, 98.5, 200.2],    // 唱到地铁 → 列车的光呼啸而过（最后一次渐渐远去）
+      gum: [62.8, 183.3]            // 唱到口香糖 → 冒出一串粉色泡泡
+    },
+    theme: { night: "#15120a", nightRgb: "21,18,10", glow: "190,255,120", accent: "#a6f04a" },
+    note: []
+  },
+  {
+    id: "05",
+    title: "餌（えさ）",
+    subtitle: "饵",
+    date: "2025.08.19",
+    place: "和朋友去钓鱼的海边",
+    scene: "collage",               // 封面变成实时剪辑的 MV：用当时拍的 footage，在鼓点上跳切、分屏、撞色
+    visual: {
+      clips: ["hand1", "hand2", "gold", "worm", "sea", "ai", "boy"],
+      kanji: ["ai", "eat", "exist", "give"],   // 你的书法字：愛 / 食べるか… / 存在こそ愛 / 愛は与えること
+      pools: {                      // 每段歌词用哪些画面
+        all: ["hand1", "hand2", "gold", "worm", "sea", "ai", "boy"],
+        wild: ["hand1", "hand2", "gold", "worm", "sea", "ai", "boy"],
+        hand: ["hand1", "hand2", "gold", "worm"],
+        corpse: ["worm", "hand2"],
+        sun: ["boy"], sea: ["sea"], bee: ["ai", "gold", "hand2"],
+        gold: ["gold"], outro: ["gold"]
+      },
+      cues: [                       // [秒数, 画面, 书法字(可选)]
+        [0, "sea"], [10, "hand"], [23.7, "hand", "ai"], [29.7, "hand", "eat"], [34.7, "corpse"],
+        [39.5, "sun"], [44.7, "sea"], [49.4, "bee"], [58.7, "bee", "ai"], [63.2, "all"],
+        [73.2, "all", "give"], [78.3, "all"], [86.7, "all", "exist"], [91.6, "all", "exist"], [96.7, "wild"],
+        [107.6, "hand", "eat"], [113.2, "corpse"], [117.8, "hand", "ai"], [122.8, "hand"], [136.5, "wild"],
+        [142.6, "sea"], [147.7, "sun"], [152.2, "bee"], [161.6, "bee", "ai"], [166.6, "all"],
+        [176.3, "all", "give"], [181.2, "all"], [189.5, "all", "exist"], [194.5, "wild", "exist"], [200.1, "all", "exist"],
+        [206.3, "sun"], [211.8, "sea"], [217.8, "gold", "exist"], [224, "outro"]
+      ]
+    },
+    theme: { night: "#0c110f", nightRgb: "12,17,15", glow: "180,255,220", accent: "#7ef0c0" },
+    note: []
+  },
+  {
+    id: "06",
+    title: "Falling Into Rain",
+    subtitle: "坠入雨中",
+    date: "2025.08.19",
+    place: "雨天，车里",
+    scene: "fallrain",              // 真实的雨 + 车窗雨珠 + 云里游过的大鲸鱼；用手指点背景会荡开涟漪
+    coverVideo: "clips/fall.mp4",   // 开始播放后，封面换成会动的版本
+    events: {
+      touch: [58.5, 117.4],         // “I softly touch the falling rain” → 雨滴自己荡开涟漪
+      wind: [68.5, 124.9],          // “let the wind press against my skin” → 一阵风掠过
+      symphony: [84.6, 147.1],      // “This is a symphony of nature” → 云缝里透下光
+      calm: [140.8],                // “Softly / Silently” → 雨变成慢动作
+      whale: [0.5, 112, 170],       // 大鲸鱼游过天空（开头、2:04 和 3:02 的鲸鸣前后）
+      call: [124.0, 182.3]          // 歌里混进鲸鸣的位置 → 从鲸鱼身上荡开声波
+    },
+    theme: { night: "#121a24", nightRgb: "18,26,36", glow: "220,236,255", accent: "#bcd6ee" },
+    note: []
+  },
+  {
+    id: "07",
+    title: "SINNER",
+    subtitle: "罪責の棘 · 罪责之棘",
+    date: "2025.08.26",
+    place: "",
+    scene: "cross",                 // 封面变成一段按歌词推进的默片；背景是灰烬、荆棘、心跳的红光，结尾迎来黎明
+    lyricStyle: "blood",            // 唱到的字被鲜血浸透，有的字会滴下血痕
+    story: {
+      shots: [                      // [秒数, 画面, 镜头运动]
+        [0, "face", "in"],          // 前奏：捂着脸的手
+        [20.3, "blood", "in"],      // My hands are stained with blood
+        [23.7, "thorns", "right"],  // I walk the shadowed path with heavy steps
+        [27.6, "eye", "in"],        // 内心にあるのはただ自分への嫌悪
+        [34.6, "reach", "up"],      // Love and justice have long been tainted
+        [42.6, "walk", "in"],       // I won't allow myself to seek redemption
+        [47.6, "closed", "out"],    // それは弱さの証だから
+        [52.6, "fist", "in"],       // Only one choice remains — To carry this burden and live on
+        [62.8, "thorns", "left"],   // No matter the sorrow, no matter the pain
+        [67.7, "walk", "in"],       // 痛みの中で歩き続ける
+        [73.0, "face", "in"],       // This is my hell, my cross to bear
+        [77.0, "closed", "in"],     // そして全部受け入れる
+        [86.0, "eye", "out"]        // 尾奏：睁开眼睛，带着决心继续走
+      ],
+      steps: [23.7],                // 沉重的脚步：每个鼓点画面一震、地上扬起尘
+      cross: [73.0],                // “my cross to bear” → 背后升起巨大的光十字和带十字的手
+      hell: [27.6, 73.0],           // “自分への嫌悪” / “This is my hell” → 地狱的裂缝烧亮
+      reach: [34.6, 42.6],          // “Love and justice…” / “seek redemption” → 黑暗里伸上来的手
+      dawn: 80                      // “そして全部受け入れる” 之后，黑暗散去、灰烬变成往上飘的光
+    },
+    theme: { night: "#0b0909", nightRgb: "11,9,9", glow: "220,30,40", accent: "#c8343a" },
+    note: []
+  },
+  {
+    id: "08",
+    title: "わたしの Illusion",
+    subtitle: "我的幻象 · 幻影",
+    date: "2025.09.27",
+    place: "曼哈顿的街道",
+    scene: "illusion",              // 画面分成两个世界：左边是我的幻象（倒挂的城市），右边是你的现实；中间的缝在两人指尖之间
+    sparkTarget: [0.5, 0.44],       // 封面里两人指尖之间的位置
+    events: {
+      cross: [23.5],                // “幻想と現実の交差点” → 中间的缝亮起来
+      dark: [33.2],                 // “The darkness beneath the ground” → 底部涌上来一片暗
+      fate: [44.0, 89.3],           // “運命のライン crossing then fading” / “storylines tangle” → 两根命运的线交错穿过又分开
+      voices: [49.3],               // “すれ違う声” → 两边的声波彼此穿过
+      search: [54.0, 133.8],        // “I search for the light” → 幻象那边一道光扫过
+      touch: [65.6, 105.0, 145.2],  // “指先で触れて” / “触れて” / “触れ合う一瞬” → 两人指尖之间亮起一点光，然后消散
+      end: [150.3]                  // “私の illusion 君の reality” → 城市淡去，中间的缝化成一片柔光
+    },
+    theme: { night: "#0d0f1c", nightRgb: "13,15,28", glow: "214,200,255", accent: "#cbb8ff" },
+    note: []
+  },
+  {
+    id: "09",
+    title: "もしあなたが死に方を選べるとしたら、どう選びますか？",
+    subtitle: "如果让你选择一种死法，你会怎么选择呢？",
+    date: "2025.10.11",
+    place: "",
+    scene: "abyss",                 // 从夕阳下的海面，一路沉进漆黑的深海，最后在深渊里看见银河
+    phases: {                       // 每个阶段从第几秒开始
+      enter: 61.2,                  // “一歩また一歩 海に入ってゆく” → 水面开始从底部涨上来
+      under: 86.0,                  // “やがて無重力になる” 之后 → 整个画面没入水中
+      blur: 95.9,                   // “世界は…どんどんぼやけてゆく” → 封面慢慢变模糊
+      muffle: 103.2,                // “波の音と呼吸の音だけが残る” → 音乐像沉进水里一样变闷
+      head: 109.2,                  // “海はついに私の頭を覆った” → 不再有气泡，越来越暗
+      abyss: 113.5,                 // 深渊：一片漆黑，零星的发光生物
+      clear: 122.4,                 // “それでも意識は澄んでいく” → 音乐和画面重新变清澈
+      bloom: 148.3,                 // “ああ 海はなんて美しいんだろう” → 发光生物大片绽放
+      melt: 157.7,                  // “この鮮やかな海に溶けてゆく” → 光点开始化成星星
+      light: 177.1,                 // “光は私から離れていった” → 短暂暗下去
+      dream: 196.0                  // “まるで夢を見ているみたい” → 完整的银河，一直到尾奏
+    },
+    theme: { night: "#070b14", nightRgb: "7,11,20", glow: "255,214,170", accent: "#9fd8ff" },
+    note: []
+  },
+  {
+    id: "10",
+    title: "闇の中から形を凝縮し、人混みに溶け込む",
+    subtitle: "黑夜的怪兽",
+    date: "2025.10.17",
+    place: "",
+    scene: "beast",                 // 红黑炭笔质感；鼓点驱动的震动、爪痕、封面故障；人群里的红眼、乌鸦、猎枪瞄准镜、速度线
+    lyricStyle: "beast",            // 每个字被“砸”出来：抖一下，变成红色
+    events: {
+      claw: [9.3, 13.2, 19.7, 38.1, 58.96, 66.7, 77.4, 120.9, 131.6],   // “roar / scream / destruction / devour / break through” 和副歌 → 爪痕撕开屏幕
+      eyes: [33.2],                 // “赤い光を宿す瞳” → 人群里的红眼全部亮起
+      crows: [[44.2, 53.4], [109.0, 120.0]],    // “アンテナの上のカラス” / “野原で晒された死体” → 电线上的乌鸦
+      scope: [53.9],                // “装填された銃がその先で待ち構える” → 瞄准镜搜寻、锁定封面、枪响
+      run: [[13.2, 16.0], [58.96, 65], [66.7, 87.7], [120.9, 142.5]],   // 奔跑 / 副歌 → 速度线
+      calm: [[87.7, 120.5]],        // “本当は強くない…” → 安静下来、变暗
+      blast: [120.9]                // 副歌重新炸回来 → 巨大冲击波
+    },
+    theme: { night: "#0d0605", nightRgb: "13,6,5", glow: "255,60,40", accent: "#e0342a" },
+    note: []
+  },
+  {
+    id: "11",
+    title: "身体は老いていく、ゆっくりと感覚を失っていく。",
+    subtitle: "蜘蛛的信条",
+    date: "2025.10.18",
+    place: "",
+    scene: "spider",                // 黑暗的墙角；生命之火熄灭又重燃；蛛网一根丝一根丝织出来；整个画面像外壳一样裂开剥落；蜘蛛垂下来
+    events: {
+      reignite: 21.3,               // “The heart begins to beat again” → 熄灭的余烬重新燃起，心跳的红光亮起来
+      shed: [33.9, 44.8, 83.5],     // “I tear off…” / “shedding again and again” → 画面像外壳一样裂开、剥落
+      lurk: 52.2,                   // “一番深い闇の中で 静かに潜む” → 光暗下去，蜘蛛的眼睛在暗处亮起
+      weave: [63.1, 99.2],          // “美しくも致命的な糸を紡ぐ” → 蛛网一根丝一根丝织出来（两张）
+      spider: [68.3],               // “I am the spider” → 蜘蛛顺着丝垂下来
+      mantra: [114.1],              // “私は蜘蛛だと静かに繰り返す” → 蜘蛛的八只眼睛全部亮起
+      end: 132.4                    // “It melts into the darkness” → 一切融入黑暗，只剩蛛网上的露珠
+    },
+    theme: { night: "#0a0a0b", nightRgb: "10,10,11", glow: "235,235,245", accent: "#c9c9d6" },
+    note: []
+  },
+  {
+    id: "12",
+    title: "You Can Do It!!!",
+    subtitle: "ユウキャンドゥイット",
+    date: "2025.11.12",
+    place: "",
+    scene: "sky",                   // 一路飞过黄昏的天空
+    events: {
+      bang: [0, .52, .86, 1.32, 1.56, 32.06, 32.62, 116.68, 117.2, 118.0, 118.4, 120.3],   // 砰！砰！咚！→ 电光、闪光、冲击波
+      breach: 4.6,                  // “飛び出せよ” → 起飞：一阵强风，加速
+      boom: [13.38, 13.62, 13.82, 77.1],   // Boom Boom Boom / この鼓動 → 心跳冲击波
+      flash: [15.42, 72.24, 72.68], // Flash / パッパッと光が走る
+      brk: [17.5, 18.28],           // break it! break it!
+      go: [21.64, 22.04, 22.36],    // Go! Go! Go! → 一下下加速
+      clear: 22.7,                  // 冲破头顶那层厚厚的阴云，第一次看到夕阳
+      clap: [33.84, 34.18, 68.64],
+      dash: [35.44, 35.74],         // Run run!
+      shout: [38.08, 38.46, 38.9],  // Shout! ×3
+      chorus: [[39.2, 63], [87.4, 104.7]],
+      wall: [45.64, 93.64],         // 心の檻を壊して → 撞穿挡在面前的一堵云墙
+      fly: [55.9, 103.96],          // 今 飛べ！ → 冲破一整层云
+      jump: [66.84, 67.02, 67.24],
+      repaint: 70.38,               // 明日を塗り替えろ
+      burst: [74.6, 120.3],         // 爆ぜる / 叫べよ未来へ
+      spin: [78.46, 80.38],         // 世界が回る → 整片天空旋转；バラバラ → 碎成金色的光
+      outro: 123.2, end: 139
+    },
+    theme: { night: "#101a2a", nightRgb: "16,26,42", glow: "255,238,214", accent: "#f2b46a" },
+    note: []
+  },
+  {
+    id: "13",
+    title: "近づく",
+    rev: 6,
+    subtitle: "想靠近，又不敢靠近",
+    date: "2025.11.21",
+    place: "",
+    scene: "approach",              // 黑白 VHS：呼吸里靠近又退开 → 螺旋 → 失控 → 全部崩坏 → 坠落、消失
+    coverFill: "47% 50%",
+    theme: { night: "#0a0a0a", nightRgb: "10,10,10", glow: "235,235,235", accent: "#d8d8d8" },
+    note: []
+  },
+  {
+    id: "14",
+    title: "Number Twelve",
+    subtitle: "第十二号",
+    rev: 6,
+    date: "2025.12.21",
+    place: "",
+    scene: "twelve",                // 前景：没有名字的人造人（12 号）；背景：一个孩子独自在废墟里游荡、寻找
+    montage: "montage.mp4",         // 废墟、雾、空城的实拍片段，按歌词剪好，和歌一样长
+    coverFill: "30% 50%",
+    theme: { night: "#0c0b0a", nightRgb: "12,11,10", glow: "238,230,218", accent: "#d6c3a3" },
+    note: []
+  },
+  {
+    id: "15",
+    rev: 6,
+    title: "Meaningless",
+    subtitle: "无意义",
+    date: "2025.12.31",
+    place: "",
+    scene: "montage",               // 意识流：摄影片段跟着歌词切换，女孩一直在画面中间
+    montage: "montage.mp4",         // 已经按歌词剪好的黑白片段（和歌一样长，播放时跟音乐同步）              // 抠出来的女孩，叠在片段上面
+    events: {
+      cuts: [5.1, 10.0, 15.2, 19.9, 22.4, 26.8, 29.3, 35.3, 37.9, 43.8, 50.2, 52.0, 55.4, 56.1, 56.8, 57.6, 59.2, 60.3, 61.8, 62.8, 65.8, 66.6, 67.3, 68.1, 69.4, 70.7, 72.5, 75.6, 78.4, 81.3, 85.8, 87.8, 88.3, 88.8, 89.3, 89.8, 90.3, 90.8, 91.5, 96.8, 100.0, 100.7, 101.4, 102.1, 103.7, 104.7, 106.2, 107.2, 110.2, 110.9, 111.6, 112.4, 113.7, 115.0, 116.4, 119.0],
+      glitch: [[55.4, 61.85], [65.85, 72.5], [99.78, 106.2], [110.0, 116.3]],   // 背叛、嫉妒、失望 → 画面错位撕裂
+      breaking: [87.85, 91.5],      // Meaningless / Heartbreaking → 整个画面像信号坏掉一样破碎
+      collapse: 119.0               // 我的世界一直在崩塌 → 女孩碎成一条条坠落
+    },
+    theme: { night: "#0b0b0c", nightRgb: "11,11,12", glow: "235,235,235", accent: "#b9b9b9" },
+    note: []
+  },
+  {
+    id: "16",
+    title: "堕ちろ",
+    subtitle: "堕落 · Fallen",
+    rev: 6,
+    date: "2025.12.30",
+    place: "",
+    scene: "fallen",                // 黑暗里挣扎的人：黑暗往里爬、鼓点把它震回去；命令词化成巨大的汉字；堕ちろ 下坠，壊れろ 碎裂，祈れ 落下一道光
+    coverFill: "78% 50%",
+    theme: { night: "#060606", nightRgb: "6,6,6", glow: "236,236,236", accent: "#cfcfcf" },
+    note: []
+  },
+  {
+    id: "17",
+    title: "废墟中的少女",
+    subtitle: "",
+    rev: 7,
+    date: "2026.01.04",
+    place: "",
+    scene: "ruins",                 // 没有歌词：被摧毁的城市、巨大的骸骨、路灯下长椅上的少女；流星雨涨起又退去，最后归于宁静
+    coverFill: "22% 50%",
+    theme: { night: "#0a0a0d", nightRgb: "10,10,13", glow: "240,224,200", accent: "#d9b98a" },
+    note: []
+  },
+  {
+    id: "18",
+    title: "Kodo",
+    subtitle: "孤独",
+    rev: 9,
+    date: "2026.01.23",
+    place: "",
+    scene: "kodo",                  // 孤独的吸血鬼：永夜、苍白的月亮、心跳；血滴落进黑暗慢慢晕开又褪去；视野被染红、血月；伸向光
+    theme: { night: "#0b0506", nightRgb: "11,5,6", glow: "240,210,210", accent: "#c8333a" },
+    note: []
+  },
+  {
+    id: "19",
+    title: "おつかれさま",
+    subtitle: "全力以赴的笨蛋",
+    rev: 11,
+    date: "2026.03.01",
+    place: "",
+    scene: "otsukare",              // 夜雨、湿透的草地上躺着的他；水珠打在屏幕上往下滑；唱到「おつかれさま」雨停，暖光落下，萤火升起
+    coverFill: "60% 50%",
+    theme: { night: "#070a10", nightRgb: "7,10,16", glow: "236,226,206", accent: "#e6c48f" },
+    note: []
+  },
+  {
+    id: "20",
+    title: "もう疲れた",
+    subtitle: "已经累了",
+    rev: 12,
+    date: "2026.03.06",
+    place: "",
+    scene: "tired",                 // 乱涂的颜料和咧嘴的脸；画面像被抽干力气一样往下淌；黑色乱线越涂越满；最后一起沉进黑暗
+    coverFill: "40% 50%",
+    theme: { night: "#0a0807", nightRgb: "10,8,7", glow: "236,226,214", accent: "#c94a3c" },
+    note: []
+  },
+  {
+    id: "21",
+    title: "Shining Road",
+    subtitle: "光明之路",
+    rev: 15,
+    date: "2026.06.27",
+    place: "",
+    scene: "skyflight",              // 3D 云层：暴雨乌云里摸索 → 冲出云海 → 穿过彩虹 → 飞进宇宙
+    tl: { pre: 37.8, go: 47.1, sky: [68.5, 148.5], high: 118.1, rb: 150.2, space: 173.4, end: 207 },
+    coverFill: "42% 50%",
+    theme: { night: "#0d0f1c", nightRgb: "13,15,28", glow: "255,236,200", accent: "#f2c27a" },
+    note: []
+  },
+  {
+    id: "22",
+    title: "Smiling Before Goodbye",
+    subtitle: "告别前的微笑",
+    rev: 14,
+    date: "2026.08.26",
+    place: "",
+    scene: "goodbye",               // 黄昏花田、铁路道口：红灯交替闪、花瓣随风飘；花和颜色褪去又回来；最后天暗下来，亮起一颗星
+    coverFill: "72% 50%",
+    theme: { night: "#0d0b0c", nightRgb: "13,11,12", glow: "255,226,190", accent: "#e9a46a" },
+    note: []
+  },
+  {
+    id: "23",
+    title: "この季節の終わり",
+    subtitle: "这个季节的尽头",
+    rev: 18,
+    date: "2026.10.18",
+    place: "",
+    scene: "summerend",              // 海边山坡上的一棵树和一丛白百合，四季跟着歌词变；封面里他身后是这片风景和他的叠影
+    tl: { heat: [[10.5, 36]], seasons: [[52.9, 55.4, 57.8, 60.0, 68.6], [152.3, 154.0, 155.4, 159.3, 167.4]],
+          melt: [[92.1, 99.4], [191, 198]], cold: [[102.2, 107.3], [201.8, 206]], quiet: [[107.3, 118], [206.5, 216]],
+          forget: [[120, 127.7], [215.3, 222.5]], tears: [[127.7, 136.5], [222.5, 232]], end: 243,
+          sk: [[84, 0, 10], [103, 2, 2], [121, 1, 4], [146, 0, 8], [188, 0, 8], [202.6, 2, 2], [219, 1, 4], [237, 3, 5]] },
+    coverFill: "50% 22%",
+    theme: { night: "#0c0d0f", nightRgb: "12,13,15", glow: "246,240,226", accent: "#d9cfb8" },
+    note: []
+  },
+  {
+    id: "24",
+    title: "Send My Love Across the Night",
+    rev: 16,
+    subtitle: "把我的爱，送过这片黑夜",
+    date: "",
+    place: "",
+    scene: "cosmos",
+    coverFill: "64% 50%",           // 横版封面铺满方框，焦点放在那颗心上                // 3D 宇宙航行：星海 → 虫洞 → 隧道 → 黑洞 → 超光速 → 行星上空的晨光
+    theme: { night: "#05060c", nightRgb: "5,6,12", glow: "232,236,255", accent: "#b9c6ff" },
+    note: []
+  }
+];
