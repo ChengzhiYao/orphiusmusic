@@ -1,5 +1,4 @@
 {
-  "cleanUrls": true,
-  "rewrites": [{ "source": "/songs/:id", "destination": "/index.html" }],
+  "rewrites": [{ "source": "/songs/:id", "destination": "/" }],
   "headers": [{ "source": "/(.*)\\.(js|css)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }] }]
 }
