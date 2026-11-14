@@ -281,7 +281,7 @@ window.SONGS = [
   "title": "黒い輪あそび",
   "sub": "黑色的圆圈游戏",
   "date": "2026.11.14",
-  "rev": 1,
+  "rev": 2,
   "accent": "#c9a87a",
   "dur": 264,
   "lyrics": true
