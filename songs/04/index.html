@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/04/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "この街で", "alternateName": "在这座城市 · Exist Here", "url": "https://www.orphiusmusic.com/songs/04", "image": "https://media.orphiusmusic.com/orphius/songs/04/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT4M51S", "datePublished": "2025-08-11", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "この街で", "lyrics": {"@type": "CreativeWork", "text": "迷路をすり抜ける ガムはもう溶けそう\n赤か白か 渡れ？待って？ 見分けられない\n首に星の印の鳩が 肩先をかすめてゆくね\nあなたは使者？ それとも何かの合図？\n左右にスリップ 人波は潮のように押す\n角を斜めに切って 風がイヤホンコードをさらう\nまた馴染みの匂い 地下鉄の湿った息\n歩幅を限界までねじ上げ\nこの街に心をねじ込む\n歩幅を上げて 最速で駆ける\n私は立派なニューヨーカーになる\n柱にもたれて 疲れた目で 汚れていても\n時間通りの地下鉄を待つ\n勝手に曲を飛ばさないで\nこの区間のビートは 自分で合わせたい\n緑のリサイクルビンを覗き込み\nごめんね ただガムを吐きたいだけ\nネオンが靴裏で砕け キオスクは朝を折り畳む\n紙コップはまだ熱い 角で夢を拾い直す\nスマホが震えて 世界はまたログインを急かす\n信号の半拍のズレに 呼吸を合わせてみる\n指先は地下鉄の柱の 古傷をなぞり\n昨日の広告で埋まった 反響の壁\n歩幅で街のドラムを刻み\n鼓動にサインをさせる\n今この瞬間 私はただここにある\n人波が私を持ち上げ\nもう一度沈める\n風よ 胸を抜けて 夜をもっと広くして\n答えは急がないで 問いのまま生かしておいて\nこのまま感じさせて 全てを 全てを\n明かりと影は和解し\n脈とレールは並走する\nきっと私は最初から 一人で歌ってなんかいない\nこの歌は 無数の喉で\n同じ鼓動に拾われている\n私はここに あなたもここに\n街は呼吸し 私たちも呼吸する\nガムの甘さを 目覚めの勇気に変えて\n今この瞬間 今この瞬間\nあなたの瞳に 私はある\n地下鉄は遠のき 風だけが残る\n歩幅を少し緩めて\n夜が天を引き延ばす\n心は世界を もう少し広くする"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="04">
 <div class="backdrop"></div>
@@ -126,6 +127,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/23/cover.jpg?r=18">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "この季節の終わり", "alternateName": "这个季节的尽头", "url": "https://www.orphiusmusic.com/songs/23", "image": "https://media.orphiusmusic.com/orphius/songs/23/cover.jpg?r=18", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT4M3S", "datePublished": "2026-10-18", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "この季節の終わり", "lyrics": {"@type": "CreativeWork", "text": "ざんこくなひざしが\nすべてのいのちを　うばいさるように\nふりそそいでいる\nうみをわたり\nたいようのしたをあるく\nこのなつもいつか　おわりをむかえ\nぼくもいっしょに　ここからきえてゆく\nなつも　ふゆも　あきもすぎて\nうつくしいはるが　いつかやってくる\nそのとききみは　おぼえているかな\nもうすぐきえてゆく　このなつのことを\nあせとなみだが　ひとつにまざり\nひかりとうみが　ひとつにとける\nまぶしいのに　こおりのようにつめたくて\nきれいなせかいは　しずけさのなかでおわる\nなにをなくしたのかさえ　すこしずつわすれてゆく\nそれでもなみだだけは　とめられずにおちてゆく\nこのなつもいつか　おわりをむかえ\nぼくもいっしょに　ここからきえてゆく\nなつも　ふゆも　あきもすぎて\nうつくしいはるが　いつかやってくる\nそのとききみは　おぼえているかな\nもうすぐきえてゆく　このなつのことを\nあせとなみだが　ひとつにまざり\nひかりとうみが　ひとつにとける\nまぶしいのに　こおりのようにつめたくて\nきれいなせかいは　しずけさのなかでおわる\nなにをなくしたのかさえ　すこしずつわすれてゆく\nそれでもなみだだけは　とめられずにおちてゆく"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="23">
 <div class="backdrop"></div>
@@ -110,6 +111,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

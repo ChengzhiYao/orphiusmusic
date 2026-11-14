@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/16/cover.jpg?r=6">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "堕ちろ", "alternateName": "堕落 · Fallen", "url": "https://www.orphiusmusic.com/songs/16", "image": "https://media.orphiusmusic.com/orphius/songs/16/cover.jpg?r=6", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT1M44S", "datePublished": "2025-12-30", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "堕ちろ", "lyrics": {"@type": "CreativeWork", "text": "息を吸え\n目を開け\n始まるぞ\n堕ちろ　底まで\n壊れろ　形なく\n祈れ　神でも\nどうせ　黙るだけ\n信じるな　言葉\n縋るな　希望\nこの街は全部\n嘘でできてる構造\n耐えろ　今日も\n演じろ　笑顔\n正しさなんて\n誰かの都合\n堕ちろ　壊れろ　祈れ\n聞こえなくても\n堕ちろ　壊れろ　祈れ\n救いは来ねえ\n忘れろ　過去を\n捨てろ　名前を\n誇り？理想？\n全部　重たいだけ\n黙れ　心\n塞げ　感情\n弱さを見せたら\nここじゃ即終了\n沈め　記憶\n裂けろ　幻想\n現実はいつも\n期待を裏切る仕様\n疑え　拒め\n従うな　考えろ\n跪くな　媚びるな\n自分で　選べよ\n堕ちろ　壊れろ　祈れ\nそれでも\n堕ちろ　壊れろ　祈れ\n終わるまで"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="16">
 <div class="backdrop"></div>
@@ -120,6 +121,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

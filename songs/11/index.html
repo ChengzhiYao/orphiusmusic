@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/11/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "身体は老いていく、ゆっくりと感覚を失っていく。", "alternateName": "蜘蛛的信条", "url": "https://www.orphiusmusic.com/songs/11", "image": "https://media.orphiusmusic.com/orphius/songs/11/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M19S", "datePublished": "2025-10-18", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "身体は老いていく、ゆっくりと感覚を失っていく。", "lyrics": {"@type": "CreativeWork", "text": "体は老いていく ゆっくりと感覚を失っていく\nEverything returns quietly to silence\nThe body stops resisting, the flame of life fades away\n死んだ殻は闇の片隅で静かに待っている\nThe heart begins to beat again, the flame of life reignites\nRebelling against the prison called \"body\"\n絶えず捨てることでしか 本当の自分に近づけない\nWith a still mind, I throw everything away\nI tear off the version of myself that has already died\n蜘蛛の信条 生きるためには全てを捨てなければならない\nFeelings are unnecessary, only by shedding again and again\ncan I accept myself\n一番深い闇の中で 静かに潜む\nI gaze upon the discarded shell\nI look at the self that has already died\nAnd within my heart, there is calm\n闇の奥深くで 美しくも致命的な糸を紡ぐ\nI am the spider, the law of survival\nTo take, and to let go\n蜘蛛の信条 生きるためには全てを捨てなければならない\nFeelings are unnecessary, only by shedding again and again\ncan I accept myself\n闇の奥深くで 美しくも致命的な糸を紡ぐ\nI am the spider, the law of survival\nTo take, and to let go\n「私は蜘蛛だ」と静かに繰り返す\nIt melts into the darkness\n「私は蜘蛛だ」と静かに繰り返す\nIt melts into the darkness, leaving only silence behind"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="11">
 <div class="backdrop"></div>
@@ -110,6 +111,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

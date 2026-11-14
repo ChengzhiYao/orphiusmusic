@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/03/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "暗くて青い空の下", "alternateName": "在昏暗而湛蓝的天空下", "url": "https://www.orphiusmusic.com/songs/03", "image": "https://media.orphiusmusic.com/orphius/songs/03/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT3M43S", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "暗くて青い空の下", "lyrics": {"@type": "CreativeWork", "text": "暗くて青い空の下を歩く\n息はゆっくり でも心臓は\nトクン トクン\n木の葉が肩をかすめ\n靴音だけが 夜に点を打つ\nああ うるさいやつ\n握りしめた 握りしめた ミルクティーの空ボトル\n3ポイント ひょいと放れば ポトン 外れる\n高い街灯が 暗い歩道にぶら下がって\nじっと 目みたいな明かりが降る\n地球のどこにいても 人がいて\nおい そこのやつ いつもヘラヘラすんなよ\n静かに\n小さく\n慎重に\n不安も喜びも連れて\nそれでも前へ\n風が鳴り立った\n海の匂いが鼻先をかすめる\nこの暗い夜に落ちた 微かな光\n手のひらに止まって 世界を照らす 小さくても\n低い木々は まるで幻の王国の入り口\n枝が揺れて 道を開ける\n見えない誰かの足音が\nリズムだけを残して消える\n胸の奥で また トクントクン\n言葉にならない 感情が波立って\n遠い波が 心に触れるみたいに\n「大丈夫」と「痛い」の間を往復する\n静かに\n小さく\n慎重に\n不安も喜びも連れて\nそれでも前へ\n風が鳴り立った\n海の匂いが鼻先をかすめる\nこの暗い夜に落ちた 微かな光\n手のひらに止まって 世界を照らす 小さくても\n笑いたいなら 笑えばいいさ\nでも俺は行く 足音を数えながら\n葉擦れと 蝉の声と 波の拍手で\nできたメロディーを連れて\n暗くて青い空の下 息はゆっくり\n鼓動を数えながら トクン トクン\nさらさら ひゅう ざざざ\n小さな命でも\n世界を照らせると知った夜"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="03">
 <div class="backdrop"></div>
@@ -128,6 +129,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

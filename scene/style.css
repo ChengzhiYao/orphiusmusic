@@ -242,3 +242,13 @@ main {
 html[data-sub="en"] .full-lyrics .t[data-l="en"],
 html[data-sub="zh"] .full-lyrics .t[data-l="zh"],
 html[data-sub="ja"] .full-lyrics .t[data-l="ja"] { display: block; }
+
+/* ── 首页背景模式（?bg=1）：只留场景和封面里的动态，其余全部隐藏 ── */
+html.bg-mode, html.bg-mode body { overflow: hidden; }
+html.bg-mode .gate, html.bg-mode .topbar, html.bg-mode .meta, html.bg-mode .sub-switch,
+html.bg-mode .player, html.bg-mode .links, html.bg-mode .full-lyrics, html.bg-mode .foot,
+html.bg-mode #lyricsBox, html.bg-mode .cover-shade { display: none !important; }
+html.bg-mode main { width: 100%; padding-top: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+html.bg-mode .cover-wrap { position: fixed; left: 50%; top: 50%; width: min(60vmin, 520px); margin: 0; transform: translate(-50%, -50%); visibility: hidden; }
+html.bg-mode.show-cover .cover-wrap { left: var(--cx); top: var(--cy); width: var(--cw); transform: none; visibility: visible; }
+html.bg-mode .rise { animation: none !important; opacity: 1 !important; transform: none !important; }

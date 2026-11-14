@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/13/cover.jpg?r=6">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "近づく", "alternateName": "想靠近，又不敢靠近", "url": "https://www.orphiusmusic.com/songs/13", "image": "https://media.orphiusmusic.com/orphius/songs/13/cover.jpg?r=6", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M35S", "datePublished": "2025-11-21", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "近づく", "lyrics": {"@type": "CreativeWork", "text": "近づきたい……\nでも——近づけない……haa…\n続く呼吸が　鼻の奥を刺す\n脳が興奮して　震えて　ああ——\nこの…この刺激は　何なの？\n回転…する…螺旋階段が落ちていく\n六道の子が耳元で…ざわ…ざわ…\n発がん剤の匂い\n空のミネラルボトルが転がり\n不眠症の患者が呼吸を数えて\n指先のダンス—— tap tap tap\nあ…あぁ…これ……何なんだよ？\nググ…ググ… フクロウが頭上をかすめて\nニャァ…ニャァ… 子猫が脚の上でぬくもりを残し\nワンワン…ワンワン…\n小さな犬が外へ出たいって吠えて\nプク…プク… 金魚が泡を吐いて…消えて\nもう…うるさい\nもういい　もういいよ\nもう知らない\n全部……全部……壊れよう\n近づきたい　近づけない\n耳の奥で呼吸だけがまとわりついて　ああ\n胸を叩く鼓動が\n助けを求めてるみたいで\nそして落ちていく"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="13">
 <div class="backdrop"></div>
@@ -107,6 +108,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

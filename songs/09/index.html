@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/09/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "もしあなたが死に方を選べるとしたら、どう選びますか？", "alternateName": "如果让你选择一种死法，你会怎么选择呢？", "url": "https://www.orphiusmusic.com/songs/09", "image": "https://media.orphiusmusic.com/orphius/songs/09/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT4M0S", "datePublished": "2025-10-11", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "もしあなたが死に方を選べるとしたら、どう選びますか？", "lyrics": {"@type": "CreativeWork", "text": "もしあなたが死に方を選べるとしたら どう選びますか\n私は海に飛び込みたい\n少なくとも死ぬ前に抱きしめられて死にたいから\n海は慈しみの海\nその体に入った全てのものを 無情に包み込む\nたぶんその瞬間こそが 本当の幸福なのかもしれない\n一歩また一歩 海に入ってゆく\n足元を叩く水が だんだん重くなる\n体の重力が 制御できなくなって\nやがて無重力になる\n冷たい海水が 体温を奪ってゆく\n世界はまだあるのに どんどんぼやけてゆく\n波の音と呼吸の音だけが残る\nやがてそれも消えて\n海はついに私の頭を覆った\n体の動きは失われ\n耳の奥で呼吸の音が針のように刺さる\nそれでも意識は澄んでいく\n考えたくないのに 考えてしまう\n私は どうして死にたかったんだろう\n幸せなのかな\nいや 少なくとも今 この瞬間は幸せだよね\nああ 海はなんて美しいんだろう\n私はこの鮮やかな 海に溶けてゆく\n残されたのは 体が周囲を感じ取るだけ\n皮膚さえも少しずつ暗くなり\n光は 私から離れていった\n私はもう 何も考えなくなった\nただ 今の私はとても穏やか\nまるで夢を見ているみたい\n優しい 優しい夢を"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="09">
 <div class="backdrop"></div>
@@ -112,6 +113,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

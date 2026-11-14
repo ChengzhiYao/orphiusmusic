@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/12/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "You Can Do It!!!", "alternateName": "ユウキャンドゥイット", "url": "https://www.orphiusmusic.com/songs/12", "image": "https://media.orphiusmusic.com/orphius/songs/12/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M30S", "datePublished": "2025-11-12", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "You Can Do It!!!", "lyrics": {"@type": "CreativeWork", "text": "バン！バン！ドン！ドドドン！\n心がカンカン鳴る！\nHey! Hey!　飛び出せよ　baby!\nYou can do it!　You can do it!!\nドキドキしてる胸が Boom Boom Boom\n頭ん中ピカピカ　Flashback room\nつまらないルール　break it! break it!\n世界を蹴って Go! Go! Go!\nシュワシュワと泡立つ夢が\nモヤモヤを飲み込んでく\n「できない」って誰が言ったの？\n笑い飛ばせ Yeah!\nBang bang!　迷い撃ち抜け\nClap clap!　この手鳴らせ\nRun run!　足跡残せ\n響けよ Shout! Shout! Shout!\nYou can do it!　ユウキャンドゥイット！\n自由になれるなら　You can be free!\n心の檻を壊して (yeah!)\nYou can do it!　信じてみて\nYou can be free if you want to be\n今　飛べ！　(woo-oh-oh!)\nザワザワ鳴る街を Jump Jump Jump\nカラカラ乾いた空に Clap!\nドタバタでも笑っとけ　(ha-ha-ha!)\n明日を塗り替えろ！\nパッパッと　光が走る\nワクワクが爆ぜる胸\n止まれないよこの鼓動\nピカピカ　ギラギラ　世界が回る\nバラバラ　でもいい　きっと変われる\n(You can do it!  You can do it!)\n(You can be free if you want to be!)\nYou can do it!　ユウキャンドゥイット！\n自由になれるなら　You can be free!\n心の檻を壊して (yeah!)\nYou can do it!　信じてみて\nYou can be free if you want to be\n今　飛べ！　(woo-oh-oh!)\nドン！ドン！ドドドン！\n走れ心の音！\nバン！バン！叫べよ未来へ\nYou can do it!　(You can be free!)\nYou can do it!　(You can be free!)\nYou can do it!　(You can be free!)"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="12">
 <div class="backdrop"></div>
@@ -126,6 +127,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

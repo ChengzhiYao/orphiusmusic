@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/02/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "The Wolf and the Lamb", "alternateName": "狼与羊", "url": "https://www.orphiusmusic.com/songs/02", "image": "https://media.orphiusmusic.com/orphius/songs/02/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M53S", "datePublished": "2025-08-08", "inLanguage": "en", "recordingOf": {"@type": "MusicComposition", "name": "The Wolf and the Lamb", "lyrics": {"@type": "CreativeWork", "text": "Long, long ago on the grassy plains\nLived a lonely wolf who broke the chains\nWhile the pack would hunt, he would bow his head\nEating the grass like the lambs instead\nBut the others laughed, said he's not the same\nNo one would run with him, no one called his name\nThen came a lamb, so gentle, so kind\nSat down beside him, no questions in mind\nThrough all the tears, through the silent skies\nThey found a friend in each other's eyes\nEvery night he'd cry where the moonlight fell\nA secret he carried but could never tell\nThe lamb didn't speak, but she stayed all day\nListening softly as his heart gave way\nThen came a lamb, so gentle, so kind\nSat down beside him, no questions in mind\nThrough all the tears, through the silent skies\nThey found a friend in each other's eyes\nLong, long ago on the grassy plains\nA grass-eating wolf, a grass-eating wolf and a lamb remained\nThen came a lamb, so gentle, so kind\nSat down beside him, no questions in mind\nThrough all the tears, through the silent skies\nThey found a friend in each other's eyes\nThen came a lamb, so gentle, so kind\nSat down beside him, no questions in mind\nThrough all the tears, through the silent skies\nThey found a friend in each other's eyes\nEvery night he'd cry where the moonlight fell\nA secret he carried but could never tell\nThe lamb didn't speak, but she stayed all day\nListening softly as his heart gave way"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="02">
 <div class="backdrop"></div>
@@ -113,6 +114,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

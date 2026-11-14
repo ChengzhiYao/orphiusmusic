@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/08/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "わたしの Illusion", "alternateName": "我的幻象 · 幻影", "url": "https://www.orphiusmusic.com/songs/08", "image": "https://media.orphiusmusic.com/orphius/songs/08/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT3M2S", "datePublished": "2025-09-27", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "わたしの Illusion", "lyrics": {"@type": "CreativeWork", "text": "私の illusion 君の reality\n交わらない夢と truth\n幻想と現実の交差点\nOpen your eyes, so you can see\nThe darkness beneath the ground\n童話なんて嫌いだよ\n'Cause we already live inside the story\n運命のライン crossing then fading\nすれ違う声 never connecting\nI search for the light in this endless night\n混沌の国で you can't reach me\n指先で触れて feel my existence\nEven if we'll never share the same world\n闇の底で囁く声\nThe storylines tangle, then drift apart again\n離れても still I'm calling your name\n遥かな distance, unreachable fate\n触れて with your fingertips\n感じて my shadowed soul\nWe're worlds apart, but still I believe\n永遠に交わらない destiny\nI search for the light in this endless night\n光と闇の狭間で\n触れ合う一瞬 fading into silence\n私の illusion 君の reality"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="08">
 <div class="backdrop"></div>
@@ -106,6 +107,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

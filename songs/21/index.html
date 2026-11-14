@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/21/cover.jpg?r=15">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "Shining Road", "alternateName": "光明之路", "url": "https://www.orphiusmusic.com/songs/21", "image": "https://media.orphiusmusic.com/orphius/songs/21/cover.jpg?r=15", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT3M27S", "datePublished": "2026-06-27", "inLanguage": "ja", "sameAs": "https://www.youtube.com/watch?v=IDxz0AvBKus", "recordingOf": {"@type": "MusicComposition", "name": "Shining Road", "lyrics": {"@type": "CreativeWork", "text": "誰が小鳥の夢を隠したの？\n光さえ届かない夜の底で、まだ迷い続けている。\nもし希望の先に、深い影が待っているのなら、\n傷ついた羽は、どこへ風を探しに行くのだろう。\nもっと遠くまで行ける気がするから、\nここで立ち止まらないで！\nさあ、行こう！\n私に置いていかれても、知らないからね。\nたとえもう一度やり直しても、私はもう迷わない。\n君が望むなら、\n空はまだ開いている！\n何度だって君の声は、はっきりと胸に届く。\nたとえ見えない地平線の向こうでも、\nきっと誰かが静かに待っている。\n何度でも羽を広げて、\nこの小さな翼で空へ向かおう。\n高く、高く、高く\nこの世界を目に焼き付けよう。\n君が望むなら、\n空はまだ開いている！\n何度やり直しても、\nその小さな勇気こそが私の翼。\n怖いなら、私の手を握って。\n強い風を越えて、\n朝の光が心を包み込み、\n世界はどこまでも広がっている。"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="21">
 <div class="backdrop"></div>
@@ -107,6 +108,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

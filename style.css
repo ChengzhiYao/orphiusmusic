@@ -22,6 +22,22 @@ button { font: inherit; color: inherit; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--bone); color: #000; padding: 8px 12px; z-index: 50; }
 .skip:focus { left: 8px; }
 
+/* Background scene (the playing song's own visuals) */
+html { background: #000; }
+body { background: transparent; }
+.bg-scene { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; z-index: -2; pointer-events: none; opacity: 0; transition: opacity 1.2s ease; display: none; }
+.has-scene .bg-scene { display: block; }
+.bg-scene.on { opacity: 1; }
+.bg-shade { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: rgba(0,0,0,.62); opacity: 0; transition: opacity 1.2s; }
+.has-scene .bg-shade { opacity: 1; }
+.has-scene .feature { background: rgba(18,18,18,.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.has-scene .sheet { background: transparent; }
+.has-scene .sheet-bg { display: none; }
+.has-scene.sheet-open main, .has-scene.sheet-open .top, .has-scene.sheet-open .foot { visibility: hidden; }
+.has-scene.sheet-open .bg-shade { background: rgba(0,0,0,.3); }
+.scene-cover .sheet-cover { visibility: hidden; }
+.has-scene .sheet::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.25) 45%, rgba(0,0,0,.45)); }
+
 /* Header */
 .top {
   position: sticky; top: 0; z-index: 20;

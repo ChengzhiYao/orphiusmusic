@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/07/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "SINNER", "alternateName": "罪責の棘 · 罪责之棘", "url": "https://www.orphiusmusic.com/songs/07", "image": "https://media.orphiusmusic.com/orphius/songs/07/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT1M46S", "datePublished": "2025-08-26", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "SINNER", "lyrics": {"@type": "CreativeWork", "text": "My hands are stained with blood,\nI walk the shadowed path with heavy steps.\n内心にあるのはただ自分への嫌悪\nLove and justice have long been tainted.\nI won't allow myself to seek redemption,\nそれは弱さの証だから\nOnly one choice remains—\nTo carry this burden and live on.\nNo matter the sorrow, no matter the pain,\n痛みの中で歩き続ける\nThis is my hell, my cross to bear,\nそして全部受け入れる"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="07">
 <div class="backdrop"></div>
@@ -93,6 +94,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/20/cover.jpg?r=12">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "もう疲れた", "alternateName": "已经累了", "url": "https://www.orphiusmusic.com/songs/20", "image": "https://media.orphiusmusic.com/orphius/songs/20/cover.jpg?r=12", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M14S", "datePublished": "2026-03-06", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "もう疲れた", "lyrics": {"@type": "CreativeWork", "text": "何もしたくない　もう疲れた\nただ存在するだけで　もう限界だ\nこの世界にいるだけで　息が切れた\n立ってるだけなのに　心が砕けた\nなぜ生きるだけで　使命を背負わされ\n何もしてないのに　罪を問われ\n誰も聞かない　この声のかすれ\n沈んでいく心　誰も触れられねえ\nもう生きたくない　そう思ってしまう夜\nこの世界じゃ「疲れた」さえ言えない今日\nI'm so damn tired\nI'm so damn tired\nため息一つも　許されない模様\nそれでも生きろと　誰かが言うだろう\n「世界は美しい」って　君は言うけど\nどこが美しい？　どこが自由？\nどこにあるんだ　楽しめる理由\n見えるのはただ　繰り返す苦痛\n何度も何度も　立ち上がったよ\n何度も何度も　全力だったよ\nI gave it everything I had\nI gave it everything I had\nそれでも最後\n残ったもの　また失望だけ\nそれが答えなの？\n全力で生きてきた　それだけなのに\n全力で足掻いて　ここまで来たのに\n何も残らない　この物語\nただ疲れただけの　この人生に"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="20">
 <div class="backdrop"></div>
@@ -110,6 +111,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>

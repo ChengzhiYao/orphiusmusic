@@ -14,13 +14,72 @@
 
   // ── Audio ──────────────────────────────────────
   const audio = new Audio();
+  audio.crossOrigin = "anonymous";   // needed to read loudness for the background scenes
   audio.preload = "metadata";
   let current = null;
+
+  // ── Background scene: the song's own page runs behind the homepage ──
+  // The scene reads time / loudness / bass from window.__bgState every frame.
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const bgFrame = $("#bgScene");
+  let analyser = null, freq = null, lowpass = null;
+  function initAudioGraph() {
+    if (analyser) return;
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      const ac = new AC();
+      const src = ac.createMediaElementSource(audio);
+      lowpass = ac.createBiquadFilter(); lowpass.type = "lowpass"; lowpass.frequency.value = 22000; lowpass.Q.value = .7;
+      analyser = ac.createAnalyser(); analyser.fftSize = 256; analyser.smoothingTimeConstant = .82;
+      src.connect(lowpass); lowpass.connect(analyser); analyser.connect(ac.destination);
+      freq = new Uint8Array(analyser.frequencyBinCount);
+      window.__ac = ac;
+      window.__lowpass = f => lowpass.frequency.setTargetAtTime(Math.max(200, Math.min(22000, f)), ac.currentTime, .25);
+      audio.addEventListener("play", () => ac.state === "suspended" && ac.resume());
+    } catch (e) { analyser = null; }
+  }
+  window.__bgState = { id: null, t: 0, playing: false, level: 0, bass: 0 };
+  (function feed() {
+    const s = window.__bgState;
+    s.id = current && current.id; s.t = audio.currentTime; s.playing = !audio.paused;
+    if (analyser && !audio.paused) {
+      analyser.getByteFrequencyData(freq);
+      let sum = 0; for (let i = 2; i < 40; i++) sum += freq[i];
+      s.level = Math.min(1, Math.max(0, (sum / 38 / 255 - .25) * 1.8));
+      let b = 0; for (let i = 1; i < 6; i++) b += freq[i];
+      s.bass = b / 5 / 255;
+    } else { s.level = audio.paused ? 0 : .35; s.bass = 0; }
+    requestAnimationFrame(feed);
+  })();
+  function showScene(song) {
+    if (reduceMotion || !bgFrame) return;
+    document.body.classList.add("has-scene");
+    bgFrame.classList.remove("on");
+    bgFrame.onload = () => { bgFrame.classList.add("on"); placeSceneCover(); };
+    bgFrame.src = `/songs/${song.id}/?bg=1`;
+  }
+  // While the lyrics panel is open, the scene's animated cover sits exactly where the panel's cover is.
+  function placeSceneCover() {
+    let d = null;
+    try { d = bgFrame && bgFrame.contentDocument; } catch (e) { d = null; }
+    const open = !$("#sheet").hidden;
+    document.body.classList.toggle("scene-cover", !!(d && open && bgFrame.classList.contains("on")));
+    if (!d || !d.documentElement) return;
+    d.documentElement.classList.toggle("show-cover", open);
+    if (open) {
+      const r = $("#sCover").getBoundingClientRect(), st = d.documentElement.style;
+      st.setProperty("--cx", r.left + "px"); st.setProperty("--cy", r.top + "px"); st.setProperty("--cw", r.width + "px");
+    }
+  }
+  addEventListener("resize", () => placeSceneCover());
 
   function load(song) {
     if (current === song) return;
     current = song;
+    initAudioGraph();
+    if (lowpass) lowpass.frequency.value = 22000;   // a previous scene may have muffled the sound
     audio.src = file(song, "audio.m4a");
+    showScene(song);
     setAccent(song.accent);
     $("#player").hidden = false;
     document.body.classList.add("has-player");
@@ -123,6 +182,7 @@
     $("#pLyrics").setAttribute("aria-expanded", "true");
     $("#pLyrics").textContent = "Hide lyrics";
     fillSheet(current);
+    requestAnimationFrame(placeSceneCover);
     $("#sClose").focus({ preventScroll: true });
   }
   function closeSheet() {
@@ -130,6 +190,7 @@
     document.body.classList.remove("sheet-open");
     $("#pLyrics").setAttribute("aria-expanded", "false");
     $("#pLyrics").textContent = "Lyrics";
+    placeSceneCover();
     if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
   }
   $("#sClose").onclick = closeSheet;

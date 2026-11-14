@@ -15,11 +15,12 @@
 <meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/06/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "Falling Into Rain", "alternateName": "坠入雨中", "url": "https://www.orphiusmusic.com/songs/06", "image": "https://media.orphiusmusic.com/orphius/songs/06/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT3M13S", "datePublished": "2025-08-19", "inLanguage": "en", "recordingOf": {"@type": "MusicComposition", "name": "Falling Into Rain", "lyrics": {"@type": "CreativeWork", "text": "I feel the temperature of this water\nAnd within me, a quiet heart rests\nThe air is filled with gentle vapors\nA love from the earth, the nature itself\nPerhaps I exist only to feel this very moment\nThis body was born to sense this feeling\nNow, with my fingertips I softly touch the falling rain\nAnd let the wind press against my skin\nSimply quietly, I feel everything that is happening\nThis is a symphony of nature\nStill unsung by anyone\nI feel the love from nature and the earth\nI exist only to receive it\nI touch the rain with my fingers\nFeel the wind passing through my skin\nEverything is happening\nSoftly\nSilently\nThis is a symphony\nOf nature\nStill unsung by anyone\nMy life exists to feel this one moment\nJust to be\nTo feel\nTo feel"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=3">
+<link rel="stylesheet" href="/scene/style.css?v=6">
 </head>
 <body data-song="06">
 <div class="backdrop"></div>
@@ -106,6 +107,10 @@
 <script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=2"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=3"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
 </body>
 </html>
