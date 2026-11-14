@@ -242,3 +242,8 @@ body.sheet-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }
+
+.stream { margin-top: 18px; font-size: 13px; color: #8d8a83; letter-spacing: .02em; }
+.stream a { color: var(--bone); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #4a4843; }
+.stream a:hover { text-decoration-color: var(--bone); }
+.foot-links { display: inline-flex; gap: 18px; flex-wrap: wrap; }

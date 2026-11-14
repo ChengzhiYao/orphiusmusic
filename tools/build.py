@@ -15,6 +15,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.orphiusmusic.com"
 MEDIA = "https://media.orphiusmusic.com/orphius/songs"
 CHANNEL = "https://www.youtube.com/@Orphius1"
+SPOTIFY = "https://open.spotify.com/artist/4VfMeWk8q1RLkPyBs9E7sQ"
+APPLE = "https://music.apple.com/us/artist/orphius/1845487964"
 UA = {"User-Agent": "Mozilla/5.0 (orphiusmusic build)"}
 
 
@@ -85,11 +87,13 @@ def main():
         yt = h.get("yt")
         links = f'<a class="lnk" href="https://www.youtube.com/watch?v={yt}" target="_blank" rel="noopener">Watch on YouTube</a>' if yt else \
                 f'<a class="lnk" href="{CHANNEL}" target="_blank" rel="noopener">Orphius on YouTube</a>'
+        links += (f'<a class="lnk" href="{SPOTIFY}" target="_blank" rel="noopener">Spotify</a>'
+                  f'<a class="lnk" href="{APPLE}" target="_blank" rel="noopener">Apple Music</a>')
 
         ld = {
             "@context": "https://schema.org", "@type": "MusicRecording", "name": title,
             "alternateName": sub or None, "url": url, "image": cover,
-            "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": SITE + "/"},
+            "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": SITE + "/", "sameAs": [CHANNEL, SPOTIFY, APPLE]},
             "duration": iso_dur(h["dur"]) if h.get("dur") else None,
             "datePublished": iso_date(s.get("date")),
             "inLanguage": lang_of(" ".join(orig) or title),
