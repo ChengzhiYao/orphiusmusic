@@ -1,5 +1,5 @@
 // 首页大图展示哪首歌（填编号）
-window.FEATURED = "23";
+window.FEATURED = "27";
 // YouTube 频道
 window.CHANNEL = "https://www.youtube.com/@Orphius1";
 // 每首歌：yt 填 YouTube 视频 ID（watch?v= 后面那串），没有就不填
@@ -244,6 +244,46 @@ window.SONGS = [
   "rev": 16,
   "accent": "#b9c6ff",
   "dur": 240,
+  "lyrics": true
+ },
+ {
+  "id": "25",
+  "title": "美しき怪物",
+  "sub": "美丽的怪物",
+  "date": "2026.11.14",
+  "rev": 1,
+  "accent": "#d8584a",
+  "dur": 185,
+  "lyrics": true
+ },
+ {
+  "id": "26",
+  "title": "教えてよ",
+  "sub": "告诉我吧",
+  "date": "2026.11.14",
+  "rev": 1,
+  "accent": "#9fc7b8",
+  "dur": 188,
+  "lyrics": true
+ },
+ {
+  "id": "27",
+  "title": "白い鳩",
+  "sub": "白鸽",
+  "date": "2026.11.14",
+  "rev": 1,
+  "accent": "#d8cbbd",
+  "dur": 140,
+  "lyrics": true
+ },
+ {
+  "id": "28",
+  "title": "黒い輪あそび",
+  "sub": "黑色的圆圈游戏",
+  "date": "2026.11.14",
+  "rev": 1,
+  "accent": "#c9a87a",
+  "dur": 264,
   "lyrics": true
  }
 ];

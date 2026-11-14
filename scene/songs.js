@@ -425,5 +425,53 @@ window.SONGS = [
     coverFill: "64% 50%",           // 横版封面铺满方框，焦点放在那颗心上                // 3D 宇宙航行：星海 → 虫洞 → 隧道 → 黑洞 → 超光速 → 行星上空的晨光
     theme: { night: "#05060c", nightRgb: "5,6,12", glow: "232,236,255", accent: "#b9c6ff" },
     note: []
+  },
+  {
+    id: "25",
+    title: "美しき怪物",
+    subtitle: "美丽的怪物",
+    rev: 1,
+    date: "2026.11.14",
+    place: "",
+    scene: "ambient",              // 先用封面色的流动背景，专属特效之后再做
+    coverFill: "50% 40%",
+    theme: { night: "#0a0606", nightRgb: "10,6,6", glow: "232,150,140", accent: "#d8584a" },
+    note: []
+  },
+  {
+    id: "26",
+    title: "教えてよ",
+    subtitle: "告诉我吧",
+    rev: 1,
+    date: "2026.11.14",
+    place: "",
+    scene: "ambient",              // 先用封面色的流动背景，专属特效之后再做
+    coverFill: "60% 40%",
+    theme: { night: "#080c0b", nightRgb: "8,12,11", glow: "210,232,224", accent: "#9fc7b8" },
+    note: []
+  },
+  {
+    id: "27",
+    title: "白い鳩",
+    subtitle: "白鸽",
+    rev: 1,
+    date: "2026.11.14",
+    place: "",
+    scene: "ambient",              // 先用封面色的流动背景，专属特效之后再做
+    coverFill: "66% 30%",
+    theme: { night: "#0a0909", nightRgb: "10,9,9", glow: "240,232,222", accent: "#d8cbbd" },
+    note: []
+  },
+  {
+    id: "28",
+    title: "黒い輪あそび",
+    subtitle: "黑色的圆圈游戏",
+    rev: 1,
+    date: "2026.11.14",
+    place: "",
+    scene: "ambient",              // 先用封面色的流动背景，专属特效之后再做
+    coverFill: "50% 35%",
+    theme: { night: "#090706", nightRgb: "9,7,6", glow: "230,210,180", accent: "#c9a87a" },
+    note: []
   }
 ];
