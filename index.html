@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orphius</title>
+<meta name="description" content="Orphius writes songs in Japanese, Chinese and English. Listen to every song with lyrics.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Orphius">
+<meta property="og:description" content="Songs in Japanese, Chinese and English.">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/23/cover.jpg">
+<meta property="og:type" content="music.musician">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://media.orphiusmusic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@400;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=1">
+</head>
+<body>
+<a class="skip" href="#songs">Skip to songs</a>
+
+<header class="top">
+  <a class="mark" href="/" data-link>Orphius</a>
+  <nav aria-label="Main">
+    <a href="/#songs" data-link>Songs</a>
+    <a href="/#about" data-link>About</a>
+    <a href="https://www.youtube.com/@Orphius1" id="ytNav" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+
+<main id="home">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-art"><img id="heroImg" alt="" crossorigin="anonymous"></div>
+    <div class="hero-copy">
+      <h1 id="heroTitle" class="hero-title"></h1>
+      <div class="hero-aside">
+        <p class="hero-kicker">Latest song</p>
+        <p class="hero-sub" id="heroSub"></p>
+        <div class="hero-actions">
+          <button class="btn-play" id="heroPlay" type="button">Play</button>
+          <a class="btn-ghost" id="heroLyrics" href="/" data-link>Lyrics</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="songs" id="songs" aria-labelledby="songsHead">
+    <div class="section-head">
+      <h2 id="songsHead">Songs</h2>
+      <p class="count" id="songCount"></p>
+    </div>
+    <ol class="list" id="list"></ol>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="aboutHead">
+    <h2 id="aboutHead">About</h2>
+    <div class="about-body">
+      <p class="about-lead">Orphius writes songs for the moment just before you give up.</p>
+      <p>Tiredness, loneliness, falling, and the small light you find on the way back up. Written and produced in Japanese, Chinese and English since August 2025.</p>
+      <p lang="zh">写给快要撑不住的那一刻。疲惫、孤独、坠落，还有往回爬时看见的那一点光。</p>
+      <a class="btn-yt" id="ytAbout" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Watch on YouTube</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>© <span id="yr"></span> Orphius</span>
+    <span>orphiusmusic.com</span>
+  </footer>
+</main>
+
+<section class="track" id="track" hidden aria-labelledby="trackTitle">
+  <div class="track-bg"><img id="trackBg" alt="" crossorigin="anonymous"></div>
+  <a class="back" href="/#songs" data-link>All songs</a>
+  <div class="track-grid">
+    <div class="track-side">
+      <img class="track-cover" id="trackCover" alt="" crossorigin="anonymous">
+      <h1 class="track-title" id="trackTitle"></h1>
+      <p class="track-sub" id="trackSub"></p>
+      <p class="track-date" id="trackDate"></p>
+      <button class="btn-play" id="trackPlay" type="button">Play</button>
+      <div class="track-nav">
+        <a id="prevLink" href="/" data-link>Previous song</a>
+        <a id="nextLink" href="/" data-link>Next song</a>
+      </div>
+    </div>
+    <div class="lyrics" id="lyrics" aria-label="Lyrics" tabindex="0"></div>
+  </div>
+</section>
+
+<div class="player" id="player" hidden>
+  <button class="p-art" id="pArt" type="button" aria-label="Open lyrics"><img id="pImg" alt="" crossorigin="anonymous"></button>
+  <div class="p-meta">
+    <a class="p-title" id="pTitle" href="/" data-link></a>
+    <span class="p-sub" id="pSub"></span>
+  </div>
+  <div class="p-controls">
+    <button type="button" id="pPrev" aria-label="Previous song"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+    <button type="button" id="pToggle" class="p-toggle" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M7 4v16l13-8z"/><path class="i-pause" d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+    <button type="button" id="pNext" aria-label="Next song"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+  </div>
+  <div class="p-time">
+    <span id="pCur">0:00</span>
+    <input type="range" id="pSeek" min="0" max="1000" value="0" aria-label="Seek">
+    <span id="pDur">0:00</span>
+  </div>
+</div>
+
+<script src="/songs.js?v=1"></script>
+<script src="/app.js?v=1"></script>
+</body>
+</html>
