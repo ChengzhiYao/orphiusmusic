@@ -24,7 +24,7 @@
     setAccent(song.accent);
     $("#player").hidden = false;
     document.body.classList.add("has-player");
-    $("#pImg").src = file(song, "thumb.jpg");
+    $("#pImg").src = `${MEDIA}/${song.id}/card.jpg`;
     $("#pArt").href = $("#pTitle").href = page(song);
     $("#pTitle").textContent = song.title;
     $("#pSub").textContent = song.sub;
@@ -66,7 +66,7 @@
 
   // ── Featured song ──────────────────────────────
   const feat = byId[window.FEATURED] || SONGS[0];
-  $("#fImg").src = file(feat, "cover.jpg");
+  $("#fImg").src = `${MEDIA}/${feat.id}/card.jpg`;
   $("#fImg").alt = `Cover of ${feat.title}`;
   $("#fLink").href = $("#fOpen").href = page(feat);
   $("#fTitle").textContent = feat.title;
@@ -81,7 +81,7 @@
   grid.innerHTML = SONGS.map(s => `
     <li class="card" data-id="${s.id}" style="--c:${s.accent}">
       <div class="card-cover">
-        <a class="card-art" href="${page(s)}" tabindex="-1" aria-hidden="true"><img src="${file(s, "thumb.jpg")}" alt="" loading="lazy" width="300" height="300"></a>
+        <a class="card-art" href="${page(s)}" tabindex="-1" aria-hidden="true"><img src="${MEDIA}/${s.id}/card.jpg" alt="" loading="lazy" width="320" height="320"></a>
         <button class="card-play" type="button" aria-label="Play ${esc(s.title)}">${ICON}</button>
       </div>
       <a class="card-title" href="${page(s)}">${esc(s.title)}</a>
