@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-sub="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://media.orphiusmusic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@400;600;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=5">
+<link rel="stylesheet" href="/style.css?v=6">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MusicGroup","name":"Orphius","url":"https://www.orphiusmusic.com/","genre":["Dark pop","Experimental electronic","J-pop"],"sameAs":["https://www.youtube.com/@Orphius1"]}
 </script>
@@ -97,6 +97,7 @@
       <p class="sheet-label">Now playing</p>
       <h2 class="sheet-title" id="sTitle"></h2>
       <p class="sheet-sub" id="sSub"></p>
+      <div class="sub-switch" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
       <div class="actions">
         <a class="btn btn-solid" id="sOpen" href="/">Open with visuals</a>
         <a class="btn btn-line" id="sYt" href="/" target="_blank" rel="noopener" hidden>Watch on YouTube</a>
@@ -125,7 +126,8 @@
   </div>
 </div>
 
+<script src="/sub.js?v=2"></script>
 <script src="/songs.js?v=3"></script>
-<script src="/app.js?v=6"></script>
+<script src="/app.js?v=8"></script>
 </body>
 </html>

@@ -141,7 +141,7 @@
   // 数据格式（songs.js）：lyrics: [{ t: 开始秒, e: 结束秒, w: [[字, 开始, 结束], ...], tr: "翻译(可选)" }, ...]
   // 没有 w 的行会按时长平均分给每个字
   // 歌词放在 /media/<id>/lyrics.json，没有这个文件就不显示歌词区
-  fetch(`${media}/lyrics.json${rv}`).then(r => (r.ok ? r.json() : [])).catch(() => []).then(setupLyrics);
+  fetch(`${media}/lyrics.json${rv ? rv + "&l=2" : "?l=2"}`).then(r => (r.ok ? r.json() : [])).catch(() => []).then(setupLyrics);
   function setupLyrics(lines) {
   if (!Array.isArray(lines) || !lines.length) { $("#lyricsBox").remove(); return; }
   root.classList.add("has-lyrics");
@@ -167,12 +167,17 @@
           chars.push({ el: sp, s: s + k * d, e: s + (k + 1) * d });
         });
       }
-      if (ln.tr) { const tr = document.createElement("span"); tr.className = "tr"; tr.textContent = ln.tr; el.appendChild(tr); }
+      if (ln.tr || ln.en || ln.ja) {   // 字幕：按网站选的语言显示（English / 中文 / 日本語）
+        const tr = document.createElement("span"); tr.className = "tr";
+        tr.dataset.subt = ""; tr.dataset.sen = ln.en || ""; tr.dataset.szh = ln.tr || ""; tr.dataset.sja = ln.ja || "";
+        el.appendChild(tr);
+      }
       el.addEventListener("click", () => { audio.currentTime = Math.max(0, ln.t - .15); if (audio.paused) audio.play(); });
       scroller.appendChild(el);
       return { el, t: ln.t, e: ln.e, chars };
     });
 
+    if (window.SUB) SUB.apply(scroller);
     let active = -2;
     const center = i => {
       const r = rows[Math.max(0, i)].el;

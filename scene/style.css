@@ -229,3 +229,16 @@ main {
 .full-lyrics .o { display: block; font-family: var(--serif); font-size: 16px; line-height: 1.8; color: var(--ink); }
 .full-lyrics .t { display: block; font-size: 13px; line-height: 1.6; color: var(--ink-dim); }
 .full-lyrics .none { font-family: var(--serif); color: var(--ink-dim); }
+
+/* ── 字幕语言切换 ── */
+.sub-switch { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.sub-label { font-size: 11px; letter-spacing: .14em; color: var(--ink-faint); margin-right: 6px; }
+.sub-switch button { min-height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--glass);
+  color: var(--ink-dim); font: inherit; font-size: 12px; cursor: pointer; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.sub-switch button:hover { color: var(--ink); }
+.sub-switch button[aria-pressed="true"] { background: var(--ink); color: var(--night); border-color: var(--ink); }
+.full-lyrics .sub-switch { margin: -8px 0 22px; }
+.full-lyrics .t[data-l] { display: none; }
+html[data-sub="en"] .full-lyrics .t[data-l="en"],
+html[data-sub="zh"] .full-lyrics .t[data-l="zh"],
+html[data-sub="ja"] .full-lyrics .t[data-l="ja"] { display: block; }

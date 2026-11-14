@@ -70,10 +70,14 @@ def main():
         page_title = f"{title} – Orphius" + (" | Lyrics" if lines else "")
 
         if lines:
+            def subs(l):
+                out = ""
+                for key, code in (("en", "en"), ("tr", "zh"), ("ja", "ja")):
+                    if l.get(key):
+                        out += f'<span class="t" data-l="{code}" lang="{code}">{html.escape(l[key])}</span>'
+                return out
             body = "\n".join(
-                f'      <p><span class="o" lang="{lang_of(o)}">{html.escape(o)}</span>'
-                + (f'<span class="t" lang="zh">{html.escape(l.get("tr", ""))}</span>' if l.get("tr") else "")
-                + "</p>"
+                f'      <p><span class="o" lang="{lang_of(o)}">{html.escape(o)}</span>{subs(l)}</p>'
                 for o, l in zip(orig, lines) if o)
         else:
             body = '      <p class="none">Lyrics for this song are coming soon.</p>'

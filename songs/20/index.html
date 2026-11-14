@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-sub="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=2">
+<link rel="stylesheet" href="/scene/style.css?v=3">
 </head>
 <body data-song="20">
 <div class="backdrop"></div>
@@ -47,6 +47,7 @@
   <div class="meta rise">
     <h1 id="title"></h1>
     <div class="sub" id="sub"></div>
+  <div class="sub-switch rise" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
   </div>
 
   <div class="player rise">
@@ -71,42 +72,44 @@
 
   <section class="full-lyrics" aria-label="Lyrics">
     <h2 class="fl-head">もう疲れた lyrics</h2>
-      <p><span class="o" lang="ja">何もしたくない　もう疲れた</span><span class="t" lang="zh">什么都不想做了，已经累了</span></p>
-      <p><span class="o" lang="ja">ただ存在するだけで　もう限界だ</span><span class="t" lang="zh">光是活着，就已经到极限了</span></p>
-      <p><span class="o" lang="ja">この世界にいるだけで　息が切れた</span><span class="t" lang="zh">光是待在这个世界上，就已经喘不过气</span></p>
-      <p><span class="o" lang="ja">立ってるだけなのに　心が砕けた</span><span class="t" lang="zh">明明只是站着，心却碎了</span></p>
-      <p><span class="o" lang="ja">なぜ生きるだけで　使命を背負わされ</span><span class="t" lang="zh">为什么光是活着，就要背负什么使命</span></p>
-      <p><span class="o" lang="ja">何もしてないのに　罪を問われ</span><span class="t" lang="zh">明明什么都没做，却被追问罪过</span></p>
-      <p><span class="o" lang="ja">誰も聞かない　この声のかすれ</span><span class="t" lang="zh">没有人在听，这嘶哑的声音</span></p>
-      <p><span class="o" lang="ja">沈んでいく心　誰も触れられねえ</span><span class="t" lang="zh">不断下沉的心，谁也碰不到</span></p>
-      <p><span class="o" lang="ja">もう生きたくない　そう思ってしまう夜</span><span class="t" lang="zh">会有那样的夜晚，忍不住想「不想再活了」</span></p>
-      <p><span class="o" lang="ja">この世界じゃ「疲れた」さえ言えない今日</span><span class="t" lang="zh">在这个世界里，今天连一句「好累」都说不出口</span></p>
-      <p><span class="o" lang="en">I&#x27;m so damn tired</span><span class="t" lang="zh">我真的好累</span></p>
-      <p><span class="o" lang="en">I&#x27;m so damn tired</span><span class="t" lang="zh">我真的好累</span></p>
-      <p><span class="o" lang="ja">ため息一つも　許されない模様</span><span class="t" lang="zh">好像连叹一口气都不被允许</span></p>
-      <p><span class="o" lang="ja">それでも生きろと　誰かが言うだろう</span><span class="t" lang="zh">即便如此，还是会有人说「活下去」</span></p>
-      <p><span class="o" lang="ja">「世界は美しい」って　君は言うけど</span><span class="t" lang="zh">你说「世界是美丽的」</span></p>
-      <p><span class="o" lang="ja">どこが美しい？　どこが自由？</span><span class="t" lang="zh">哪里美丽？哪里自由？</span></p>
-      <p><span class="o" lang="ja">どこにあるんだ　楽しめる理由</span><span class="t" lang="zh">能让人开心起来的理由，到底在哪里</span></p>
-      <p><span class="o" lang="ja">見えるのはただ　繰り返す苦痛</span><span class="t" lang="zh">我看见的，只有不断重复的痛苦</span></p>
-      <p><span class="o" lang="ja">何度も何度も　立ち上がったよ</span><span class="t" lang="zh">我一次又一次地站起来过</span></p>
-      <p><span class="o" lang="ja">何度も何度も　全力だったよ</span><span class="t" lang="zh">我一次又一次地拼尽了全力</span></p>
-      <p><span class="o" lang="en">I gave it everything I had</span><span class="t" lang="zh">我把我有的一切都给出去了</span></p>
-      <p><span class="o" lang="en">I gave it everything I had</span><span class="t" lang="zh">我把我有的一切都给出去了</span></p>
-      <p><span class="o" lang="ja">それでも最後</span><span class="t" lang="zh">可到了最后</span></p>
-      <p><span class="o" lang="ja">残ったもの　また失望だけ</span><span class="t" lang="zh">剩下的，又只有失望</span></p>
-      <p><span class="o" lang="ja">それが答えなの？</span><span class="t" lang="zh">这就是答案吗？</span></p>
-      <p><span class="o" lang="ja">全力で生きてきた　それだけなのに</span><span class="t" lang="zh">我只是拼尽全力地活着而已</span></p>
-      <p><span class="o" lang="ja">全力で足掻いて　ここまで来たのに</span><span class="t" lang="zh">拼命挣扎着，才走到了这里</span></p>
-      <p><span class="o" lang="ja">何も残らない　この物語</span><span class="t" lang="zh">却什么都没留下，这个故事</span></p>
-      <p><span class="o" lang="ja">ただ疲れただけの　この人生に</span><span class="t" lang="zh">在这只剩下疲惫的人生里</span></p>
+    <div class="sub-switch" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+      <p><span class="o" lang="ja">何もしたくない　もう疲れた</span><span class="t" data-l="en" lang="en">I don&#x27;t want to do anything, I&#x27;m already tired</span><span class="t" data-l="zh" lang="zh">什么都不想做了，已经累了</span></p>
+      <p><span class="o" lang="ja">ただ存在するだけで　もう限界だ</span><span class="t" data-l="en" lang="en">Just existing has already pushed me to my limit</span><span class="t" data-l="zh" lang="zh">光是活着，就已经到极限了</span></p>
+      <p><span class="o" lang="ja">この世界にいるだけで　息が切れた</span><span class="t" data-l="en" lang="en">Just being in this world leaves me out of breath</span><span class="t" data-l="zh" lang="zh">光是待在这个世界上，就已经喘不过气</span></p>
+      <p><span class="o" lang="ja">立ってるだけなのに　心が砕けた</span><span class="t" data-l="en" lang="en">I&#x27;m only standing here, yet my heart shattered</span><span class="t" data-l="zh" lang="zh">明明只是站着，心却碎了</span></p>
+      <p><span class="o" lang="ja">なぜ生きるだけで　使命を背負わされ</span><span class="t" data-l="en" lang="en">Why does just living mean carrying some mission</span><span class="t" data-l="zh" lang="zh">为什么光是活着，就要背负什么使命</span></p>
+      <p><span class="o" lang="ja">何もしてないのに　罪を問われ</span><span class="t" data-l="en" lang="en">Why am I blamed when I haven&#x27;t done anything</span><span class="t" data-l="zh" lang="zh">明明什么都没做，却被追问罪过</span></p>
+      <p><span class="o" lang="ja">誰も聞かない　この声のかすれ</span><span class="t" data-l="en" lang="en">No one listens to this hoarse voice</span><span class="t" data-l="zh" lang="zh">没有人在听，这嘶哑的声音</span></p>
+      <p><span class="o" lang="ja">沈んでいく心　誰も触れられねえ</span><span class="t" data-l="en" lang="en">A sinking heart no one can reach</span><span class="t" data-l="zh" lang="zh">不断下沉的心，谁也碰不到</span></p>
+      <p><span class="o" lang="ja">もう生きたくない　そう思ってしまう夜</span><span class="t" data-l="en" lang="en">Nights when I can&#x27;t help thinking I don&#x27;t want to live anymore</span><span class="t" data-l="zh" lang="zh">会有那样的夜晚，忍不住想「不想再活了」</span></p>
+      <p><span class="o" lang="ja">この世界じゃ「疲れた」さえ言えない今日</span><span class="t" data-l="en" lang="en">Today, in this world, I can&#x27;t even say &quot;I&#x27;m tired&quot;</span><span class="t" data-l="zh" lang="zh">在这个世界里，今天连一句「好累」都说不出口</span></p>
+      <p><span class="o" lang="en">I&#x27;m so damn tired</span><span class="t" data-l="zh" lang="zh">我真的好累</span><span class="t" data-l="ja" lang="ja">本当に、心底疲れた</span></p>
+      <p><span class="o" lang="en">I&#x27;m so damn tired</span><span class="t" data-l="zh" lang="zh">我真的好累</span><span class="t" data-l="ja" lang="ja">本当に、心底疲れた</span></p>
+      <p><span class="o" lang="ja">ため息一つも　許されない模様</span><span class="t" data-l="en" lang="en">It seems I&#x27;m not even allowed a single sigh</span><span class="t" data-l="zh" lang="zh">好像连叹一口气都不被允许</span></p>
+      <p><span class="o" lang="ja">それでも生きろと　誰かが言うだろう</span><span class="t" data-l="en" lang="en">Still, someone will tell me to live</span><span class="t" data-l="zh" lang="zh">即便如此，还是会有人说「活下去」</span></p>
+      <p><span class="o" lang="ja">「世界は美しい」って　君は言うけど</span><span class="t" data-l="en" lang="en">You say &quot;the world is beautiful&quot;, but</span><span class="t" data-l="zh" lang="zh">你说「世界是美丽的」</span></p>
+      <p><span class="o" lang="ja">どこが美しい？　どこが自由？</span><span class="t" data-l="en" lang="en">Where is it beautiful? Where is it free?</span><span class="t" data-l="zh" lang="zh">哪里美丽？哪里自由？</span></p>
+      <p><span class="o" lang="ja">どこにあるんだ　楽しめる理由</span><span class="t" data-l="en" lang="en">Where is a reason to enjoy any of it</span><span class="t" data-l="zh" lang="zh">能让人开心起来的理由，到底在哪里</span></p>
+      <p><span class="o" lang="ja">見えるのはただ　繰り返す苦痛</span><span class="t" data-l="en" lang="en">All I see is pain that keeps repeating</span><span class="t" data-l="zh" lang="zh">我看见的，只有不断重复的痛苦</span></p>
+      <p><span class="o" lang="ja">何度も何度も　立ち上がったよ</span><span class="t" data-l="en" lang="en">Again and again, I got back up</span><span class="t" data-l="zh" lang="zh">我一次又一次地站起来过</span></p>
+      <p><span class="o" lang="ja">何度も何度も　全力だったよ</span><span class="t" data-l="en" lang="en">Again and again, I gave it my all</span><span class="t" data-l="zh" lang="zh">我一次又一次地拼尽了全力</span></p>
+      <p><span class="o" lang="en">I gave it everything I had</span><span class="t" data-l="zh" lang="zh">我把我有的一切都给出去了</span><span class="t" data-l="ja" lang="ja">持てるものは全部出した</span></p>
+      <p><span class="o" lang="en">I gave it everything I had</span><span class="t" data-l="zh" lang="zh">我把我有的一切都给出去了</span><span class="t" data-l="ja" lang="ja">持てるものは全部出した</span></p>
+      <p><span class="o" lang="ja">それでも最後</span><span class="t" data-l="en" lang="en">And still, in the end</span><span class="t" data-l="zh" lang="zh">可到了最后</span></p>
+      <p><span class="o" lang="ja">残ったもの　また失望だけ</span><span class="t" data-l="en" lang="en">All that&#x27;s left is disappointment, again</span><span class="t" data-l="zh" lang="zh">剩下的，又只有失望</span></p>
+      <p><span class="o" lang="ja">それが答えなの？</span><span class="t" data-l="en" lang="en">Is that the answer?</span><span class="t" data-l="zh" lang="zh">这就是答案吗？</span></p>
+      <p><span class="o" lang="ja">全力で生きてきた　それだけなのに</span><span class="t" data-l="en" lang="en">All I did was live with everything I had</span><span class="t" data-l="zh" lang="zh">我只是拼尽全力地活着而已</span></p>
+      <p><span class="o" lang="ja">全力で足掻いて　ここまで来たのに</span><span class="t" data-l="en" lang="en">I struggled with everything to get this far</span><span class="t" data-l="zh" lang="zh">拼命挣扎着，才走到了这里</span></p>
+      <p><span class="o" lang="ja">何も残らない　この物語</span><span class="t" data-l="en" lang="en">And this story leaves nothing behind</span><span class="t" data-l="zh" lang="zh">却什么都没留下，这个故事</span></p>
+      <p><span class="o" lang="ja">ただ疲れただけの　この人生に</span><span class="t" data-l="en" lang="en">In this life that&#x27;s nothing but tired</span><span class="t" data-l="zh" lang="zh">在这只剩下疲惫的人生里</span></p>
   </section>
 
   <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
 </main>
 
+<script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=1"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=1"></script>
+<script src="/scene/player.js?v=3"></script>
 </body>
 </html>

@@ -147,11 +147,12 @@
     if (song.yt) $("#sYt").href = `https://www.youtube.com/watch?v=${song.yt}`;
     box.innerHTML = ""; lines = []; lineEls = [];
     if (song.lyrics !== false) {
-      try { const r = await fetch(file(song, "lyrics.json")); lines = r.ok ? await r.json() : []; } catch { lines = []; }
+      try { const r = await fetch(`${MEDIA}/${song.id}/lyrics.json?l=2`); lines = r.ok ? await r.json() : []; } catch { lines = []; }
     }
     if (shown !== song) return;
     if (!lines.length) { box.innerHTML = '<p class="none">This song has no lyrics yet.</p>'; return; }
-    box.innerHTML = lines.map((l, k) => `<p class="line" data-k="${k}"><span class="o">${l.w.map(([c, t]) => `<span class="ch" data-t="${t}">${esc(c)}</span>`).join("")}</span>${l.tr ? `<span class="t">${esc(l.tr)}</span>` : ""}</p>`).join("");
+    box.innerHTML = lines.map((l, k) => `<p class="line" data-k="${k}"><span class="o">${l.w.map(([c, t]) => `<span class="ch" data-t="${t}">${esc(c)}</span>`).join("")}</span><span class="t" ${SUB.attrs(l)}></span></p>`).join("");
+    SUB.apply(box);
     lineEls = [...box.querySelectorAll(".line")];
     box.scrollTop = 0;
   }

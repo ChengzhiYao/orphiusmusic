@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-sub="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=2">
+<link rel="stylesheet" href="/scene/style.css?v=3">
 </head>
 <body data-song="05">
 <div class="backdrop"></div>
@@ -47,6 +47,7 @@
   <div class="meta rise">
     <h1 id="title"></h1>
     <div class="sub" id="sub"></div>
+  <div class="sub-switch rise" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
   </div>
 
   <div class="player rise">
@@ -71,53 +72,55 @@
 
   <section class="full-lyrics" aria-label="Lyrics">
     <h2 class="fl-head">餌（えさ） lyrics</h2>
-      <p><span class="o" lang="ja">手のひらの上 少しずつ裂けた 肉のかけらの中に</span><span class="t" lang="zh">在手掌上，一块块被撕开的肉里</span></p>
-      <p><span class="o" lang="ja">命の鼓動を感じた</span><span class="t" lang="zh">我感受到生命的跳动</span></p>
-      <p><span class="o" lang="ja">これは自然の愛だ</span><span class="t" lang="zh">这是大自然的爱</span></p>
-      <p><span class="o" lang="ja">食べること 食べられること</span><span class="t" lang="zh">吃与被吃</span></p>
-      <p><span class="o" lang="ja">亡骸が愛を手渡している</span><span class="t" lang="zh">尸体传递着爱</span></p>
-      <p><span class="o" lang="ja">陽光が愛を手渡している</span><span class="t" lang="zh">阳光传递着爱</span></p>
-      <p><span class="o" lang="ja">海が愛を手渡している</span><span class="t" lang="zh">海传递着爱</span></p>
-      <p><span class="o" lang="ja">亡骸を食べた蜜蜂は</span><span class="t" lang="zh">以尸体为食的蜜蜂</span></p>
-      <p><span class="o" lang="ja">栄養を吸収し 次の世代を育てる</span><span class="t" lang="zh">吸收养分，培育下一代</span></p>
-      <p><span class="o" lang="ja">それも愛だ</span><span class="t" lang="zh">这也是爱</span></p>
-      <p><span class="o" lang="ja">愛はいつでも私たちのそばにある</span><span class="t" lang="zh">爱始终在我们身边</span></p>
-      <p><span class="o" lang="ja">愛は自由だ</span><span class="t" lang="zh">爱是自由</span></p>
-      <p><span class="o" lang="ja">愛は与えることだ</span><span class="t" lang="zh">爱是给予</span></p>
-      <p><span class="o" lang="ja">愛は生命</span><span class="t" lang="zh">爱是生命</span></p>
-      <p><span class="o" lang="ja">愛はすべてを起こす</span><span class="t" lang="zh">爱让一切发生</span></p>
-      <p><span class="o" lang="ja">愛は受け入れること</span><span class="t" lang="zh">爱是接纳</span></p>
-      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
-      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
-      <p><span class="o" lang="ja">食べること 食べられること</span><span class="t" lang="zh">吃与被吃</span></p>
-      <p><span class="o" lang="ja">亡骸が愛を手渡している</span><span class="t" lang="zh">尸体传递着爱</span></p>
-      <p><span class="o" lang="ja">これは自然の愛だ</span><span class="t" lang="zh">这是大自然的爱</span></p>
-      <p><span class="o" lang="ja">手のひらの上 少しずつ裂けた 肉のかけらの中に</span><span class="t" lang="zh">在手掌上，一块块被撕开的肉里</span></p>
-      <p><span class="o" lang="ja">命の鼓動を感じた</span><span class="t" lang="zh">我感受到生命的跳动</span></p>
-      <p><span class="o" lang="ja">海が愛を手渡している</span><span class="t" lang="zh">海传递着爱</span></p>
-      <p><span class="o" lang="ja">陽光が愛を手渡している</span><span class="t" lang="zh">阳光传递着爱</span></p>
-      <p><span class="o" lang="ja">亡骸を食べた蜜蜂は</span><span class="t" lang="zh">以尸体为食的蜜蜂</span></p>
-      <p><span class="o" lang="ja">栄養を吸収し 次の世代を育てる</span><span class="t" lang="zh">吸收养分，培育下一代</span></p>
-      <p><span class="o" lang="ja">それも愛だ</span><span class="t" lang="zh">这也是爱</span></p>
-      <p><span class="o" lang="ja">愛はいつでも私たちのそばにある</span><span class="t" lang="zh">爱始终在我们身边</span></p>
-      <p><span class="o" lang="ja">愛は自由だ</span><span class="t" lang="zh">爱是自由</span></p>
-      <p><span class="o" lang="ja">愛は与えることだ</span><span class="t" lang="zh">爱是给予</span></p>
-      <p><span class="o" lang="ja">愛は生命</span><span class="t" lang="zh">爱是生命</span></p>
-      <p><span class="o" lang="ja">愛はすべてを起こす</span><span class="t" lang="zh">爱让一切发生</span></p>
-      <p><span class="o" lang="ja">愛は受け入れること</span><span class="t" lang="zh">爱是接纳</span></p>
-      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
-      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
-      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
-      <p><span class="o" lang="ja">光が愛を手渡している</span><span class="t" lang="zh">光传递着爱</span></p>
-      <p><span class="o" lang="ja">海が愛を手渡している</span><span class="t" lang="zh">海传递着爱</span></p>
-      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
+    <div class="sub-switch" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+      <p><span class="o" lang="ja">手のひらの上 少しずつ裂けた 肉のかけらの中に</span><span class="t" data-l="en" lang="en">In the scraps of flesh torn apart, bit by bit, on my palm</span><span class="t" data-l="zh" lang="zh">在手掌上，一块块被撕开的肉里</span></p>
+      <p><span class="o" lang="ja">命の鼓動を感じた</span><span class="t" data-l="en" lang="en">I felt the pulse of life</span><span class="t" data-l="zh" lang="zh">我感受到生命的跳动</span></p>
+      <p><span class="o" lang="ja">これは自然の愛だ</span><span class="t" data-l="en" lang="en">This is nature&#x27;s love</span><span class="t" data-l="zh" lang="zh">这是大自然的爱</span></p>
+      <p><span class="o" lang="ja">食べること 食べられること</span><span class="t" data-l="en" lang="en">To eat, and to be eaten</span><span class="t" data-l="zh" lang="zh">吃与被吃</span></p>
+      <p><span class="o" lang="ja">亡骸が愛を手渡している</span><span class="t" data-l="en" lang="en">The dead are handing over love</span><span class="t" data-l="zh" lang="zh">尸体传递着爱</span></p>
+      <p><span class="o" lang="ja">陽光が愛を手渡している</span><span class="t" data-l="en" lang="en">The sunlight is handing over love</span><span class="t" data-l="zh" lang="zh">阳光传递着爱</span></p>
+      <p><span class="o" lang="ja">海が愛を手渡している</span><span class="t" data-l="en" lang="en">The sea is handing over love</span><span class="t" data-l="zh" lang="zh">海传递着爱</span></p>
+      <p><span class="o" lang="ja">亡骸を食べた蜜蜂は</span><span class="t" data-l="en" lang="en">The bees that fed on the dead</span><span class="t" data-l="zh" lang="zh">以尸体为食的蜜蜂</span></p>
+      <p><span class="o" lang="ja">栄養を吸収し 次の世代を育てる</span><span class="t" data-l="en" lang="en">Take in what they need and raise the next generation</span><span class="t" data-l="zh" lang="zh">吸收养分，培育下一代</span></p>
+      <p><span class="o" lang="ja">それも愛だ</span><span class="t" data-l="en" lang="en">That is love too</span><span class="t" data-l="zh" lang="zh">这也是爱</span></p>
+      <p><span class="o" lang="ja">愛はいつでも私たちのそばにある</span><span class="t" data-l="en" lang="en">Love is always right beside us</span><span class="t" data-l="zh" lang="zh">爱始终在我们身边</span></p>
+      <p><span class="o" lang="ja">愛は自由だ</span><span class="t" data-l="en" lang="en">Love is freedom</span><span class="t" data-l="zh" lang="zh">爱是自由</span></p>
+      <p><span class="o" lang="ja">愛は与えることだ</span><span class="t" data-l="en" lang="en">Love is giving</span><span class="t" data-l="zh" lang="zh">爱是给予</span></p>
+      <p><span class="o" lang="ja">愛は生命</span><span class="t" data-l="en" lang="en">Love is life</span><span class="t" data-l="zh" lang="zh">爱是生命</span></p>
+      <p><span class="o" lang="ja">愛はすべてを起こす</span><span class="t" data-l="en" lang="en">Love makes everything happen</span><span class="t" data-l="zh" lang="zh">爱让一切发生</span></p>
+      <p><span class="o" lang="ja">愛は受け入れること</span><span class="t" data-l="en" lang="en">Love is accepting</span><span class="t" data-l="zh" lang="zh">爱是接纳</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" data-l="en" lang="en">To exist is love itself</span><span class="t" data-l="zh" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" data-l="en" lang="en">To exist is love itself</span><span class="t" data-l="zh" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">食べること 食べられること</span><span class="t" data-l="en" lang="en">To eat, and to be eaten</span><span class="t" data-l="zh" lang="zh">吃与被吃</span></p>
+      <p><span class="o" lang="ja">亡骸が愛を手渡している</span><span class="t" data-l="en" lang="en">The dead are handing over love</span><span class="t" data-l="zh" lang="zh">尸体传递着爱</span></p>
+      <p><span class="o" lang="ja">これは自然の愛だ</span><span class="t" data-l="en" lang="en">This is nature&#x27;s love</span><span class="t" data-l="zh" lang="zh">这是大自然的爱</span></p>
+      <p><span class="o" lang="ja">手のひらの上 少しずつ裂けた 肉のかけらの中に</span><span class="t" data-l="en" lang="en">In the scraps of flesh torn apart, bit by bit, on my palm</span><span class="t" data-l="zh" lang="zh">在手掌上，一块块被撕开的肉里</span></p>
+      <p><span class="o" lang="ja">命の鼓動を感じた</span><span class="t" data-l="en" lang="en">I felt the pulse of life</span><span class="t" data-l="zh" lang="zh">我感受到生命的跳动</span></p>
+      <p><span class="o" lang="ja">海が愛を手渡している</span><span class="t" data-l="en" lang="en">The sea is handing over love</span><span class="t" data-l="zh" lang="zh">海传递着爱</span></p>
+      <p><span class="o" lang="ja">陽光が愛を手渡している</span><span class="t" data-l="en" lang="en">The sunlight is handing over love</span><span class="t" data-l="zh" lang="zh">阳光传递着爱</span></p>
+      <p><span class="o" lang="ja">亡骸を食べた蜜蜂は</span><span class="t" data-l="en" lang="en">The bees that fed on the dead</span><span class="t" data-l="zh" lang="zh">以尸体为食的蜜蜂</span></p>
+      <p><span class="o" lang="ja">栄養を吸収し 次の世代を育てる</span><span class="t" data-l="en" lang="en">Take in what they need and raise the next generation</span><span class="t" data-l="zh" lang="zh">吸收养分，培育下一代</span></p>
+      <p><span class="o" lang="ja">それも愛だ</span><span class="t" data-l="en" lang="en">That is love too</span><span class="t" data-l="zh" lang="zh">这也是爱</span></p>
+      <p><span class="o" lang="ja">愛はいつでも私たちのそばにある</span><span class="t" data-l="en" lang="en">Love is always right beside us</span><span class="t" data-l="zh" lang="zh">爱始终在我们身边</span></p>
+      <p><span class="o" lang="ja">愛は自由だ</span><span class="t" data-l="en" lang="en">Love is freedom</span><span class="t" data-l="zh" lang="zh">爱是自由</span></p>
+      <p><span class="o" lang="ja">愛は与えることだ</span><span class="t" data-l="en" lang="en">Love is giving</span><span class="t" data-l="zh" lang="zh">爱是给予</span></p>
+      <p><span class="o" lang="ja">愛は生命</span><span class="t" data-l="en" lang="en">Love is life</span><span class="t" data-l="zh" lang="zh">爱是生命</span></p>
+      <p><span class="o" lang="ja">愛はすべてを起こす</span><span class="t" data-l="en" lang="en">Love makes everything happen</span><span class="t" data-l="zh" lang="zh">爱让一切发生</span></p>
+      <p><span class="o" lang="ja">愛は受け入れること</span><span class="t" data-l="en" lang="en">Love is accepting</span><span class="t" data-l="zh" lang="zh">爱是接纳</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" data-l="en" lang="en">To exist is love itself</span><span class="t" data-l="zh" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" data-l="en" lang="en">To exist is love itself</span><span class="t" data-l="zh" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" data-l="en" lang="en">To exist is love itself</span><span class="t" data-l="zh" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">光が愛を手渡している</span><span class="t" data-l="en" lang="en">The light is handing over love</span><span class="t" data-l="zh" lang="zh">光传递着爱</span></p>
+      <p><span class="o" lang="ja">海が愛を手渡している</span><span class="t" data-l="en" lang="en">The sea is handing over love</span><span class="t" data-l="zh" lang="zh">海传递着爱</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" data-l="en" lang="en">To exist is love itself</span><span class="t" data-l="zh" lang="zh">存在本身就是爱</span></p>
   </section>
 
   <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
 </main>
 
+<script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=1"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=1"></script>
+<script src="/scene/player.js?v=3"></script>
 </body>
 </html>

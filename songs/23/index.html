@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-sub="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=2">
+<link rel="stylesheet" href="/scene/style.css?v=3">
 </head>
 <body data-song="23">
 <div class="backdrop"></div>
@@ -47,6 +47,7 @@
   <div class="meta rise">
     <h1 id="title"></h1>
     <div class="sub" id="sub"></div>
+  <div class="sub-switch rise" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
   </div>
 
   <div class="player rise">
@@ -71,42 +72,44 @@
 
   <section class="full-lyrics" aria-label="Lyrics">
     <h2 class="fl-head">この季節の終わり lyrics</h2>
-      <p><span class="o" lang="ja">ざんこくなひざしが</span><span class="t" lang="zh">残酷的阳光</span></p>
-      <p><span class="o" lang="ja">すべてのいのちを　うばいさるように</span><span class="t" lang="zh">像要夺走所有的生命一样</span></p>
-      <p><span class="o" lang="ja">ふりそそいでいる</span><span class="t" lang="zh">倾泻而下</span></p>
-      <p><span class="o" lang="ja">うみをわたり</span><span class="t" lang="zh">渡过大海</span></p>
-      <p><span class="o" lang="ja">たいようのしたをあるく</span><span class="t" lang="zh">走在太阳底下</span></p>
-      <p><span class="o" lang="ja">このなつもいつか　おわりをむかえ</span><span class="t" lang="zh">这个夏天，总有一天也会结束</span></p>
-      <p><span class="o" lang="ja">ぼくもいっしょに　ここからきえてゆく</span><span class="t" lang="zh">我也会跟着它，从这里消失</span></p>
-      <p><span class="o" lang="ja">なつも　ふゆも　あきもすぎて</span><span class="t" lang="zh">夏天、冬天、秋天，都会过去</span></p>
-      <p><span class="o" lang="ja">うつくしいはるが　いつかやってくる</span><span class="t" lang="zh">美丽的春天，总有一天会来</span></p>
-      <p><span class="o" lang="ja">そのとききみは　おぼえているかな</span><span class="t" lang="zh">到那时候，你还会记得吗</span></p>
-      <p><span class="o" lang="ja">もうすぐきえてゆく　このなつのことを</span><span class="t" lang="zh">这个就快要消失的夏天</span></p>
-      <p><span class="o" lang="ja">あせとなみだが　ひとつにまざり</span><span class="t" lang="zh">汗水和泪水，混在一起</span></p>
-      <p><span class="o" lang="ja">ひかりとうみが　ひとつにとける</span><span class="t" lang="zh">光和海，融成一片</span></p>
-      <p><span class="o" lang="ja">まぶしいのに　こおりのようにつめたくて</span><span class="t" lang="zh">明明那么耀眼，却像冰一样冷</span></p>
-      <p><span class="o" lang="ja">きれいなせかいは　しずけさのなかでおわる</span><span class="t" lang="zh">美丽的世界，在寂静里结束</span></p>
-      <p><span class="o" lang="ja">なにをなくしたのかさえ　すこしずつわすれてゆく</span><span class="t" lang="zh">连自己失去了什么，都在一点点忘记</span></p>
-      <p><span class="o" lang="ja">それでもなみだだけは　とめられずにおちてゆく</span><span class="t" lang="zh">可是只有眼泪，怎么也止不住地落下</span></p>
-      <p><span class="o" lang="ja">このなつもいつか　おわりをむかえ</span><span class="t" lang="zh">这个夏天，总有一天也会结束</span></p>
-      <p><span class="o" lang="ja">ぼくもいっしょに　ここからきえてゆく</span><span class="t" lang="zh">我也会跟着它，从这里消失</span></p>
-      <p><span class="o" lang="ja">なつも　ふゆも　あきもすぎて</span><span class="t" lang="zh">夏天、冬天、秋天，都会过去</span></p>
-      <p><span class="o" lang="ja">うつくしいはるが　いつかやってくる</span><span class="t" lang="zh">美丽的春天，总有一天会来</span></p>
-      <p><span class="o" lang="ja">そのとききみは　おぼえているかな</span><span class="t" lang="zh">到那时候，你还会记得吗</span></p>
-      <p><span class="o" lang="ja">もうすぐきえてゆく　このなつのことを</span><span class="t" lang="zh">这个就快要消失的夏天</span></p>
-      <p><span class="o" lang="ja">あせとなみだが　ひとつにまざり</span><span class="t" lang="zh">汗水和泪水，混在一起</span></p>
-      <p><span class="o" lang="ja">ひかりとうみが　ひとつにとける</span><span class="t" lang="zh">光和海，融成一片</span></p>
-      <p><span class="o" lang="ja">まぶしいのに　こおりのようにつめたくて</span><span class="t" lang="zh">明明那么耀眼，却像冰一样冷</span></p>
-      <p><span class="o" lang="ja">きれいなせかいは　しずけさのなかでおわる</span><span class="t" lang="zh">美丽的世界，在寂静里结束</span></p>
-      <p><span class="o" lang="ja">なにをなくしたのかさえ　すこしずつわすれてゆく</span><span class="t" lang="zh">连自己失去了什么，都在一点点忘记</span></p>
-      <p><span class="o" lang="ja">それでもなみだだけは　とめられずにおちてゆく</span><span class="t" lang="zh">可是只有眼泪，怎么也止不住地落下</span></p>
+    <div class="sub-switch" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+      <p><span class="o" lang="ja">ざんこくなひざしが</span><span class="t" data-l="en" lang="en">The cruel sunlight</span><span class="t" data-l="zh" lang="zh">残酷的阳光</span></p>
+      <p><span class="o" lang="ja">すべてのいのちを　うばいさるように</span><span class="t" data-l="en" lang="en">As if to take away every life</span><span class="t" data-l="zh" lang="zh">像要夺走所有的生命一样</span></p>
+      <p><span class="o" lang="ja">ふりそそいでいる</span><span class="t" data-l="en" lang="en">Keeps pouring down</span><span class="t" data-l="zh" lang="zh">倾泻而下</span></p>
+      <p><span class="o" lang="ja">うみをわたり</span><span class="t" data-l="en" lang="en">Crossing the sea</span><span class="t" data-l="zh" lang="zh">渡过大海</span></p>
+      <p><span class="o" lang="ja">たいようのしたをあるく</span><span class="t" data-l="en" lang="en">I walk beneath the sun</span><span class="t" data-l="zh" lang="zh">走在太阳底下</span></p>
+      <p><span class="o" lang="ja">このなつもいつか　おわりをむかえ</span><span class="t" data-l="en" lang="en">Someday this summer will come to an end</span><span class="t" data-l="zh" lang="zh">这个夏天，总有一天也会结束</span></p>
+      <p><span class="o" lang="ja">ぼくもいっしょに　ここからきえてゆく</span><span class="t" data-l="en" lang="en">And I&#x27;ll disappear from here along with it</span><span class="t" data-l="zh" lang="zh">我也会跟着它，从这里消失</span></p>
+      <p><span class="o" lang="ja">なつも　ふゆも　あきもすぎて</span><span class="t" data-l="en" lang="en">Summer, winter and autumn will pass</span><span class="t" data-l="zh" lang="zh">夏天、冬天、秋天，都会过去</span></p>
+      <p><span class="o" lang="ja">うつくしいはるが　いつかやってくる</span><span class="t" data-l="en" lang="en">And a beautiful spring will come someday</span><span class="t" data-l="zh" lang="zh">美丽的春天，总有一天会来</span></p>
+      <p><span class="o" lang="ja">そのとききみは　おぼえているかな</span><span class="t" data-l="en" lang="en">When it does, will you remember</span><span class="t" data-l="zh" lang="zh">到那时候，你还会记得吗</span></p>
+      <p><span class="o" lang="ja">もうすぐきえてゆく　このなつのことを</span><span class="t" data-l="en" lang="en">This summer that&#x27;s about to disappear?</span><span class="t" data-l="zh" lang="zh">这个就快要消失的夏天</span></p>
+      <p><span class="o" lang="ja">あせとなみだが　ひとつにまざり</span><span class="t" data-l="en" lang="en">Sweat and tears blend into one</span><span class="t" data-l="zh" lang="zh">汗水和泪水，混在一起</span></p>
+      <p><span class="o" lang="ja">ひかりとうみが　ひとつにとける</span><span class="t" data-l="en" lang="en">Light and sea melt into one</span><span class="t" data-l="zh" lang="zh">光和海，融成一片</span></p>
+      <p><span class="o" lang="ja">まぶしいのに　こおりのようにつめたくて</span><span class="t" data-l="en" lang="en">So bright, and yet as cold as ice</span><span class="t" data-l="zh" lang="zh">明明那么耀眼，却像冰一样冷</span></p>
+      <p><span class="o" lang="ja">きれいなせかいは　しずけさのなかでおわる</span><span class="t" data-l="en" lang="en">The beautiful world ends in silence</span><span class="t" data-l="zh" lang="zh">美丽的世界，在寂静里结束</span></p>
+      <p><span class="o" lang="ja">なにをなくしたのかさえ　すこしずつわすれてゆく</span><span class="t" data-l="en" lang="en">Little by little I forget even what I lost</span><span class="t" data-l="zh" lang="zh">连自己失去了什么，都在一点点忘记</span></p>
+      <p><span class="o" lang="ja">それでもなみだだけは　とめられずにおちてゆく</span><span class="t" data-l="en" lang="en">Yet the tears keep falling and I can&#x27;t stop them</span><span class="t" data-l="zh" lang="zh">可是只有眼泪，怎么也止不住地落下</span></p>
+      <p><span class="o" lang="ja">このなつもいつか　おわりをむかえ</span><span class="t" data-l="en" lang="en">Someday this summer will come to an end</span><span class="t" data-l="zh" lang="zh">这个夏天，总有一天也会结束</span></p>
+      <p><span class="o" lang="ja">ぼくもいっしょに　ここからきえてゆく</span><span class="t" data-l="en" lang="en">And I&#x27;ll disappear from here along with it</span><span class="t" data-l="zh" lang="zh">我也会跟着它，从这里消失</span></p>
+      <p><span class="o" lang="ja">なつも　ふゆも　あきもすぎて</span><span class="t" data-l="en" lang="en">Summer, winter and autumn will pass</span><span class="t" data-l="zh" lang="zh">夏天、冬天、秋天，都会过去</span></p>
+      <p><span class="o" lang="ja">うつくしいはるが　いつかやってくる</span><span class="t" data-l="en" lang="en">And a beautiful spring will come someday</span><span class="t" data-l="zh" lang="zh">美丽的春天，总有一天会来</span></p>
+      <p><span class="o" lang="ja">そのとききみは　おぼえているかな</span><span class="t" data-l="en" lang="en">When it does, will you remember</span><span class="t" data-l="zh" lang="zh">到那时候，你还会记得吗</span></p>
+      <p><span class="o" lang="ja">もうすぐきえてゆく　このなつのことを</span><span class="t" data-l="en" lang="en">This summer that&#x27;s about to disappear?</span><span class="t" data-l="zh" lang="zh">这个就快要消失的夏天</span></p>
+      <p><span class="o" lang="ja">あせとなみだが　ひとつにまざり</span><span class="t" data-l="en" lang="en">Sweat and tears blend into one</span><span class="t" data-l="zh" lang="zh">汗水和泪水，混在一起</span></p>
+      <p><span class="o" lang="ja">ひかりとうみが　ひとつにとける</span><span class="t" data-l="en" lang="en">Light and sea melt into one</span><span class="t" data-l="zh" lang="zh">光和海，融成一片</span></p>
+      <p><span class="o" lang="ja">まぶしいのに　こおりのようにつめたくて</span><span class="t" data-l="en" lang="en">So bright, and yet as cold as ice</span><span class="t" data-l="zh" lang="zh">明明那么耀眼，却像冰一样冷</span></p>
+      <p><span class="o" lang="ja">きれいなせかいは　しずけさのなかでおわる</span><span class="t" data-l="en" lang="en">The beautiful world ends in silence</span><span class="t" data-l="zh" lang="zh">美丽的世界，在寂静里结束</span></p>
+      <p><span class="o" lang="ja">なにをなくしたのかさえ　すこしずつわすれてゆく</span><span class="t" data-l="en" lang="en">Little by little I forget even what I lost</span><span class="t" data-l="zh" lang="zh">连自己失去了什么，都在一点点忘记</span></p>
+      <p><span class="o" lang="ja">それでもなみだだけは　とめられずにおちてゆく</span><span class="t" data-l="en" lang="en">Yet the tears keep falling and I can&#x27;t stop them</span><span class="t" data-l="zh" lang="zh">可是只有眼泪，怎么也止不住地落下</span></p>
   </section>
 
   <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
 </main>
 
+<script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=1"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=1"></script>
+<script src="/scene/player.js?v=3"></script>
 </body>
 </html>

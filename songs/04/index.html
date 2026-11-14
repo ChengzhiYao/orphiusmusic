@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-sub="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=2">
+<link rel="stylesheet" href="/scene/style.css?v=3">
 </head>
 <body data-song="04">
 <div class="backdrop"></div>
@@ -47,6 +47,7 @@
   <div class="meta rise">
     <h1 id="title"></h1>
     <div class="sub" id="sub"></div>
+  <div class="sub-switch rise" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
   </div>
 
   <div class="player rise">
@@ -71,58 +72,60 @@
 
   <section class="full-lyrics" aria-label="Lyrics">
     <h2 class="fl-head">この街で lyrics</h2>
-      <p><span class="o" lang="ja">迷路をすり抜ける ガムはもう溶けそう</span><span class="t" lang="zh">穿过迷宫一样的街道，嘴里的口香糖快要化掉了</span></p>
-      <p><span class="o" lang="ja">赤か白か 渡れ？待って？ 見分けられない</span><span class="t" lang="zh">红灯还是白灯？该走还是该等？我分不清</span></p>
-      <p><span class="o" lang="ja">首に星の印の鳩が 肩先をかすめてゆくね</span><span class="t" lang="zh">一只脖子上带着星星印记的鸽子，从我肩旁掠过</span></p>
-      <p><span class="o" lang="ja">あなたは使者？ それとも何かの合図？</span><span class="t" lang="zh">啊，你难道是替身使者？还是想给我什么暗示？</span></p>
-      <p><span class="o" lang="ja">左右にスリップ 人波は潮のように押す</span><span class="t" lang="zh">我左闪右躲，人潮像潮水一样涌过来</span></p>
-      <p><span class="o" lang="ja">角を斜めに切って 風がイヤホンコードをさらう</span><span class="t" lang="zh">斜着切过街角，风扯走了我的耳机线</span></p>
-      <p><span class="o" lang="ja">また馴染みの匂い 地下鉄の湿った息</span><span class="t" lang="zh">啊，又是那股熟悉的味道——是地铁站呢</span></p>
-      <p><span class="o" lang="ja">歩幅を限界までねじ上げ</span><span class="t" lang="zh">把步子迈到最大</span></p>
-      <p><span class="o" lang="ja">この街に心をねじ込む</span><span class="t" lang="zh">把自己硬塞进这座城市的节奏里</span></p>
-      <p><span class="o" lang="ja">歩幅を上げて 最速で駆ける</span><span class="t" lang="zh">加快脚步，全速穿行</span></p>
-      <p><span class="o" lang="ja">私は立派なニューヨーカーになる</span><span class="t" lang="zh">我要做一个合格的纽约客</span></p>
-      <p><span class="o" lang="ja">柱にもたれて 疲れた目で 汚れていても</span><span class="t" lang="zh">百无聊赖地靠在柱子上，眼神疲惫</span></p>
-      <p><span class="o" lang="ja">時間通りの地下鉄を待つ</span><span class="t" lang="zh">等着那班脏兮兮、却总算准点的地铁</span></p>
-      <p><span class="o" lang="ja">勝手に曲を飛ばさないで</span><span class="t" lang="zh">喂，别自作主张给我切歌啊</span></p>
-      <p><span class="o" lang="ja">この区間のビートは 自分で合わせたい</span><span class="t" lang="zh">这一段的节拍，我想自己来踩</span></p>
-      <p><span class="o" lang="ja">緑のリサイクルビンを覗き込み</span><span class="t" lang="zh">把头探进绿色的回收桶，像在探索什么古老的秘密</span></p>
-      <p><span class="o" lang="ja">ごめんね ただガムを吐きたいだけ</span><span class="t" lang="zh">啊，抱歉，我只是想吐个口香糖</span></p>
-      <p><span class="o" lang="ja">ネオンが靴裏で砕け キオスクは朝を折り畳む</span><span class="t" lang="zh">霓虹在鞋底碎了一地，报刊亭收起了清晨</span></p>
-      <p><span class="o" lang="ja">紙コップはまだ熱い 角で夢を拾い直す</span><span class="t" lang="zh">手里的纸杯还烫着，我在街角把梦重新捡起来</span></p>
-      <p><span class="o" lang="ja">スマホが震えて 世界はまたログインを急かす</span><span class="t" lang="zh">手机一震，世界又在催我上线</span></p>
-      <p><span class="o" lang="ja">信号の半拍のズレに 呼吸を合わせてみる</span><span class="t" lang="zh">红绿灯总慢半拍，我试着把呼吸对上它</span></p>
-      <p><span class="o" lang="ja">指先は地下鉄の柱の 古傷をなぞり</span><span class="t" lang="zh">指尖划过地铁柱子上的旧划痕</span></p>
-      <p><span class="o" lang="ja">昨日の広告で埋まった 反響の壁</span><span class="t" lang="zh">贴满过期广告的墙，回声来回打转</span></p>
-      <p><span class="o" lang="ja">歩幅で街のドラムを刻み</span><span class="t" lang="zh">用脚步敲出这座城市的鼓点</span></p>
-      <p><span class="o" lang="ja">鼓動にサインをさせる</span><span class="t" lang="zh">再让心跳签上自己的名字</span></p>
-      <p><span class="o" lang="ja">今この瞬間 私はただここにある</span><span class="t" lang="zh">此时此刻，我只是存在于此</span></p>
-      <p><span class="o" lang="ja">人波が私を持ち上げ</span><span class="t" lang="zh">人潮把我托起</span></p>
-      <p><span class="o" lang="ja">もう一度沈める</span><span class="t" lang="zh">又把我淹没</span></p>
-      <p><span class="o" lang="ja">風よ 胸を抜けて 夜をもっと広くして</span><span class="t" lang="zh">风啊，穿过我的胸口，让夜再宽一点</span></p>
-      <p><span class="o" lang="ja">答えは急がないで 問いのまま生かしておいて</span><span class="t" lang="zh">不用急着找答案，就让问题先留着吧</span></p>
-      <p><span class="o" lang="ja">このまま感じさせて 全てを 全てを</span><span class="t" lang="zh">就让我这样感受着吧，所有的一切，一切</span></p>
-      <p><span class="o" lang="ja">明かりと影は和解し</span><span class="t" lang="zh">光和影握手言和</span></p>
-      <p><span class="o" lang="ja">脈とレールは並走する</span><span class="t" lang="zh">脉搏和铁轨并肩奔跑</span></p>
-      <p><span class="o" lang="ja">きっと私は最初から 一人で歌ってなんかいない</span><span class="t" lang="zh">也许我一直以来，都不是一个人在唱这首歌</span></p>
-      <p><span class="o" lang="ja">この歌は 無数の喉で</span><span class="t" lang="zh">这首歌，有无数个声音在唱</span></p>
-      <p><span class="o" lang="ja">同じ鼓動に拾われている</span><span class="t" lang="zh">被同一种心跳接住</span></p>
-      <p><span class="o" lang="ja">私はここに あなたもここに</span><span class="t" lang="zh">我在这里，你也在这里</span></p>
-      <p><span class="o" lang="ja">街は呼吸し 私たちも呼吸する</span><span class="t" lang="zh">城市在呼吸，我们也在呼吸</span></p>
-      <p><span class="o" lang="ja">ガムの甘さを 目覚めの勇気に変えて</span><span class="t" lang="zh">把口香糖的甜味，换成清醒过来的勇气</span></p>
-      <p><span class="o" lang="ja">今この瞬間 今この瞬間</span><span class="t" lang="zh">此时此刻，此时此刻</span></p>
-      <p><span class="o" lang="ja">あなたの瞳に 私はある</span><span class="t" lang="zh">我就在你的眼睛里</span></p>
-      <p><span class="o" lang="ja">地下鉄は遠のき 風だけが残る</span><span class="t" lang="zh">地铁远去，只剩下风</span></p>
-      <p><span class="o" lang="ja">歩幅を少し緩めて</span><span class="t" lang="zh">把脚步放慢一点</span></p>
-      <p><span class="o" lang="ja">夜が天を引き延ばす</span><span class="t" lang="zh">夜把天空拉得好长好长</span></p>
-      <p><span class="o" lang="ja">心は世界を もう少し広くする</span><span class="t" lang="zh">心把世界又撑大了一点</span></p>
+    <div class="sub-switch" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+      <p><span class="o" lang="ja">迷路をすり抜ける ガムはもう溶けそう</span><span class="t" data-l="en" lang="en">Slipping through the maze of streets, my gum about to melt</span><span class="t" data-l="zh" lang="zh">穿过迷宫一样的街道，嘴里的口香糖快要化掉了</span></p>
+      <p><span class="o" lang="ja">赤か白か 渡れ？待って？ 見分けられない</span><span class="t" data-l="en" lang="en">Red or white? Walk or wait? I can&#x27;t tell</span><span class="t" data-l="zh" lang="zh">红灯还是白灯？该走还是该等？我分不清</span></p>
+      <p><span class="o" lang="ja">首に星の印の鳩が 肩先をかすめてゆくね</span><span class="t" data-l="en" lang="en">A pigeon with a star mark on its neck brushes past my shoulder</span><span class="t" data-l="zh" lang="zh">一只脖子上带着星星印记的鸽子，从我肩旁掠过</span></p>
+      <p><span class="o" lang="ja">あなたは使者？ それとも何かの合図？</span><span class="t" data-l="en" lang="en">Are you a Stand user? Or is this some kind of sign?</span><span class="t" data-l="zh" lang="zh">啊，你难道是替身使者？还是想给我什么暗示？</span></p>
+      <p><span class="o" lang="ja">左右にスリップ 人波は潮のように押す</span><span class="t" data-l="en" lang="en">Slipping left and right, the crowd pushes like the tide</span><span class="t" data-l="zh" lang="zh">我左闪右躲，人潮像潮水一样涌过来</span></p>
+      <p><span class="o" lang="ja">角を斜めに切って 風がイヤホンコードをさらう</span><span class="t" data-l="en" lang="en">I cut the corner, and the wind snatches my earphone cord</span><span class="t" data-l="zh" lang="zh">斜着切过街角，风扯走了我的耳机线</span></p>
+      <p><span class="o" lang="ja">また馴染みの匂い 地下鉄の湿った息</span><span class="t" data-l="en" lang="en">That familiar smell again, the damp breath of the subway</span><span class="t" data-l="zh" lang="zh">啊，又是那股熟悉的味道——是地铁站呢</span></p>
+      <p><span class="o" lang="ja">歩幅を限界までねじ上げ</span><span class="t" data-l="en" lang="en">I stretch my stride as far as it goes</span><span class="t" data-l="zh" lang="zh">把步子迈到最大</span></p>
+      <p><span class="o" lang="ja">この街に心をねじ込む</span><span class="t" data-l="en" lang="en">And force my heart into this city</span><span class="t" data-l="zh" lang="zh">把自己硬塞进这座城市的节奏里</span></p>
+      <p><span class="o" lang="ja">歩幅を上げて 最速で駆ける</span><span class="t" data-l="en" lang="en">Longer strides, running at full speed</span><span class="t" data-l="zh" lang="zh">加快脚步，全速穿行</span></p>
+      <p><span class="o" lang="ja">私は立派なニューヨーカーになる</span><span class="t" data-l="en" lang="en">I&#x27;m going to be a proper New Yorker</span><span class="t" data-l="zh" lang="zh">我要做一个合格的纽约客</span></p>
+      <p><span class="o" lang="ja">柱にもたれて 疲れた目で 汚れていても</span><span class="t" data-l="en" lang="en">Leaning on a pillar with tired eyes, dirty as it is</span><span class="t" data-l="zh" lang="zh">百无聊赖地靠在柱子上，眼神疲惫</span></p>
+      <p><span class="o" lang="ja">時間通りの地下鉄を待つ</span><span class="t" data-l="en" lang="en">I wait for the subway that&#x27;s actually on time</span><span class="t" data-l="zh" lang="zh">等着那班脏兮兮、却总算准点的地铁</span></p>
+      <p><span class="o" lang="ja">勝手に曲を飛ばさないで</span><span class="t" data-l="en" lang="en">Hey, don&#x27;t skip my song on your own</span><span class="t" data-l="zh" lang="zh">喂，别自作主张给我切歌啊</span></p>
+      <p><span class="o" lang="ja">この区間のビートは 自分で合わせたい</span><span class="t" data-l="en" lang="en">I want to keep the beat of this stretch myself</span><span class="t" data-l="zh" lang="zh">这一段的节拍，我想自己来踩</span></p>
+      <p><span class="o" lang="ja">緑のリサイクルビンを覗き込み</span><span class="t" data-l="en" lang="en">I lean into the green recycling bin</span><span class="t" data-l="zh" lang="zh">把头探进绿色的回收桶，像在探索什么古老的秘密</span></p>
+      <p><span class="o" lang="ja">ごめんね ただガムを吐きたいだけ</span><span class="t" data-l="en" lang="en">Sorry, I just want to spit out my gum</span><span class="t" data-l="zh" lang="zh">啊，抱歉，我只是想吐个口香糖</span></p>
+      <p><span class="o" lang="ja">ネオンが靴裏で砕け キオスクは朝を折り畳む</span><span class="t" data-l="en" lang="en">Neon shatters under my soles, the newsstand folds up the morning</span><span class="t" data-l="zh" lang="zh">霓虹在鞋底碎了一地，报刊亭收起了清晨</span></p>
+      <p><span class="o" lang="ja">紙コップはまだ熱い 角で夢を拾い直す</span><span class="t" data-l="en" lang="en">The paper cup is still hot; on the corner I pick my dream back up</span><span class="t" data-l="zh" lang="zh">手里的纸杯还烫着，我在街角把梦重新捡起来</span></p>
+      <p><span class="o" lang="ja">スマホが震えて 世界はまたログインを急かす</span><span class="t" data-l="en" lang="en">My phone buzzes, the world rushing me to log in again</span><span class="t" data-l="zh" lang="zh">手机一震，世界又在催我上线</span></p>
+      <p><span class="o" lang="ja">信号の半拍のズレに 呼吸を合わせてみる</span><span class="t" data-l="en" lang="en">I match my breath to the traffic light that&#x27;s half a beat late</span><span class="t" data-l="zh" lang="zh">红绿灯总慢半拍，我试着把呼吸对上它</span></p>
+      <p><span class="o" lang="ja">指先は地下鉄の柱の 古傷をなぞり</span><span class="t" data-l="en" lang="en">My fingertips trace old scratches on the subway pillar</span><span class="t" data-l="zh" lang="zh">指尖划过地铁柱子上的旧划痕</span></p>
+      <p><span class="o" lang="ja">昨日の広告で埋まった 反響の壁</span><span class="t" data-l="en" lang="en">Walls full of yesterday&#x27;s ads, echoing back</span><span class="t" data-l="zh" lang="zh">贴满过期广告的墙，回声来回打转</span></p>
+      <p><span class="o" lang="ja">歩幅で街のドラムを刻み</span><span class="t" data-l="en" lang="en">My steps beat out the city&#x27;s drum</span><span class="t" data-l="zh" lang="zh">用脚步敲出这座城市的鼓点</span></p>
+      <p><span class="o" lang="ja">鼓動にサインをさせる</span><span class="t" data-l="en" lang="en">And I let my heartbeat sign its name</span><span class="t" data-l="zh" lang="zh">再让心跳签上自己的名字</span></p>
+      <p><span class="o" lang="ja">今この瞬間 私はただここにある</span><span class="t" data-l="en" lang="en">Right now, in this moment, I simply exist here</span><span class="t" data-l="zh" lang="zh">此时此刻，我只是存在于此</span></p>
+      <p><span class="o" lang="ja">人波が私を持ち上げ</span><span class="t" data-l="en" lang="en">The crowd lifts me up</span><span class="t" data-l="zh" lang="zh">人潮把我托起</span></p>
+      <p><span class="o" lang="ja">もう一度沈める</span><span class="t" data-l="en" lang="en">And pulls me under again</span><span class="t" data-l="zh" lang="zh">又把我淹没</span></p>
+      <p><span class="o" lang="ja">風よ 胸を抜けて 夜をもっと広くして</span><span class="t" data-l="en" lang="en">Wind, pass through my chest and make the night wider</span><span class="t" data-l="zh" lang="zh">风啊，穿过我的胸口，让夜再宽一点</span></p>
+      <p><span class="o" lang="ja">答えは急がないで 問いのまま生かしておいて</span><span class="t" data-l="en" lang="en">Don&#x27;t rush the answer; let the question stay alive</span><span class="t" data-l="zh" lang="zh">不用急着找答案，就让问题先留着吧</span></p>
+      <p><span class="o" lang="ja">このまま感じさせて 全てを 全てを</span><span class="t" data-l="en" lang="en">Let me feel it like this, all of it, all of it</span><span class="t" data-l="zh" lang="zh">就让我这样感受着吧，所有的一切，一切</span></p>
+      <p><span class="o" lang="ja">明かりと影は和解し</span><span class="t" data-l="en" lang="en">Light and shadow make peace</span><span class="t" data-l="zh" lang="zh">光和影握手言和</span></p>
+      <p><span class="o" lang="ja">脈とレールは並走する</span><span class="t" data-l="en" lang="en">My pulse runs side by side with the rails</span><span class="t" data-l="zh" lang="zh">脉搏和铁轨并肩奔跑</span></p>
+      <p><span class="o" lang="ja">きっと私は最初から 一人で歌ってなんかいない</span><span class="t" data-l="en" lang="en">Maybe I was never singing alone from the start</span><span class="t" data-l="zh" lang="zh">也许我一直以来，都不是一个人在唱这首歌</span></p>
+      <p><span class="o" lang="ja">この歌は 無数の喉で</span><span class="t" data-l="en" lang="en">This song is sung by countless voices</span><span class="t" data-l="zh" lang="zh">这首歌，有无数个声音在唱</span></p>
+      <p><span class="o" lang="ja">同じ鼓動に拾われている</span><span class="t" data-l="en" lang="en">Caught by the same heartbeat</span><span class="t" data-l="zh" lang="zh">被同一种心跳接住</span></p>
+      <p><span class="o" lang="ja">私はここに あなたもここに</span><span class="t" data-l="en" lang="en">I&#x27;m here, and you&#x27;re here too</span><span class="t" data-l="zh" lang="zh">我在这里，你也在这里</span></p>
+      <p><span class="o" lang="ja">街は呼吸し 私たちも呼吸する</span><span class="t" data-l="en" lang="en">The city breathes, and so do we</span><span class="t" data-l="zh" lang="zh">城市在呼吸，我们也在呼吸</span></p>
+      <p><span class="o" lang="ja">ガムの甘さを 目覚めの勇気に変えて</span><span class="t" data-l="en" lang="en">Turning the sweetness of my gum into the courage to wake up</span><span class="t" data-l="zh" lang="zh">把口香糖的甜味，换成清醒过来的勇气</span></p>
+      <p><span class="o" lang="ja">今この瞬間 今この瞬間</span><span class="t" data-l="en" lang="en">Right now, right now</span><span class="t" data-l="zh" lang="zh">此时此刻，此时此刻</span></p>
+      <p><span class="o" lang="ja">あなたの瞳に 私はある</span><span class="t" data-l="en" lang="en">I exist in your eyes</span><span class="t" data-l="zh" lang="zh">我就在你的眼睛里</span></p>
+      <p><span class="o" lang="ja">地下鉄は遠のき 風だけが残る</span><span class="t" data-l="en" lang="en">The subway fades away; only the wind remains</span><span class="t" data-l="zh" lang="zh">地铁远去，只剩下风</span></p>
+      <p><span class="o" lang="ja">歩幅を少し緩めて</span><span class="t" data-l="en" lang="en">I slow my steps a little</span><span class="t" data-l="zh" lang="zh">把脚步放慢一点</span></p>
+      <p><span class="o" lang="ja">夜が天を引き延ばす</span><span class="t" data-l="en" lang="en">The night stretches the sky out long</span><span class="t" data-l="zh" lang="zh">夜把天空拉得好长好长</span></p>
+      <p><span class="o" lang="ja">心は世界を もう少し広くする</span><span class="t" data-l="en" lang="en">And my heart makes the world a little wider</span><span class="t" data-l="zh" lang="zh">心把世界又撑大了一点</span></p>
   </section>
 
   <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
 </main>
 
+<script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=1"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=1"></script>
+<script src="/scene/player.js?v=3"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-sub="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=2">
+<link rel="stylesheet" href="/scene/style.css?v=3">
 </head>
 <body data-song="08">
 <div class="backdrop"></div>
@@ -47,6 +47,7 @@
   <div class="meta rise">
     <h1 id="title"></h1>
     <div class="sub" id="sub"></div>
+  <div class="sub-switch rise" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
   </div>
 
   <div class="player rise">
@@ -71,38 +72,40 @@
 
   <section class="full-lyrics" aria-label="Lyrics">
     <h2 class="fl-head">わたしの Illusion lyrics</h2>
-      <p><span class="o" lang="ja">私の illusion 君の reality</span><span class="t" lang="zh">我的幻象，你的现实</span></p>
-      <p><span class="o" lang="ja">交わらない夢と truth</span><span class="t" lang="zh">无法交汇的梦与真实</span></p>
-      <p><span class="o" lang="ja">幻想と現実の交差点</span><span class="t" lang="zh">幻想与现实的交叉点</span></p>
-      <p><span class="o" lang="en">Open your eyes, so you can see</span><span class="t" lang="zh">睁开双眼，你就会看见</span></p>
-      <p><span class="o" lang="en">The darkness beneath the ground</span><span class="t" lang="zh">深埋地底的黑暗</span></p>
-      <p><span class="o" lang="ja">童話なんて嫌いだよ</span><span class="t" lang="zh">我讨厌童话</span></p>
-      <p><span class="o" lang="en">&#x27;Cause we already live inside the story</span><span class="t" lang="zh">因为我们早已活在故事之中</span></p>
-      <p><span class="o" lang="ja">運命のライン crossing then fading</span><span class="t" lang="zh">命运的线交错，又渐渐消散</span></p>
-      <p><span class="o" lang="ja">すれ違う声 never connecting</span><span class="t" lang="zh">交错而过的声音，始终无法相连</span></p>
-      <p><span class="o" lang="en">I search for the light in this endless night</span><span class="t" lang="zh">我在这无尽的长夜里寻找光</span></p>
-      <p><span class="o" lang="ja">混沌の国で you can&#x27;t reach me</span><span class="t" lang="zh">在混沌之境，你无法触及我</span></p>
-      <p><span class="o" lang="ja">指先で触れて feel my existence</span><span class="t" lang="zh">用指尖触碰，感受我的存在</span></p>
-      <p><span class="o" lang="en">Even if we&#x27;ll never share the same world</span><span class="t" lang="zh">即使我们终究无法共享同一个世界</span></p>
-      <p><span class="o" lang="ja">闇の底で囁く声</span><span class="t" lang="zh">黑暗深处传来低语</span></p>
-      <p><span class="o" lang="en">The storylines tangle, then drift apart again</span><span class="t" lang="zh">故事的脉络纠缠，又再次分离</span></p>
-      <p><span class="o" lang="ja">離れても still I&#x27;m calling your name</span><span class="t" lang="zh">即使相隔遥远，我仍呼唤着你的名字</span></p>
-      <p><span class="o" lang="ja">遥かな distance, unreachable fate</span><span class="t" lang="zh">遥远的距离，无法抵达的命运</span></p>
-      <p><span class="o" lang="ja">触れて with your fingertips</span><span class="t" lang="zh">用你的指尖触碰我</span></p>
-      <p><span class="o" lang="ja">感じて my shadowed soul</span><span class="t" lang="zh">感受我被阴影笼罩的灵魂</span></p>
-      <p><span class="o" lang="en">We&#x27;re worlds apart, but still I believe</span><span class="t" lang="zh">我们身处不同的世界，但我仍然相信</span></p>
-      <p><span class="o" lang="ja">永遠に交わらない destiny</span><span class="t" lang="zh">永不相交的命运</span></p>
-      <p><span class="o" lang="en">I search for the light in this endless night</span><span class="t" lang="zh">我在这无尽的长夜里寻找光</span></p>
-      <p><span class="o" lang="ja">光と闇の狭間で</span><span class="t" lang="zh">在光与暗的夹缝之间</span></p>
-      <p><span class="o" lang="ja">触れ合う一瞬 fading into silence</span><span class="t" lang="zh">短暂相触的瞬间，消散于沉默</span></p>
-      <p><span class="o" lang="ja">私の illusion 君の reality</span><span class="t" lang="zh">我的幻象，你的现实</span></p>
+    <div class="sub-switch" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+      <p><span class="o" lang="ja">私の illusion 君の reality</span><span class="t" data-l="en" lang="en">My illusion, your reality</span><span class="t" data-l="zh" lang="zh">我的幻象，你的现实</span></p>
+      <p><span class="o" lang="ja">交わらない夢と truth</span><span class="t" data-l="en" lang="en">A dream and a truth that never meet</span><span class="t" data-l="zh" lang="zh">无法交汇的梦与真实</span></p>
+      <p><span class="o" lang="ja">幻想と現実の交差点</span><span class="t" data-l="en" lang="en">Where fantasy and reality cross</span><span class="t" data-l="zh" lang="zh">幻想与现实的交叉点</span></p>
+      <p><span class="o" lang="en">Open your eyes, so you can see</span><span class="t" data-l="zh" lang="zh">睁开双眼，你就会看见</span><span class="t" data-l="ja" lang="ja">目を開けて、そうすれば見える</span></p>
+      <p><span class="o" lang="en">The darkness beneath the ground</span><span class="t" data-l="zh" lang="zh">深埋地底的黑暗</span><span class="t" data-l="ja" lang="ja">地の底に眠る闇が</span></p>
+      <p><span class="o" lang="ja">童話なんて嫌いだよ</span><span class="t" data-l="en" lang="en">I hate fairy tales</span><span class="t" data-l="zh" lang="zh">我讨厌童话</span></p>
+      <p><span class="o" lang="en">&#x27;Cause we already live inside the story</span><span class="t" data-l="zh" lang="zh">因为我们早已活在故事之中</span><span class="t" data-l="ja" lang="ja">だって私たちはもう物語の中に生きているから</span></p>
+      <p><span class="o" lang="ja">運命のライン crossing then fading</span><span class="t" data-l="en" lang="en">Lines of fate, crossing, then fading</span><span class="t" data-l="zh" lang="zh">命运的线交错，又渐渐消散</span></p>
+      <p><span class="o" lang="ja">すれ違う声 never connecting</span><span class="t" data-l="en" lang="en">Voices passing by, never connecting</span><span class="t" data-l="zh" lang="zh">交错而过的声音，始终无法相连</span></p>
+      <p><span class="o" lang="en">I search for the light in this endless night</span><span class="t" data-l="zh" lang="zh">我在这无尽的长夜里寻找光</span><span class="t" data-l="ja" lang="ja">終わらない夜の中で光を探す</span></p>
+      <p><span class="o" lang="ja">混沌の国で you can&#x27;t reach me</span><span class="t" data-l="en" lang="en">In the land of chaos, you can&#x27;t reach me</span><span class="t" data-l="zh" lang="zh">在混沌之境，你无法触及我</span></p>
+      <p><span class="o" lang="ja">指先で触れて feel my existence</span><span class="t" data-l="en" lang="en">Touch me with your fingertips, feel my existence</span><span class="t" data-l="zh" lang="zh">用指尖触碰，感受我的存在</span></p>
+      <p><span class="o" lang="en">Even if we&#x27;ll never share the same world</span><span class="t" data-l="zh" lang="zh">即使我们终究无法共享同一个世界</span><span class="t" data-l="ja" lang="ja">同じ世界を分かち合えなくても</span></p>
+      <p><span class="o" lang="ja">闇の底で囁く声</span><span class="t" data-l="en" lang="en">A voice whispering from the bottom of the dark</span><span class="t" data-l="zh" lang="zh">黑暗深处传来低语</span></p>
+      <p><span class="o" lang="en">The storylines tangle, then drift apart again</span><span class="t" data-l="zh" lang="zh">故事的脉络纠缠，又再次分离</span><span class="t" data-l="ja" lang="ja">物語の糸は絡まり、また離れていく</span></p>
+      <p><span class="o" lang="ja">離れても still I&#x27;m calling your name</span><span class="t" data-l="en" lang="en">Even far apart, still I&#x27;m calling your name</span><span class="t" data-l="zh" lang="zh">即使相隔遥远，我仍呼唤着你的名字</span></p>
+      <p><span class="o" lang="ja">遥かな distance, unreachable fate</span><span class="t" data-l="en" lang="en">A distant distance, an unreachable fate</span><span class="t" data-l="zh" lang="zh">遥远的距离，无法抵达的命运</span></p>
+      <p><span class="o" lang="ja">触れて with your fingertips</span><span class="t" data-l="en" lang="en">Touch me with your fingertips</span><span class="t" data-l="zh" lang="zh">用你的指尖触碰我</span></p>
+      <p><span class="o" lang="ja">感じて my shadowed soul</span><span class="t" data-l="en" lang="en">Feel my shadowed soul</span><span class="t" data-l="zh" lang="zh">感受我被阴影笼罩的灵魂</span></p>
+      <p><span class="o" lang="en">We&#x27;re worlds apart, but still I believe</span><span class="t" data-l="zh" lang="zh">我们身处不同的世界，但我仍然相信</span><span class="t" data-l="ja" lang="ja">違う世界にいても、それでも信じてる</span></p>
+      <p><span class="o" lang="ja">永遠に交わらない destiny</span><span class="t" data-l="en" lang="en">A destiny that will never meet</span><span class="t" data-l="zh" lang="zh">永不相交的命运</span></p>
+      <p><span class="o" lang="en">I search for the light in this endless night</span><span class="t" data-l="zh" lang="zh">我在这无尽的长夜里寻找光</span><span class="t" data-l="ja" lang="ja">終わらない夜の中で光を探す</span></p>
+      <p><span class="o" lang="ja">光と闇の狭間で</span><span class="t" data-l="en" lang="en">In the gap between light and dark</span><span class="t" data-l="zh" lang="zh">在光与暗的夹缝之间</span></p>
+      <p><span class="o" lang="ja">触れ合う一瞬 fading into silence</span><span class="t" data-l="en" lang="en">The instant we touch, fading into silence</span><span class="t" data-l="zh" lang="zh">短暂相触的瞬间，消散于沉默</span></p>
+      <p><span class="o" lang="ja">私の illusion 君の reality</span><span class="t" data-l="en" lang="en">My illusion, your reality</span><span class="t" data-l="zh" lang="zh">我的幻象，你的现实</span></p>
   </section>
 
   <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
 </main>
 
+<script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=1"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=1"></script>
+<script src="/scene/player.js?v=3"></script>
 </body>
 </html>

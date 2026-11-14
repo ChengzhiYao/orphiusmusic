@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-sub="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/scene/style.css?v=2">
+<link rel="stylesheet" href="/scene/style.css?v=3">
 </head>
 <body data-song="13">
 <div class="backdrop"></div>
@@ -47,6 +47,7 @@
   <div class="meta rise">
     <h1 id="title"></h1>
     <div class="sub" id="sub"></div>
+  <div class="sub-switch rise" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
   </div>
 
   <div class="player rise">
@@ -71,39 +72,41 @@
 
   <section class="full-lyrics" aria-label="Lyrics">
     <h2 class="fl-head">近づく lyrics</h2>
-      <p><span class="o" lang="ja">近づきたい……</span><span class="t" lang="zh">想要靠近……</span></p>
-      <p><span class="o" lang="ja">でも——近づけない……haa…</span><span class="t" lang="zh">却——不敢靠近……haa…</span></p>
-      <p><span class="o" lang="ja">続く呼吸が　鼻の奥を刺す</span><span class="t" lang="zh">连贯的呼吸声　刺激着鼻腔</span></p>
-      <p><span class="o" lang="ja">脳が興奮して　震えて　ああ——</span><span class="t" lang="zh">大脑在兴奋　在颤抖　在　啊啊——</span></p>
-      <p><span class="o" lang="ja">この…この刺激は　何なの？</span><span class="t" lang="zh">这……这种刺激感又是什么呢？</span></p>
-      <p><span class="o" lang="ja">回転…する…螺旋階段が落ちていく</span><span class="t" lang="zh">回旋着……螺旋楼梯不断坠落</span></p>
-      <p><span class="o" lang="ja">六道の子が耳元で…ざわ…ざわ…</span><span class="t" lang="zh">六道之子在耳边……窸窣……窸窣……</span></p>
-      <p><span class="o" lang="ja">発がん剤の匂い</span><span class="t" lang="zh">致癌剂的气味</span></p>
-      <p><span class="o" lang="ja">空のミネラルボトルが転がり</span><span class="t" lang="zh">空矿泉水瓶滚来滚去</span></p>
-      <p><span class="o" lang="ja">不眠症の患者が呼吸を数えて</span><span class="t" lang="zh">失眠的病人数着自己的呼吸</span></p>
-      <p><span class="o" lang="ja">指先のダンス—— tap tap tap</span><span class="t" lang="zh">指尖在跳舞——嗒、嗒、嗒</span></p>
-      <p><span class="o" lang="ja">あ…あぁ…これ……何なんだよ？</span><span class="t" lang="zh">啊……啊啊……这……到底是什么？</span></p>
-      <p><span class="o" lang="ja">ググ…ググ… フクロウが頭上をかすめて</span><span class="t" lang="zh">咕咕……咕咕……猫头鹰掠过头顶</span></p>
-      <p><span class="o" lang="ja">ニャァ…ニャァ… 子猫が脚の上でぬくもりを残し</span><span class="t" lang="zh">喵……喵……小猫在腿上留下一点温度</span></p>
-      <p><span class="o" lang="ja">ワンワン…ワンワン…</span><span class="t" lang="zh">汪汪……汪汪……</span></p>
-      <p><span class="o" lang="ja">小さな犬が外へ出たいって吠えて</span><span class="t" lang="zh">小狗叫着想要出去</span></p>
-      <p><span class="o" lang="ja">プク…プク… 金魚が泡を吐いて…消えて</span><span class="t" lang="zh">噗……噗……金鱼吐着泡泡……消失了</span></p>
-      <p><span class="o" lang="ja">もう…うるさい</span><span class="t" lang="zh">够了……好吵</span></p>
-      <p><span class="o" lang="ja">もういい　もういいよ</span><span class="t" lang="zh">不管了　不管了</span></p>
-      <p><span class="o" lang="ja">もう知らない</span><span class="t" lang="zh">什么都不管了</span></p>
-      <p><span class="o" lang="ja">全部……全部……壊れよう</span><span class="t" lang="zh">全部……全部毁灭吧</span></p>
-      <p><span class="o" lang="ja">近づきたい　近づけない</span><span class="t" lang="zh">我想靠近　又不敢靠近</span></p>
-      <p><span class="o" lang="ja">耳の奥で呼吸だけがまとわりついて　ああ</span><span class="t" lang="zh">呼吸声在耳边缠着不走，啊——</span></p>
-      <p><span class="o" lang="ja">胸を叩く鼓動が</span><span class="t" lang="zh">心脏敲在胸腔里</span></p>
-      <p><span class="o" lang="ja">助けを求めてるみたいで</span><span class="t" lang="zh">像在求救</span></p>
-      <p><span class="o" lang="ja">そして落ちていく</span><span class="t" lang="zh">然后……坠落下去</span></p>
+    <div class="sub-switch" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+      <p><span class="o" lang="ja">近づきたい……</span><span class="t" data-l="en" lang="en">I want to get closer...</span><span class="t" data-l="zh" lang="zh">想要靠近……</span></p>
+      <p><span class="o" lang="ja">でも——近づけない……haa…</span><span class="t" data-l="en" lang="en">But I can&#x27;t get closer... haa...</span><span class="t" data-l="zh" lang="zh">却——不敢靠近……haa…</span></p>
+      <p><span class="o" lang="ja">続く呼吸が　鼻の奥を刺す</span><span class="t" data-l="en" lang="en">My breathing goes on, stinging deep in my nose</span><span class="t" data-l="zh" lang="zh">连贯的呼吸声　刺激着鼻腔</span></p>
+      <p><span class="o" lang="ja">脳が興奮して　震えて　ああ——</span><span class="t" data-l="en" lang="en">My brain is buzzing, trembling, ah—</span><span class="t" data-l="zh" lang="zh">大脑在兴奋　在颤抖　在　啊啊——</span></p>
+      <p><span class="o" lang="ja">この…この刺激は　何なの？</span><span class="t" data-l="en" lang="en">What... what is this rush?</span><span class="t" data-l="zh" lang="zh">这……这种刺激感又是什么呢？</span></p>
+      <p><span class="o" lang="ja">回転…する…螺旋階段が落ちていく</span><span class="t" data-l="en" lang="en">Spinning... a spiral staircase falling down</span><span class="t" data-l="zh" lang="zh">回旋着……螺旋楼梯不断坠落</span></p>
+      <p><span class="o" lang="ja">六道の子が耳元で…ざわ…ざわ…</span><span class="t" data-l="en" lang="en">Children of the six realms at my ear... rustle... rustle...</span><span class="t" data-l="zh" lang="zh">六道之子在耳边……窸窣……窸窣……</span></p>
+      <p><span class="o" lang="ja">発がん剤の匂い</span><span class="t" data-l="en" lang="en">The smell of carcinogens</span><span class="t" data-l="zh" lang="zh">致癌剂的气味</span></p>
+      <p><span class="o" lang="ja">空のミネラルボトルが転がり</span><span class="t" data-l="en" lang="en">An empty water bottle rolls around</span><span class="t" data-l="zh" lang="zh">空矿泉水瓶滚来滚去</span></p>
+      <p><span class="o" lang="ja">不眠症の患者が呼吸を数えて</span><span class="t" data-l="en" lang="en">An insomniac counts their breaths</span><span class="t" data-l="zh" lang="zh">失眠的病人数着自己的呼吸</span></p>
+      <p><span class="o" lang="ja">指先のダンス—— tap tap tap</span><span class="t" data-l="en" lang="en">My fingertips dance, tap, tap, tap</span><span class="t" data-l="zh" lang="zh">指尖在跳舞——嗒、嗒、嗒</span></p>
+      <p><span class="o" lang="ja">あ…あぁ…これ……何なんだよ？</span><span class="t" data-l="en" lang="en">Ah... ahh... what... what is this?</span><span class="t" data-l="zh" lang="zh">啊……啊啊……这……到底是什么？</span></p>
+      <p><span class="o" lang="ja">ググ…ググ… フクロウが頭上をかすめて</span><span class="t" data-l="en" lang="en">Hoo... hoo... an owl skims over my head</span><span class="t" data-l="zh" lang="zh">咕咕……咕咕……猫头鹰掠过头顶</span></p>
+      <p><span class="o" lang="ja">ニャァ…ニャァ… 子猫が脚の上でぬくもりを残し</span><span class="t" data-l="en" lang="en">Mew... mew... a kitten leaves its warmth on my leg</span><span class="t" data-l="zh" lang="zh">喵……喵……小猫在腿上留下一点温度</span></p>
+      <p><span class="o" lang="ja">ワンワン…ワンワン…</span><span class="t" data-l="en" lang="en">Woof woof... woof woof...</span><span class="t" data-l="zh" lang="zh">汪汪……汪汪……</span></p>
+      <p><span class="o" lang="ja">小さな犬が外へ出たいって吠えて</span><span class="t" data-l="en" lang="en">A little dog barks to be let outside</span><span class="t" data-l="zh" lang="zh">小狗叫着想要出去</span></p>
+      <p><span class="o" lang="ja">プク…プク… 金魚が泡を吐いて…消えて</span><span class="t" data-l="en" lang="en">Blub... blub... a goldfish blows bubbles... and they vanish</span><span class="t" data-l="zh" lang="zh">噗……噗……金鱼吐着泡泡……消失了</span></p>
+      <p><span class="o" lang="ja">もう…うるさい</span><span class="t" data-l="en" lang="en">Enough... it&#x27;s too loud</span><span class="t" data-l="zh" lang="zh">够了……好吵</span></p>
+      <p><span class="o" lang="ja">もういい　もういいよ</span><span class="t" data-l="en" lang="en">Forget it, just forget it</span><span class="t" data-l="zh" lang="zh">不管了　不管了</span></p>
+      <p><span class="o" lang="ja">もう知らない</span><span class="t" data-l="en" lang="en">I don&#x27;t care anymore</span><span class="t" data-l="zh" lang="zh">什么都不管了</span></p>
+      <p><span class="o" lang="ja">全部……全部……壊れよう</span><span class="t" data-l="en" lang="en">Let everything... everything... fall apart</span><span class="t" data-l="zh" lang="zh">全部……全部毁灭吧</span></p>
+      <p><span class="o" lang="ja">近づきたい　近づけない</span><span class="t" data-l="en" lang="en">I want to get closer, I can&#x27;t get closer</span><span class="t" data-l="zh" lang="zh">我想靠近　又不敢靠近</span></p>
+      <p><span class="o" lang="ja">耳の奥で呼吸だけがまとわりついて　ああ</span><span class="t" data-l="en" lang="en">Only my breathing clings deep in my ears, ah</span><span class="t" data-l="zh" lang="zh">呼吸声在耳边缠着不走，啊——</span></p>
+      <p><span class="o" lang="ja">胸を叩く鼓動が</span><span class="t" data-l="en" lang="en">The heartbeat pounding in my chest</span><span class="t" data-l="zh" lang="zh">心脏敲在胸腔里</span></p>
+      <p><span class="o" lang="ja">助けを求めてるみたいで</span><span class="t" data-l="en" lang="en">Sounds like it&#x27;s crying for help</span><span class="t" data-l="zh" lang="zh">像在求救</span></p>
+      <p><span class="o" lang="ja">そして落ちていく</span><span class="t" data-l="en" lang="en">And I fall</span><span class="t" data-l="zh" lang="zh">然后……坠落下去</span></p>
   </section>
 
   <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
 </main>
 
+<script src="/sub.js?v=2"></script>
 <script src="/scene/songs.js?v=1"></script>
 <script src="/scene/scene.js?v=1"></script>
-<script src="/scene/player.js?v=1"></script>
+<script src="/scene/player.js?v=3"></script>
 </body>
 </html>

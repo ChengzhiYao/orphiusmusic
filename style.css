@@ -140,6 +140,13 @@ h2 { font: 600 clamp(26px, 3vw, 36px)/1.2 var(--mincho); margin: 0; }
 .p-time { display: flex; align-items: center; gap: 12px; color: var(--ash); font-size: 12px; font-variant-numeric: tabular-nums; }
 #pSeek { flex: 1; accent-color: var(--accent); }
 
+/* Subtitle language switch */
+.sub-switch { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin: 0 0 20px; }
+.sub-label { font-size: 13px; color: var(--ash); margin-right: 4px; }
+.sub-switch button { min-height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid #4a4843; background: none; color: var(--ash); font-size: 13px; cursor: pointer; }
+.sub-switch button:hover { color: var(--bone); border-color: var(--bone); }
+.sub-switch button[aria-pressed="true"] { background: var(--bone); color: #000; border-color: var(--bone); }
+
 /* Now playing: lyrics panel above the player bar */
 body.sheet-open { overflow: hidden; }
 .sheet {
@@ -206,7 +213,9 @@ body.sheet-open { overflow: hidden; }
   .sheet-cover { grid-row: span 3; }
   .sheet-label { margin: 0; }
   .sheet-sub { margin: 0; }
-  .sheet-side .actions { grid-column: 1 / -1; margin-top: 12px; }
+  .sheet-side .actions, .sheet-side .sub-switch { grid-column: 1 / -1; }
+  .sheet-side .sub-switch { margin: 12px 0 0; }
+  .sheet-side .actions { margin-top: 10px; }
   .sheet-side .btn { min-height: 38px; font-size: 14px; }
   .sheet-lyrics { padding: 20vh 0 30vh; }
   .sheet-lyrics .o { font-size: 19px; }
