@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>The Wolf and the Lamb – Orphius | Lyrics</title>
+<meta name="description" content="The Wolf and the Lamb（狼与羊） by Orphius. Full lyrics with translation: Long, long ago on the grassy plains / Lived a lonely wolf who broke the chains…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/02">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="The Wolf and the Lamb – Orphius">
+<meta property="og:description" content="狼与羊. Long, long ago on the grassy plains / Lived a lonely wolf who broke the chains">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/02">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/02/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "The Wolf and the Lamb", "alternateName": "狼与羊", "url": "https://www.orphiusmusic.com/songs/02", "image": "https://media.orphiusmusic.com/orphius/songs/02/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M53S", "datePublished": "2025-08-08", "inLanguage": "en", "recordingOf": {"@type": "MusicComposition", "name": "The Wolf and the Lamb", "lyrics": {"@type": "CreativeWork", "text": "Long, long ago on the grassy plains\nLived a lonely wolf who broke the chains\nWhile the pack would hunt, he would bow his head\nEating the grass like the lambs instead\nBut the others laughed, said he's not the same\nNo one would run with him, no one called his name\nThen came a lamb, so gentle, so kind\nSat down beside him, no questions in mind\nThrough all the tears, through the silent skies\nThey found a friend in each other's eyes\nEvery night he'd cry where the moonlight fell\nA secret he carried but could never tell\nThe lamb didn't speak, but she stayed all day\nListening softly as his heart gave way\nThen came a lamb, so gentle, so kind\nSat down beside him, no questions in mind\nThrough all the tears, through the silent skies\nThey found a friend in each other's eyes\nLong, long ago on the grassy plains\nA grass-eating wolf, a grass-eating wolf and a lamb remained\nThen came a lamb, so gentle, so kind\nSat down beside him, no questions in mind\nThrough all the tears, through the silent skies\nThey found a friend in each other's eyes\nThen came a lamb, so gentle, so kind\nSat down beside him, no questions in mind\nThrough all the tears, through the silent skies\nThey found a friend in each other's eyes\nEvery night he'd cry where the moonlight fell\nA secret he carried but could never tell\nThe lamb didn't speak, but she stayed all day\nListening softly as his heart gave way"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="02">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">The Wolf and the Lamb lyrics</h2>
+      <p><span class="o" lang="en">Long, long ago on the grassy plains</span><span class="t" lang="zh">很久很久以前，在辽阔的草原上</span></p>
+      <p><span class="o" lang="en">Lived a lonely wolf who broke the chains</span><span class="t" lang="zh">住着一只孤独的狼，挣脱了枷锁</span></p>
+      <p><span class="o" lang="en">While the pack would hunt, he would bow his head</span><span class="t" lang="zh">狼群去狩猎的时候，他总是低下头</span></p>
+      <p><span class="o" lang="en">Eating the grass like the lambs instead</span><span class="t" lang="zh">像小羊一样，静静地吃着青草</span></p>
+      <p><span class="o" lang="en">But the others laughed, said he&#x27;s not the same</span><span class="t" lang="zh">其他的狼都笑他，说他跟大家不一样</span></p>
+      <p><span class="o" lang="en">No one would run with him, no one called his name</span><span class="t" lang="zh">没有谁和他一起奔跑，也没有谁叫他的名字</span></p>
+      <p><span class="o" lang="en">Then came a lamb, so gentle, so kind</span><span class="t" lang="zh">后来，来了一只小羊，那么温柔，那么善良</span></p>
+      <p><span class="o" lang="en">Sat down beside him, no questions in mind</span><span class="t" lang="zh">她在他身边坐下，什么也没有问</span></p>
+      <p><span class="o" lang="en">Through all the tears, through the silent skies</span><span class="t" lang="zh">走过所有的眼泪，走过沉默的天空</span></p>
+      <p><span class="o" lang="en">They found a friend in each other&#x27;s eyes</span><span class="t" lang="zh">他们在彼此的眼睛里，找到了朋友</span></p>
+      <p><span class="o" lang="en">Every night he&#x27;d cry where the moonlight fell</span><span class="t" lang="zh">每个夜晚，他都在月光落下的地方哭泣</span></p>
+      <p><span class="o" lang="en">A secret he carried but could never tell</span><span class="t" lang="zh">心里藏着一个秘密，却从来说不出口</span></p>
+      <p><span class="o" lang="en">The lamb didn&#x27;t speak, but she stayed all day</span><span class="t" lang="zh">小羊什么也没说，却陪了他一整天</span></p>
+      <p><span class="o" lang="en">Listening softly as his heart gave way</span><span class="t" lang="zh">静静地听着，听他终于卸下了心防</span></p>
+      <p><span class="o" lang="en">Then came a lamb, so gentle, so kind</span><span class="t" lang="zh">后来，来了一只小羊，那么温柔，那么善良</span></p>
+      <p><span class="o" lang="en">Sat down beside him, no questions in mind</span><span class="t" lang="zh">她在他身边坐下，什么也没有问</span></p>
+      <p><span class="o" lang="en">Through all the tears, through the silent skies</span><span class="t" lang="zh">走过所有的眼泪，走过沉默的天空</span></p>
+      <p><span class="o" lang="en">They found a friend in each other&#x27;s eyes</span><span class="t" lang="zh">他们在彼此的眼睛里，找到了朋友</span></p>
+      <p><span class="o" lang="en">Long, long ago on the grassy plains</span><span class="t" lang="zh">很久很久以前，在辽阔的草原上</span></p>
+      <p><span class="o" lang="en">A grass-eating wolf, a grass-eating wolf and a lamb remained</span><span class="t" lang="zh">一只吃草的狼，和一只小羊，一直留在了那里</span></p>
+      <p><span class="o" lang="en">Then came a lamb, so gentle, so kind</span><span class="t" lang="zh">后来，来了一只小羊，那么温柔，那么善良</span></p>
+      <p><span class="o" lang="en">Sat down beside him, no questions in mind</span><span class="t" lang="zh">她在他身边坐下，什么也没有问</span></p>
+      <p><span class="o" lang="en">Through all the tears, through the silent skies</span><span class="t" lang="zh">走过所有的眼泪，走过沉默的天空</span></p>
+      <p><span class="o" lang="en">They found a friend in each other&#x27;s eyes</span><span class="t" lang="zh">他们在彼此的眼睛里，找到了朋友</span></p>
+      <p><span class="o" lang="en">Then came a lamb, so gentle, so kind</span><span class="t" lang="zh">后来，来了一只小羊，那么温柔，那么善良</span></p>
+      <p><span class="o" lang="en">Sat down beside him, no questions in mind</span><span class="t" lang="zh">她在他身边坐下，什么也没有问</span></p>
+      <p><span class="o" lang="en">Through all the tears, through the silent skies</span><span class="t" lang="zh">走过所有的眼泪，走过沉默的天空</span></p>
+      <p><span class="o" lang="en">They found a friend in each other&#x27;s eyes</span><span class="t" lang="zh">他们在彼此的眼睛里，找到了朋友</span></p>
+      <p><span class="o" lang="en">Every night he&#x27;d cry where the moonlight fell</span><span class="t" lang="zh">每个夜晚，他都在月光落下的地方哭泣</span></p>
+      <p><span class="o" lang="en">A secret he carried but could never tell</span><span class="t" lang="zh">心里藏着一个秘密，却从来说不出口</span></p>
+      <p><span class="o" lang="en">The lamb didn&#x27;t speak, but she stayed all day</span><span class="t" lang="zh">小羊什么也没说，却陪了他一整天</span></p>
+      <p><span class="o" lang="en">Listening softly as his heart gave way</span><span class="t" lang="zh">静静地听着，听他终于卸下了心防</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

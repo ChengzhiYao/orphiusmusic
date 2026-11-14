@@ -216,3 +216,16 @@ main {
 .lyric-beast .ly-c.lit { animation: beast-hit .28s cubic-bezier(.2,1.6,.4,1); filter: drop-shadow(0 0 6px rgba(255,40,30,.9)) drop-shadow(2px 0 0 rgba(0,0,0,.8)); }
 .lyric-beast .ly-line.done .ly-c { background: none; color: #a8251c; -webkit-text-fill-color: #a8251c; filter: none; }
 @keyframes beast-hit { 0% { top: -7px; left: 2px; } 40% { top: 2px; left: -2px; } 70% { top: -1px; left: 1px; } 100% { top: 0; left: 0; } }
+
+/* ── orphiusmusic.com：YouTube 链接 + 完整歌词 ── */
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
+.lnk { display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--glass);
+  color: var(--ink); text-decoration: none; font-size: 13px; letter-spacing: .06em; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.lnk:hover { border-color: var(--ink-dim); }
+.full-lyrics { margin-top: 48px; padding: 28px 24px; border-radius: 6px; background: var(--glass); border: 1px solid var(--line);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.fl-head { font-family: var(--serif); font-weight: 400; font-size: 13px; letter-spacing: .2em; color: var(--ink-faint); margin: 0 0 20px; }
+.full-lyrics p { margin: 0 0 16px; }
+.full-lyrics .o { display: block; font-family: var(--serif); font-size: 16px; line-height: 1.8; color: var(--ink); }
+.full-lyrics .t { display: block; font-size: 13px; line-height: 1.6; color: var(--ink-dim); }
+.full-lyrics .none { font-family: var(--serif); color: var(--ink-dim); }

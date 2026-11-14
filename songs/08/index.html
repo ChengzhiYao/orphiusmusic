@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>わたしの Illusion – Orphius | Lyrics</title>
+<meta name="description" content="わたしの Illusion（我的幻象 · 幻影） by Orphius. Full lyrics with translation: 私の illusion 君の reality / 交わらない夢と truth…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/08">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="わたしの Illusion – Orphius">
+<meta property="og:description" content="我的幻象 · 幻影. 私の illusion 君の reality / 交わらない夢と truth">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/08">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/08/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "わたしの Illusion", "alternateName": "我的幻象 · 幻影", "url": "https://www.orphiusmusic.com/songs/08", "image": "https://media.orphiusmusic.com/orphius/songs/08/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT3M2S", "datePublished": "2025-09-27", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "わたしの Illusion", "lyrics": {"@type": "CreativeWork", "text": "私の illusion 君の reality\n交わらない夢と truth\n幻想と現実の交差点\nOpen your eyes, so you can see\nThe darkness beneath the ground\n童話なんて嫌いだよ\n'Cause we already live inside the story\n運命のライン crossing then fading\nすれ違う声 never connecting\nI search for the light in this endless night\n混沌の国で you can't reach me\n指先で触れて feel my existence\nEven if we'll never share the same world\n闇の底で囁く声\nThe storylines tangle, then drift apart again\n離れても still I'm calling your name\n遥かな distance, unreachable fate\n触れて with your fingertips\n感じて my shadowed soul\nWe're worlds apart, but still I believe\n永遠に交わらない destiny\nI search for the light in this endless night\n光と闇の狭間で\n触れ合う一瞬 fading into silence\n私の illusion 君の reality"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="08">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">わたしの Illusion lyrics</h2>
+      <p><span class="o" lang="ja">私の illusion 君の reality</span><span class="t" lang="zh">我的幻象，你的现实</span></p>
+      <p><span class="o" lang="ja">交わらない夢と truth</span><span class="t" lang="zh">无法交汇的梦与真实</span></p>
+      <p><span class="o" lang="ja">幻想と現実の交差点</span><span class="t" lang="zh">幻想与现实的交叉点</span></p>
+      <p><span class="o" lang="en">Open your eyes, so you can see</span><span class="t" lang="zh">睁开双眼，你就会看见</span></p>
+      <p><span class="o" lang="en">The darkness beneath the ground</span><span class="t" lang="zh">深埋地底的黑暗</span></p>
+      <p><span class="o" lang="ja">童話なんて嫌いだよ</span><span class="t" lang="zh">我讨厌童话</span></p>
+      <p><span class="o" lang="en">&#x27;Cause we already live inside the story</span><span class="t" lang="zh">因为我们早已活在故事之中</span></p>
+      <p><span class="o" lang="ja">運命のライン crossing then fading</span><span class="t" lang="zh">命运的线交错，又渐渐消散</span></p>
+      <p><span class="o" lang="ja">すれ違う声 never connecting</span><span class="t" lang="zh">交错而过的声音，始终无法相连</span></p>
+      <p><span class="o" lang="en">I search for the light in this endless night</span><span class="t" lang="zh">我在这无尽的长夜里寻找光</span></p>
+      <p><span class="o" lang="ja">混沌の国で you can&#x27;t reach me</span><span class="t" lang="zh">在混沌之境，你无法触及我</span></p>
+      <p><span class="o" lang="ja">指先で触れて feel my existence</span><span class="t" lang="zh">用指尖触碰，感受我的存在</span></p>
+      <p><span class="o" lang="en">Even if we&#x27;ll never share the same world</span><span class="t" lang="zh">即使我们终究无法共享同一个世界</span></p>
+      <p><span class="o" lang="ja">闇の底で囁く声</span><span class="t" lang="zh">黑暗深处传来低语</span></p>
+      <p><span class="o" lang="en">The storylines tangle, then drift apart again</span><span class="t" lang="zh">故事的脉络纠缠，又再次分离</span></p>
+      <p><span class="o" lang="ja">離れても still I&#x27;m calling your name</span><span class="t" lang="zh">即使相隔遥远，我仍呼唤着你的名字</span></p>
+      <p><span class="o" lang="ja">遥かな distance, unreachable fate</span><span class="t" lang="zh">遥远的距离，无法抵达的命运</span></p>
+      <p><span class="o" lang="ja">触れて with your fingertips</span><span class="t" lang="zh">用你的指尖触碰我</span></p>
+      <p><span class="o" lang="ja">感じて my shadowed soul</span><span class="t" lang="zh">感受我被阴影笼罩的灵魂</span></p>
+      <p><span class="o" lang="en">We&#x27;re worlds apart, but still I believe</span><span class="t" lang="zh">我们身处不同的世界，但我仍然相信</span></p>
+      <p><span class="o" lang="ja">永遠に交わらない destiny</span><span class="t" lang="zh">永不相交的命运</span></p>
+      <p><span class="o" lang="en">I search for the light in this endless night</span><span class="t" lang="zh">我在这无尽的长夜里寻找光</span></p>
+      <p><span class="o" lang="ja">光と闇の狭間で</span><span class="t" lang="zh">在光与暗的夹缝之间</span></p>
+      <p><span class="o" lang="ja">触れ合う一瞬 fading into silence</span><span class="t" lang="zh">短暂相触的瞬间，消散于沉默</span></p>
+      <p><span class="o" lang="ja">私の illusion 君の reality</span><span class="t" lang="zh">我的幻象，你的现实</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

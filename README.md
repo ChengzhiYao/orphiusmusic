@@ -8,6 +8,7 @@ Orphius 的音乐网站。纯静态页面，部署在 Vercel。
 - 网站里不放大文件，这样每次部署只有几十 KB。
 
 ## 歌曲页 /songs/<id>
-- `song.html` + `scene/`：每首歌的背景特效、逐字歌词、播放器（scene.js / player.js / style.css / three.min.js）
-- `scene/songs.js`：特效用的歌曲数据（不含私人的信和照片）
-- 首页用的是根目录的 `songs.js`
+- `songs/<id>/index.html` 是生成的静态页面（歌名、完整歌词、分享预览都写在页面里，方便 Google 收录）
+- 模板：`tools/song-template.html`；特效和播放器：`scene/`（scene.js / player.js / style.css / three.min.js）
+- `scene/songs.js`：特效用的歌曲数据（不含私人的信和照片）；首页用的是根目录的 `songs.js`
+- 改了歌单或歌词后运行 `python3 tools/build.py`，会重新生成所有歌曲页、sitemap.xml、robots.txt

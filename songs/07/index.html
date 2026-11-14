@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>SINNER – Orphius | Lyrics</title>
+<meta name="description" content="SINNER（罪責の棘 · 罪责之棘） by Orphius. Full lyrics with translation: My hands are stained with blood, / I walk the shadowed path with heavy steps.…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/07">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="SINNER – Orphius">
+<meta property="og:description" content="罪責の棘 · 罪责之棘. My hands are stained with blood, / I walk the shadowed path with heavy steps.">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/07">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/07/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "SINNER", "alternateName": "罪責の棘 · 罪责之棘", "url": "https://www.orphiusmusic.com/songs/07", "image": "https://media.orphiusmusic.com/orphius/songs/07/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT1M46S", "datePublished": "2025-08-26", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "SINNER", "lyrics": {"@type": "CreativeWork", "text": "My hands are stained with blood,\nI walk the shadowed path with heavy steps.\n内心にあるのはただ自分への嫌悪\nLove and justice have long been tainted.\nI won't allow myself to seek redemption,\nそれは弱さの証だから\nOnly one choice remains—\nTo carry this burden and live on.\nNo matter the sorrow, no matter the pain,\n痛みの中で歩き続ける\nThis is my hell, my cross to bear,\nそして全部受け入れる"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="07">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">SINNER lyrics</h2>
+      <p><span class="o" lang="en">My hands are stained with blood,</span><span class="t" lang="zh">我的双手沾满鲜血</span></p>
+      <p><span class="o" lang="en">I walk the shadowed path with heavy steps.</span><span class="t" lang="zh">我拖着沉重的脚步，走在阴影笼罩的路上</span></p>
+      <p><span class="o" lang="ja">内心にあるのはただ自分への嫌悪</span><span class="t" lang="zh">内心只剩下对自己的厌恶</span></p>
+      <p><span class="o" lang="en">Love and justice have long been tainted.</span><span class="t" lang="zh">爱与正义早已被玷污</span></p>
+      <p><span class="o" lang="en">I won&#x27;t allow myself to seek redemption,</span><span class="t" lang="zh">我不允许自己寻求救赎</span></p>
+      <p><span class="o" lang="ja">それは弱さの証だから</span><span class="t" lang="zh">因为那是软弱的证明</span></p>
+      <p><span class="o" lang="en">Only one choice remains—</span><span class="t" lang="zh">只剩下一个选择——</span></p>
+      <p><span class="o" lang="en">To carry this burden and live on.</span><span class="t" lang="zh">背负这份重担，继续活下去</span></p>
+      <p><span class="o" lang="en">No matter the sorrow, no matter the pain,</span><span class="t" lang="zh">无论悲伤，无论痛苦</span></p>
+      <p><span class="o" lang="ja">痛みの中で歩き続ける</span><span class="t" lang="zh">在痛苦中继续前行</span></p>
+      <p><span class="o" lang="en">This is my hell, my cross to bear,</span><span class="t" lang="zh">这是我的地狱，是我必须背负的十字架</span></p>
+      <p><span class="o" lang="ja">そして全部受け入れる</span><span class="t" lang="zh">并且接受这一切</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

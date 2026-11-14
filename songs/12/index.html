@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>You Can Do It!!! – Orphius | Lyrics</title>
+<meta name="description" content="You Can Do It!!!（ユウキャンドゥイット） by Orphius. Full lyrics with translation: バン！バン！ドン！ドドドン！ / 心がカンカン鳴る！…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/12">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="You Can Do It!!! – Orphius">
+<meta property="og:description" content="ユウキャンドゥイット. バン！バン！ドン！ドドドン！ / 心がカンカン鳴る！">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/12">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/12/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "You Can Do It!!!", "alternateName": "ユウキャンドゥイット", "url": "https://www.orphiusmusic.com/songs/12", "image": "https://media.orphiusmusic.com/orphius/songs/12/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M30S", "datePublished": "2025-11-12", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "You Can Do It!!!", "lyrics": {"@type": "CreativeWork", "text": "バン！バン！ドン！ドドドン！\n心がカンカン鳴る！\nHey! Hey!　飛び出せよ　baby!\nYou can do it!　You can do it!!\nドキドキしてる胸が Boom Boom Boom\n頭ん中ピカピカ　Flashback room\nつまらないルール　break it! break it!\n世界を蹴って Go! Go! Go!\nシュワシュワと泡立つ夢が\nモヤモヤを飲み込んでく\n「できない」って誰が言ったの？\n笑い飛ばせ Yeah!\nBang bang!　迷い撃ち抜け\nClap clap!　この手鳴らせ\nRun run!　足跡残せ\n響けよ Shout! Shout! Shout!\nYou can do it!　ユウキャンドゥイット！\n自由になれるなら　You can be free!\n心の檻を壊して (yeah!)\nYou can do it!　信じてみて\nYou can be free if you want to be\n今　飛べ！　(woo-oh-oh!)\nザワザワ鳴る街を Jump Jump Jump\nカラカラ乾いた空に Clap!\nドタバタでも笑っとけ　(ha-ha-ha!)\n明日を塗り替えろ！\nパッパッと　光が走る\nワクワクが爆ぜる胸\n止まれないよこの鼓動\nピカピカ　ギラギラ　世界が回る\nバラバラ　でもいい　きっと変われる\n(You can do it!  You can do it!)\n(You can be free if you want to be!)\nYou can do it!　ユウキャンドゥイット！\n自由になれるなら　You can be free!\n心の檻を壊して (yeah!)\nYou can do it!　信じてみて\nYou can be free if you want to be\n今　飛べ！　(woo-oh-oh!)\nドン！ドン！ドドドン！\n走れ心の音！\nバン！バン！叫べよ未来へ\nYou can do it!　(You can be free!)\nYou can do it!　(You can be free!)\nYou can do it!　(You can be free!)"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="12">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">You Can Do It!!! lyrics</h2>
+      <p><span class="o" lang="ja">バン！バン！ドン！ドドドン！</span><span class="t" lang="zh">砰！砰！咚！咚咚咚！</span></p>
+      <p><span class="o" lang="ja">心がカンカン鳴る！</span><span class="t" lang="zh">心在当当作响！</span></p>
+      <p><span class="o" lang="ja">Hey! Hey!　飛び出せよ　baby!</span><span class="t" lang="zh">嘿！嘿！冲出去吧，baby！</span></p>
+      <p><span class="o" lang="en">You can do it!　You can do it!!</span><span class="t" lang="zh">你可以的！你一定可以！</span></p>
+      <p><span class="o" lang="ja">ドキドキしてる胸が Boom Boom Boom</span><span class="t" lang="zh">怦怦直跳的心——砰！砰！砰！</span></p>
+      <p><span class="o" lang="ja">頭ん中ピカピカ　Flashback room</span><span class="t" lang="zh">脑海里一闪一闪，往事一幕幕闪回</span></p>
+      <p><span class="o" lang="ja">つまらないルール　break it! break it!</span><span class="t" lang="zh">无聊的规则，打破它！打破它！</span></p>
+      <p><span class="o" lang="ja">世界を蹴って Go! Go! Go!</span><span class="t" lang="zh">一脚蹬开这个世界，冲！冲！冲！</span></p>
+      <p><span class="o" lang="ja">シュワシュワと泡立つ夢が</span><span class="t" lang="zh">咕嘟咕嘟冒着泡的梦想</span></p>
+      <p><span class="o" lang="ja">モヤモヤを飲み込んでく</span><span class="t" lang="zh">把心里的烦闷一口吞掉</span></p>
+      <p><span class="o" lang="ja">「できない」って誰が言ったの？</span><span class="t" lang="zh">是谁说“你做不到”的？</span></p>
+      <p><span class="o" lang="ja">笑い飛ばせ Yeah!</span><span class="t" lang="zh">一笑置之吧，Yeah！</span></p>
+      <p><span class="o" lang="ja">Bang bang!　迷い撃ち抜け</span><span class="t" lang="zh">砰砰！把迷茫一枪击穿</span></p>
+      <p><span class="o" lang="ja">Clap clap!　この手鳴らせ</span><span class="t" lang="zh">啪啪！拍响这双手</span></p>
+      <p><span class="o" lang="ja">Run run!　足跡残せ</span><span class="t" lang="zh">跑起来！留下你的脚印</span></p>
+      <p><span class="o" lang="ja">響けよ Shout! Shout! Shout!</span><span class="t" lang="zh">让它响彻吧——喊出来！喊出来！喊出来！</span></p>
+      <p><span class="o" lang="ja">You can do it!　ユウキャンドゥイット！</span><span class="t" lang="zh">你可以的！你一定可以！</span></p>
+      <p><span class="o" lang="ja">自由になれるなら　You can be free!</span><span class="t" lang="zh">只要能挣脱束缚——你就能自由！</span></p>
+      <p><span class="o" lang="ja">心の檻を壊して (yeah!)</span><span class="t" lang="zh">打破心里的牢笼</span></p>
+      <p><span class="o" lang="ja">You can do it!　信じてみて</span><span class="t" lang="zh">你可以的！试着相信自己</span></p>
+      <p><span class="o" lang="en">You can be free if you want to be</span><span class="t" lang="zh">只要你愿意，你就能自由</span></p>
+      <p><span class="o" lang="ja">今　飛べ！　(woo-oh-oh!)</span><span class="t" lang="zh">现在，飞吧！</span></p>
+      <p><span class="o" lang="ja">ザワザワ鳴る街を Jump Jump Jump</span><span class="t" lang="zh">在喧闹的街道上，跳！跳！跳！</span></p>
+      <p><span class="o" lang="ja">カラカラ乾いた空に Clap!</span><span class="t" lang="zh">朝着干涸的天空拍手！</span></p>
+      <p><span class="o" lang="ja">ドタバタでも笑っとけ　(ha-ha-ha!)</span><span class="t" lang="zh">就算手忙脚乱，也要笑着（哈哈哈！）</span></p>
+      <p><span class="o" lang="ja">明日を塗り替えろ！</span><span class="t" lang="zh">把明天重新涂上颜色！</span></p>
+      <p><span class="o" lang="ja">パッパッと　光が走る</span><span class="t" lang="zh">光芒一闪一闪地奔跑</span></p>
+      <p><span class="o" lang="ja">ワクワクが爆ぜる胸</span><span class="t" lang="zh">雀跃在胸口炸开</span></p>
+      <p><span class="o" lang="ja">止まれないよこの鼓動</span><span class="t" lang="zh">这份心跳停不下来</span></p>
+      <p><span class="o" lang="ja">ピカピカ　ギラギラ　世界が回る</span><span class="t" lang="zh">闪闪发亮，耀眼夺目，世界在旋转</span></p>
+      <p><span class="o" lang="ja">バラバラ　でもいい　きっと変われる</span><span class="t" lang="zh">支离破碎也没关系，你一定能改变</span></p>
+      <p><span class="o" lang="en">(You can do it!  You can do it!)</span><span class="t" lang="zh">（你可以的！你一定可以！）</span></p>
+      <p><span class="o" lang="en">(You can be free if you want to be!)</span><span class="t" lang="zh">（只要你愿意，你就能自由！）</span></p>
+      <p><span class="o" lang="ja">You can do it!　ユウキャンドゥイット！</span><span class="t" lang="zh">你可以的！你一定可以！</span></p>
+      <p><span class="o" lang="ja">自由になれるなら　You can be free!</span><span class="t" lang="zh">只要能挣脱束缚——你就能自由！</span></p>
+      <p><span class="o" lang="ja">心の檻を壊して (yeah!)</span><span class="t" lang="zh">打破心里的牢笼</span></p>
+      <p><span class="o" lang="ja">You can do it!　信じてみて</span><span class="t" lang="zh">你可以的！试着相信自己</span></p>
+      <p><span class="o" lang="en">You can be free if you want to be</span><span class="t" lang="zh">只要你愿意，你就能自由</span></p>
+      <p><span class="o" lang="ja">今　飛べ！　(woo-oh-oh!)</span><span class="t" lang="zh">现在，飞吧！</span></p>
+      <p><span class="o" lang="ja">ドン！ドン！ドドドン！</span><span class="t" lang="zh">咚！咚！咚咚咚！</span></p>
+      <p><span class="o" lang="ja">走れ心の音！</span><span class="t" lang="zh">奔跑吧，心跳的声音！</span></p>
+      <p><span class="o" lang="ja">バン！バン！叫べよ未来へ</span><span class="t" lang="zh">砰！砰！向着未来大声呼喊</span></p>
+      <p><span class="o" lang="en">You can do it!　(You can be free!)</span><span class="t" lang="zh">你可以的！（你可以自由！）</span></p>
+      <p><span class="o" lang="en">You can do it!　(You can be free!)</span><span class="t" lang="zh">你可以的！（你可以自由！）</span></p>
+      <p><span class="o" lang="en">You can do it!　(You can be free!)</span><span class="t" lang="zh">你可以的！（你可以自由！）</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>Meaningless – Orphius | Lyrics</title>
+<meta name="description" content="Meaningless（无意义） by Orphius. Full lyrics with translation: 生きる意味なんてない / Why should I live…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/15">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="Meaningless – Orphius">
+<meta property="og:description" content="无意义. 生きる意味なんてない / Why should I live">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/15">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/15/cover.jpg?r=6">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "Meaningless", "alternateName": "无意义", "url": "https://www.orphiusmusic.com/songs/15", "image": "https://media.orphiusmusic.com/orphius/songs/15/cover.jpg?r=6", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M2S", "datePublished": "2025-12-31", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "Meaningless", "lyrics": {"@type": "CreativeWork", "text": "生きる意味なんてない\nWhy should I live\nなぜ生きなきゃいけない\nWhy should I hope\n一体何のために生きて？\nWhat am I living for\n何のために戦ってる？\nWhat am I fighting for\n頑張れ、努力しよう\nPeople keep saying \"Try harder, keep going\"\n正直うんざり\nIt's so annoying\n生きるだけでもこんなに疲れてるのに\nLiving is already exhausting\nそれでもまだ　Tell me to try\nどうしてみんな　Why can everyone\nあんなに楽しそうに　Look so happy\n私は　Can't find any\n何ひとつ　meaning at all\n生きるということは　Living means enduring\n裏切り　嫉妬　失望　Betrayal, jealousy, disappointment\n悲しみ\n生きるということは　Living means enduring\n裏切り　嫉妬　失望　Betrayal, jealousy, disappointment\n悲しみ　Sadness\n痛みに耐え続けること\nもし生きる意味が　If the meaning of living\n苦しみに耐えることだけなら　Is just to endure pain\nTell me, does it really mean anything?\nMeaningless　Heartbreaking\nI'm searching for myself in endless pain\n終わらない痛みの中で　自分を探し続けてる\n生きるということは　Living means enduring\n裏切り　嫉妬　失望　Betrayal, jealousy, disappointment\n悲しみ\n生きるということは　Living means enduring\n裏切り　嫉妬　失望　Betrayal, jealousy, disappointment\n悲しみ　Sadness\n私の世界は崩れ続けている"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="15">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">Meaningless lyrics</h2>
+      <p><span class="o" lang="ja">生きる意味なんてない</span><span class="t" lang="zh">活着根本没有意义</span></p>
+      <p><span class="o" lang="en">Why should I live</span><span class="t" lang="zh">我为什么还要活下去</span></p>
+      <p><span class="o" lang="ja">なぜ生きなきゃいけない</span><span class="t" lang="zh">为什么非得活下去不可</span></p>
+      <p><span class="o" lang="en">Why should I hope</span><span class="t" lang="zh">我为什么还要抱有希望</span></p>
+      <p><span class="o" lang="ja">一体何のために生きて？</span><span class="t" lang="zh">我到底是为了什么而活？</span></p>
+      <p><span class="o" lang="en">What am I living for</span><span class="t" lang="zh">我活着究竟是为了什么</span></p>
+      <p><span class="o" lang="ja">何のために戦ってる？</span><span class="t" lang="zh">又是为了什么在苦苦挣扎？</span></p>
+      <p><span class="o" lang="en">What am I fighting for</span><span class="t" lang="zh">我到底在为什么而战</span></p>
+      <p><span class="o" lang="ja">頑張れ、努力しよう</span><span class="t" lang="zh">“加油”“再努力一点”</span></p>
+      <p><span class="o" lang="en">People keep saying &quot;Try harder, keep going&quot;</span><span class="t" lang="zh">大家总在说：“再努力一点，继续加油”</span></p>
+      <p><span class="o" lang="ja">正直うんざり</span><span class="t" lang="zh">说实话，我已经烦透了</span></p>
+      <p><span class="o" lang="en">It&#x27;s so annoying</span><span class="t" lang="zh">真的好烦</span></p>
+      <p><span class="o" lang="ja">生きるだけでもこんなに疲れてるのに</span><span class="t" lang="zh">光是活着，就已经这么累了</span></p>
+      <p><span class="o" lang="en">Living is already exhausting</span><span class="t" lang="zh">活着本身就已经让人筋疲力尽</span></p>
+      <p><span class="o" lang="ja">それでもまだ　Tell me to try</span><span class="t" lang="zh">你们却还要我继续努力</span></p>
+      <p><span class="o" lang="ja">どうしてみんな　Why can everyone</span><span class="t" lang="zh">为什么大家</span></p>
+      <p><span class="o" lang="ja">あんなに楽しそうに　Look so happy</span><span class="t" lang="zh">都能看起来那么开心</span></p>
+      <p><span class="o" lang="ja">私は　Can&#x27;t find any</span><span class="t" lang="zh">而我却找不到</span></p>
+      <p><span class="o" lang="ja">何ひとつ　meaning at all</span><span class="t" lang="zh">任何一点活着的意义</span></p>
+      <p><span class="o" lang="ja">生きるということは　Living means enduring</span><span class="t" lang="zh">活着，就意味着要忍受</span></p>
+      <p><span class="o" lang="ja">裏切り　嫉妬　失望　Betrayal, jealousy, disappointment</span><span class="t" lang="zh">背叛、嫉妒、失望</span></p>
+      <p><span class="o" lang="ja">悲しみ</span><span class="t" lang="zh">悲伤</span></p>
+      <p><span class="o" lang="ja">生きるということは　Living means enduring</span><span class="t" lang="zh">活着，就意味着要忍受</span></p>
+      <p><span class="o" lang="ja">裏切り　嫉妬　失望　Betrayal, jealousy, disappointment</span><span class="t" lang="zh">背叛、嫉妒、失望</span></p>
+      <p><span class="o" lang="ja">悲しみ　Sadness</span><span class="t" lang="zh">悲伤</span></p>
+      <p><span class="o" lang="ja">痛みに耐え続けること</span><span class="t" lang="zh">就是不停地忍受痛苦</span></p>
+      <p><span class="o" lang="ja">もし生きる意味が　If the meaning of living</span><span class="t" lang="zh">如果活着的意义</span></p>
+      <p><span class="o" lang="ja">苦しみに耐えることだけなら　Is just to endure pain</span><span class="t" lang="zh">只是为了忍受痛苦</span></p>
+      <p><span class="o" lang="en">Tell me, does it really mean anything?</span><span class="t" lang="zh">那告诉我，这样的意义还有意义吗？</span></p>
+      <p><span class="o" lang="en">Meaningless　Heartbreaking</span><span class="t" lang="zh">毫无意义，令人心碎</span></p>
+      <p><span class="o" lang="en">I&#x27;m searching for myself in endless pain</span><span class="t" lang="zh">在无尽的痛苦里寻找自己</span></p>
+      <p><span class="o" lang="ja">終わらない痛みの中で　自分を探し続けてる</span><span class="t" lang="zh">在没有尽头的痛苦里，一直寻找着自己</span></p>
+      <p><span class="o" lang="ja">生きるということは　Living means enduring</span><span class="t" lang="zh">活着，就意味着要忍受</span></p>
+      <p><span class="o" lang="ja">裏切り　嫉妬　失望　Betrayal, jealousy, disappointment</span><span class="t" lang="zh">背叛、嫉妒、失望</span></p>
+      <p><span class="o" lang="ja">悲しみ</span><span class="t" lang="zh">悲伤</span></p>
+      <p><span class="o" lang="ja">生きるということは　Living means enduring</span><span class="t" lang="zh">活着，就意味着要忍受</span></p>
+      <p><span class="o" lang="ja">裏切り　嫉妬　失望　Betrayal, jealousy, disappointment</span><span class="t" lang="zh">背叛、嫉妒、失望</span></p>
+      <p><span class="o" lang="ja">悲しみ　Sadness</span><span class="t" lang="zh">悲伤</span></p>
+      <p><span class="o" lang="ja">私の世界は崩れ続けている</span><span class="t" lang="zh">我的世界，一直在崩塌</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>おつかれさま – Orphius | Lyrics</title>
+<meta name="description" content="おつかれさま（全力以赴的笨蛋） by Orphius. Full lyrics with translation: ずっと昔から / 不器用なままの君が…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/19">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="おつかれさま – Orphius">
+<meta property="og:description" content="全力以赴的笨蛋. ずっと昔から / 不器用なままの君が">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/19">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/19/cover.jpg?r=11">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "おつかれさま", "alternateName": "全力以赴的笨蛋", "url": "https://www.orphiusmusic.com/songs/19", "image": "https://media.orphiusmusic.com/orphius/songs/19/cover.jpg?r=11", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M16S", "datePublished": "2026-03-01", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "おつかれさま", "lyrics": {"@type": "CreativeWork", "text": "ずっと昔から\n不器用なままの君が\n全力でかっこつけようとしていた\n転びながら\n笑われながら\nそれでも　立ち止まらなかった\nでもね\n全力でバカみたいに走る人は\nほめられてもいいんじゃない？\nTell me why　Trying so hard is still not enough\nTell me why　Giving my all is never enough\n何度も　何度も　くやしさがあふれて\n涙がほほをつたって落ちていく\n何度も　何度も　まだふさがらない傷を\nまた裂いてしまう\nHurting again, again, again\nSame mistake, same pain　No matter how hard I strain\nIt ends the same\n「もう無理だ」って　心がつぶやいても\nまた前を向いてしまう\nこのまま\nこのまま倒れてしまうなら\nそれも悪くないかもしれない\nやれるだけやった\n何度も挑んだ\n全部出し切った\n本気でがんばった\nI tried, I tried　But it still wasn’t right\nI gave it everything inside\nStill lost the fight\nそれでも\nここまで来た\nねえ\nひとことだけでいい\n「おつかれさま」\nずっとずっと　おつかれさま\nMaybe that’s enough\nMaybe that’s enough\n強くなくていい\nかっこよくなくていい\nただ\nよくここまで来たねって\n言ってくれたら\nそれだけで\n少しだけ\n救われる気がする"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="19">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">おつかれさま lyrics</h2>
+      <p><span class="o" lang="ja">ずっと昔から</span><span class="t" lang="zh">从很久很久以前</span></p>
+      <p><span class="o" lang="ja">不器用なままの君が</span><span class="t" lang="zh">一直那么笨拙的你</span></p>
+      <p><span class="o" lang="ja">全力でかっこつけようとしていた</span><span class="t" lang="zh">总是拼尽全力想要耍帅</span></p>
+      <p><span class="o" lang="ja">転びながら</span><span class="t" lang="zh">一边摔倒</span></p>
+      <p><span class="o" lang="ja">笑われながら</span><span class="t" lang="zh">一边被人笑话</span></p>
+      <p><span class="o" lang="ja">それでも　立ち止まらなかった</span><span class="t" lang="zh">可你还是没有停下脚步</span></p>
+      <p><span class="o" lang="ja">でもね</span><span class="t" lang="zh">可是啊</span></p>
+      <p><span class="o" lang="ja">全力でバカみたいに走る人は</span><span class="t" lang="zh">像个笨蛋一样拼命奔跑的人</span></p>
+      <p><span class="o" lang="ja">ほめられてもいいんじゃない？</span><span class="t" lang="zh">难道不值得被夸奖一下吗？</span></p>
+      <p><span class="o" lang="en">Tell me why　Trying so hard is still not enough</span><span class="t" lang="zh">告诉我为什么　这么拼命还是不够</span></p>
+      <p><span class="o" lang="en">Tell me why　Giving my all is never enough</span><span class="t" lang="zh">告诉我为什么　拼尽一切也永远不够</span></p>
+      <p><span class="o" lang="ja">何度も　何度も　くやしさがあふれて</span><span class="t" lang="zh">一次又一次，不甘心满溢出来</span></p>
+      <p><span class="o" lang="ja">涙がほほをつたって落ちていく</span><span class="t" lang="zh">眼泪顺着脸颊滑落</span></p>
+      <p><span class="o" lang="ja">何度も　何度も　まだふさがらない傷を</span><span class="t" lang="zh">一次又一次，把还没愈合的伤口</span></p>
+      <p><span class="o" lang="ja">また裂いてしまう</span><span class="t" lang="zh">又一次撕开</span></p>
+      <p><span class="o" lang="en">Hurting again, again, again</span><span class="t" lang="zh">又一次受伤，一次，又一次</span></p>
+      <p><span class="o" lang="en">Same mistake, same pain　No matter how hard I strain</span><span class="t" lang="zh">同样的错，同样的痛　不管我多么用力</span></p>
+      <p><span class="o" lang="en">It ends the same</span><span class="t" lang="zh">结局都一样</span></p>
+      <p><span class="o" lang="ja">「もう無理だ」って　心がつぶやいても</span><span class="t" lang="zh">就算心里在低声说「已经不行了」</span></p>
+      <p><span class="o" lang="ja">また前を向いてしまう</span><span class="t" lang="zh">我还是会再一次望向前方</span></p>
+      <p><span class="o" lang="ja">このまま</span><span class="t" lang="zh">如果就这样</span></p>
+      <p><span class="o" lang="ja">このまま倒れてしまうなら</span><span class="t" lang="zh">就这样倒下去的话</span></p>
+      <p><span class="o" lang="ja">それも悪くないかもしれない</span><span class="t" lang="zh">或许也不算太坏</span></p>
+      <p><span class="o" lang="ja">やれるだけやった</span><span class="t" lang="zh">能做的都做了</span></p>
+      <p><span class="o" lang="ja">何度も挑んだ</span><span class="t" lang="zh">一次又一次地挑战</span></p>
+      <p><span class="o" lang="ja">全部出し切った</span><span class="t" lang="zh">全部都拼出去了</span></p>
+      <p><span class="o" lang="ja">本気でがんばった</span><span class="t" lang="zh">是真的很努力了</span></p>
+      <p><span class="o" lang="en">I tried, I tried　But it still wasn’t right</span><span class="t" lang="zh">我试过了，我试过了　可还是不对</span></p>
+      <p><span class="o" lang="en">I gave it everything inside</span><span class="t" lang="zh">我把心里的一切都给了出去</span></p>
+      <p><span class="o" lang="en">Still lost the fight</span><span class="t" lang="zh">还是输掉了这一仗</span></p>
+      <p><span class="o" lang="ja">それでも</span><span class="t" lang="zh">即便如此</span></p>
+      <p><span class="o" lang="ja">ここまで来た</span><span class="t" lang="zh">我还是走到了这里</span></p>
+      <p><span class="o" lang="ja">ねえ</span><span class="t" lang="zh">呐</span></p>
+      <p><span class="o" lang="ja">ひとことだけでいい</span><span class="t" lang="zh">只要一句话就好</span></p>
+      <p><span class="o" lang="ja">「おつかれさま」</span><span class="t" lang="zh">「辛苦了」</span></p>
+      <p><span class="o" lang="ja">ずっとずっと　おつかれさま</span><span class="t" lang="zh">一直以来，真的辛苦了</span></p>
+      <p><span class="o" lang="en">Maybe that’s enough</span><span class="t" lang="zh">也许这样就够了</span></p>
+      <p><span class="o" lang="en">Maybe that’s enough</span><span class="t" lang="zh">也许这样就够了</span></p>
+      <p><span class="o" lang="ja">強くなくていい</span><span class="t" lang="zh">不坚强也没关系</span></p>
+      <p><span class="o" lang="ja">かっこよくなくていい</span><span class="t" lang="zh">不帅气也没关系</span></p>
+      <p><span class="o" lang="ja">ただ</span><span class="t" lang="zh">只要</span></p>
+      <p><span class="o" lang="ja">よくここまで来たねって</span><span class="t" lang="zh">「你能走到这里，真的很了不起」</span></p>
+      <p><span class="o" lang="ja">言ってくれたら</span><span class="t" lang="zh">只要有人这样对我说</span></p>
+      <p><span class="o" lang="ja">それだけで</span><span class="t" lang="zh">光是这样</span></p>
+      <p><span class="o" lang="ja">少しだけ</span><span class="t" lang="zh">就好像能稍微</span></p>
+      <p><span class="o" lang="ja">救われる気がする</span><span class="t" lang="zh">被救赎一点点</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

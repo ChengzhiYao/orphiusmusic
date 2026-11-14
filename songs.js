@@ -1,6 +1,8 @@
 // 首页大图展示哪首歌（填编号）
 window.FEATURED = "23";
-
+// YouTube 频道
+window.CHANNEL = "https://www.youtube.com/@Orphius1";
+// 每首歌：yt 填 YouTube 视频 ID（watch?v= 后面那串），没有就不填
 window.SONGS = [
  {
   "id": "01",
@@ -210,7 +212,8 @@ window.SONGS = [
   "rev": 15,
   "accent": "#f2c27a",
   "dur": 207,
-  "lyrics": true
+  "lyrics": true,
+  "yt": "IDxz0AvBKus"
  },
  {
   "id": "22",
@@ -220,7 +223,8 @@ window.SONGS = [
   "rev": 14,
   "accent": "#e9a46a",
   "dur": 305,
-  "lyrics": true
+  "lyrics": true,
+  "yt": "lpJuP6lXyXc"
  },
  {
   "id": "23",

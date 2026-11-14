@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>Smiling Before Goodbye – Orphius | Lyrics</title>
+<meta name="description" content="Smiling Before Goodbye（告别前的微笑） by Orphius. Full lyrics with translation: ねえ、毎日毎日、こんなにも多くの命が消えていく / ねえ、毎日毎日、それでもすべてと向き合いながら生きていかなきゃいけない…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/22">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="Smiling Before Goodbye – Orphius">
+<meta property="og:description" content="告别前的微笑. ねえ、毎日毎日、こんなにも多くの命が消えていく / ねえ、毎日毎日、それでもすべてと向き合いながら生きていかなきゃいけない">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/22">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/22/cover.jpg?r=14">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "Smiling Before Goodbye", "alternateName": "告别前的微笑", "url": "https://www.orphiusmusic.com/songs/22", "image": "https://media.orphiusmusic.com/orphius/songs/22/cover.jpg?r=14", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT5M5S", "datePublished": "2026-08-26", "inLanguage": "ja", "sameAs": "https://www.youtube.com/watch?v=lpJuP6lXyXc", "recordingOf": {"@type": "MusicComposition", "name": "Smiling Before Goodbye", "lyrics": {"@type": "CreativeWork", "text": "ねえ、毎日毎日、こんなにも多くの命が消えていく\nねえ、毎日毎日、それでもすべてと向き合いながら生きていかなきゃいけない\nもう疲れたと、自分に言ってもいいのかな。\nAnother light fades away,\nbut the morning comes anyway.\nTell me... how do I stay,\nwhen nothing ever waits for me?\nたとえ自分がこの世界に存在しなくても、\nすべては変わらず続いていく。\nたとえ何もかも気にせずに生きたとしても、\n誰かに申し訳なく思う必要なんてない。\nそんなふうに生きられたらいいのに、と思う。\nThe world will turn without me,\nthe rain will fall without me.\nMaybe I could close my eyes,\nand finally live without asking why.\nJust let me drift away,\njust let me be okay.\nNo promises to keep,\nno reason left to stay awake.\n目を開けても、かつての花畑はもう見えない。\nねえ、毎日毎日、こんなにも多くの命が消えていく\nねえ、毎日毎日、それでもすべてと向き合いながら生きていかなきゃいけない\nWhere have all the flowers gone?\nWhere has every color gone?\nI opened my eyes,\nbut the spring had already died.\nいつか僕らはみんな消えてしまうのに、\nどうして何でもないふりをして、一生懸命笑えるの？\nいつか僕らはみんな消えてしまうのに、\nどうして何でもないふりをして、一生懸命笑えるの？\nWe smile like we don’t know,\nwe smile and let it go.\nWe smile as if forever\nis something we could hold.\nSo tell me why...\ntell me why...\nwhy are we still smiling\nwhen we already know goodbye?"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="22">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/watch?v=lpJuP6lXyXc" target="_blank" rel="noopener">Watch on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">Smiling Before Goodbye lyrics</h2>
+      <p><span class="o" lang="ja">ねえ、毎日毎日、こんなにも多くの命が消えていく</span><span class="t" lang="zh">呐，每一天每一天，都有这么多生命在消失</span></p>
+      <p><span class="o" lang="ja">ねえ、毎日毎日、それでもすべてと向き合いながら生きていかなきゃいけない</span><span class="t" lang="zh">呐，每一天每一天，我们却还是得面对这一切，活下去</span></p>
+      <p><span class="o" lang="ja">もう疲れたと、自分に言ってもいいのかな。</span><span class="t" lang="zh">我可以对自己说一句「已经累了」吗</span></p>
+      <p><span class="o" lang="en">Another light fades away,</span><span class="t" lang="zh">又一盏光熄灭了</span></p>
+      <p><span class="o" lang="en">but the morning comes anyway.</span><span class="t" lang="zh">可清晨还是照样到来</span></p>
+      <p><span class="o" lang="en">Tell me... how do I stay,</span><span class="t" lang="zh">告诉我……我要怎么留下来</span></p>
+      <p><span class="o" lang="en">when nothing ever waits for me?</span><span class="t" lang="zh">当没有任何东西在等我</span></p>
+      <p><span class="o" lang="ja">たとえ自分がこの世界に存在しなくても、</span><span class="t" lang="zh">就算这个世界上没有我</span></p>
+      <p><span class="o" lang="ja">すべては変わらず続いていく。</span><span class="t" lang="zh">一切也会照常继续下去</span></p>
+      <p><span class="o" lang="ja">たとえ何もかも気にせずに生きたとしても、</span><span class="t" lang="zh">就算什么都不在乎地活着</span></p>
+      <p><span class="o" lang="ja">誰かに申し訳なく思う必要なんてない。</span><span class="t" lang="zh">也没有必要觉得对不起谁</span></p>
+      <p><span class="o" lang="ja">そんなふうに生きられたらいいのに、と思う。</span><span class="t" lang="zh">要是能那样活着就好了，我这样想</span></p>
+      <p><span class="o" lang="en">The world will turn without me,</span><span class="t" lang="zh">没有我，世界照样转动</span></p>
+      <p><span class="o" lang="en">the rain will fall without me.</span><span class="t" lang="zh">没有我，雨照样落下</span></p>
+      <p><span class="o" lang="en">Maybe I could close my eyes,</span><span class="t" lang="zh">也许我可以闭上眼睛</span></p>
+      <p><span class="o" lang="en">and finally live without asking why.</span><span class="t" lang="zh">终于不再问为什么地活下去</span></p>
+      <p><span class="o" lang="en">Just let me drift away,</span><span class="t" lang="zh">就让我随风飘走吧</span></p>
+      <p><span class="o" lang="en">just let me be okay.</span><span class="t" lang="zh">就让我好好的吧</span></p>
+      <p><span class="o" lang="en">No promises to keep,</span><span class="t" lang="zh">没有要遵守的承诺</span></p>
+      <p><span class="o" lang="en">no reason left to stay awake.</span><span class="t" lang="zh">也没有继续醒着的理由</span></p>
+      <p><span class="o" lang="ja">目を開けても、かつての花畑はもう見えない。</span><span class="t" lang="zh">睁开眼睛，也再看不见从前那片花田</span></p>
+      <p><span class="o" lang="ja">ねえ、毎日毎日、こんなにも多くの命が消えていく</span><span class="t" lang="zh">呐，每一天每一天，都有这么多生命在消失</span></p>
+      <p><span class="o" lang="ja">ねえ、毎日毎日、それでもすべてと向き合いながら生きていかなきゃいけない</span><span class="t" lang="zh">呐，每一天每一天，我们却还是得面对这一切，活下去</span></p>
+      <p><span class="o" lang="en">Where have all the flowers gone?</span><span class="t" lang="zh">那些花都去了哪里？</span></p>
+      <p><span class="o" lang="en">Where has every color gone?</span><span class="t" lang="zh">那些颜色都去了哪里？</span></p>
+      <p><span class="o" lang="en">I opened my eyes,</span><span class="t" lang="zh">我睁开了眼睛</span></p>
+      <p><span class="o" lang="en">but the spring had already died.</span><span class="t" lang="zh">春天却早已死去</span></p>
+      <p><span class="o" lang="ja">いつか僕らはみんな消えてしまうのに、</span><span class="t" lang="zh">明明总有一天，我们都会消失</span></p>
+      <p><span class="o" lang="ja">どうして何でもないふりをして、一生懸命笑えるの？</span><span class="t" lang="zh">为什么还能装作若无其事，拼命地笑着呢？</span></p>
+      <p><span class="o" lang="ja">いつか僕らはみんな消えてしまうのに、</span><span class="t" lang="zh">明明总有一天，我们都会消失</span></p>
+      <p><span class="o" lang="ja">どうして何でもないふりをして、一生懸命笑えるの？</span><span class="t" lang="zh">为什么还能装作若无其事，拼命地笑着呢？</span></p>
+      <p><span class="o" lang="en">We smile like we don’t know,</span><span class="t" lang="zh">我们笑着，像什么都不知道</span></p>
+      <p><span class="o" lang="en">we smile and let it go.</span><span class="t" lang="zh">我们笑着，然后放手</span></p>
+      <p><span class="o" lang="en">We smile as if forever</span><span class="t" lang="zh">我们笑着，好像「永远」</span></p>
+      <p><span class="o" lang="en">is something we could hold.</span><span class="t" lang="zh">是能握在手里的东西</span></p>
+      <p><span class="o" lang="en">So tell me why...</span><span class="t" lang="zh">所以告诉我，为什么……</span></p>
+      <p><span class="o" lang="en">tell me why...</span><span class="t" lang="zh">告诉我，为什么……</span></p>
+      <p><span class="o" lang="en">why are we still smiling</span><span class="t" lang="zh">为什么我们还在微笑</span></p>
+      <p><span class="o" lang="en">when we already know goodbye?</span><span class="t" lang="zh">明明早已知道，要说再见</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

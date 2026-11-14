@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>餌（えさ） – Orphius | Lyrics</title>
+<meta name="description" content="餌（えさ）（饵） by Orphius. Full lyrics with translation: 手のひらの上 少しずつ裂けた 肉のかけらの中に / 命の鼓動を感じた…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/05">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="餌（えさ） – Orphius">
+<meta property="og:description" content="饵. 手のひらの上 少しずつ裂けた 肉のかけらの中に / 命の鼓動を感じた">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/05">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/05/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "餌（えさ）", "alternateName": "饵", "url": "https://www.orphiusmusic.com/songs/05", "image": "https://media.orphiusmusic.com/orphius/songs/05/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT4M0S", "datePublished": "2025-08-19", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "餌（えさ）", "lyrics": {"@type": "CreativeWork", "text": "手のひらの上 少しずつ裂けた 肉のかけらの中に\n命の鼓動を感じた\nこれは自然の愛だ\n食べること 食べられること\n亡骸が愛を手渡している\n陽光が愛を手渡している\n海が愛を手渡している\n亡骸を食べた蜜蜂は\n栄養を吸収し 次の世代を育てる\nそれも愛だ\n愛はいつでも私たちのそばにある\n愛は自由だ\n愛は与えることだ\n愛は生命\n愛はすべてを起こす\n愛は受け入れること\n存在こそ愛だ\n存在こそ愛だ\n食べること 食べられること\n亡骸が愛を手渡している\nこれは自然の愛だ\n手のひらの上 少しずつ裂けた 肉のかけらの中に\n命の鼓動を感じた\n海が愛を手渡している\n陽光が愛を手渡している\n亡骸を食べた蜜蜂は\n栄養を吸収し 次の世代を育てる\nそれも愛だ\n愛はいつでも私たちのそばにある\n愛は自由だ\n愛は与えることだ\n愛は生命\n愛はすべてを起こす\n愛は受け入れること\n存在こそ愛だ\n存在こそ愛だ\n存在こそ愛だ\n光が愛を手渡している\n海が愛を手渡している\n存在こそ愛だ"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="05">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">餌（えさ） lyrics</h2>
+      <p><span class="o" lang="ja">手のひらの上 少しずつ裂けた 肉のかけらの中に</span><span class="t" lang="zh">在手掌上，一块块被撕开的肉里</span></p>
+      <p><span class="o" lang="ja">命の鼓動を感じた</span><span class="t" lang="zh">我感受到生命的跳动</span></p>
+      <p><span class="o" lang="ja">これは自然の愛だ</span><span class="t" lang="zh">这是大自然的爱</span></p>
+      <p><span class="o" lang="ja">食べること 食べられること</span><span class="t" lang="zh">吃与被吃</span></p>
+      <p><span class="o" lang="ja">亡骸が愛を手渡している</span><span class="t" lang="zh">尸体传递着爱</span></p>
+      <p><span class="o" lang="ja">陽光が愛を手渡している</span><span class="t" lang="zh">阳光传递着爱</span></p>
+      <p><span class="o" lang="ja">海が愛を手渡している</span><span class="t" lang="zh">海传递着爱</span></p>
+      <p><span class="o" lang="ja">亡骸を食べた蜜蜂は</span><span class="t" lang="zh">以尸体为食的蜜蜂</span></p>
+      <p><span class="o" lang="ja">栄養を吸収し 次の世代を育てる</span><span class="t" lang="zh">吸收养分，培育下一代</span></p>
+      <p><span class="o" lang="ja">それも愛だ</span><span class="t" lang="zh">这也是爱</span></p>
+      <p><span class="o" lang="ja">愛はいつでも私たちのそばにある</span><span class="t" lang="zh">爱始终在我们身边</span></p>
+      <p><span class="o" lang="ja">愛は自由だ</span><span class="t" lang="zh">爱是自由</span></p>
+      <p><span class="o" lang="ja">愛は与えることだ</span><span class="t" lang="zh">爱是给予</span></p>
+      <p><span class="o" lang="ja">愛は生命</span><span class="t" lang="zh">爱是生命</span></p>
+      <p><span class="o" lang="ja">愛はすべてを起こす</span><span class="t" lang="zh">爱让一切发生</span></p>
+      <p><span class="o" lang="ja">愛は受け入れること</span><span class="t" lang="zh">爱是接纳</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">食べること 食べられること</span><span class="t" lang="zh">吃与被吃</span></p>
+      <p><span class="o" lang="ja">亡骸が愛を手渡している</span><span class="t" lang="zh">尸体传递着爱</span></p>
+      <p><span class="o" lang="ja">これは自然の愛だ</span><span class="t" lang="zh">这是大自然的爱</span></p>
+      <p><span class="o" lang="ja">手のひらの上 少しずつ裂けた 肉のかけらの中に</span><span class="t" lang="zh">在手掌上，一块块被撕开的肉里</span></p>
+      <p><span class="o" lang="ja">命の鼓動を感じた</span><span class="t" lang="zh">我感受到生命的跳动</span></p>
+      <p><span class="o" lang="ja">海が愛を手渡している</span><span class="t" lang="zh">海传递着爱</span></p>
+      <p><span class="o" lang="ja">陽光が愛を手渡している</span><span class="t" lang="zh">阳光传递着爱</span></p>
+      <p><span class="o" lang="ja">亡骸を食べた蜜蜂は</span><span class="t" lang="zh">以尸体为食的蜜蜂</span></p>
+      <p><span class="o" lang="ja">栄養を吸収し 次の世代を育てる</span><span class="t" lang="zh">吸收养分，培育下一代</span></p>
+      <p><span class="o" lang="ja">それも愛だ</span><span class="t" lang="zh">这也是爱</span></p>
+      <p><span class="o" lang="ja">愛はいつでも私たちのそばにある</span><span class="t" lang="zh">爱始终在我们身边</span></p>
+      <p><span class="o" lang="ja">愛は自由だ</span><span class="t" lang="zh">爱是自由</span></p>
+      <p><span class="o" lang="ja">愛は与えることだ</span><span class="t" lang="zh">爱是给予</span></p>
+      <p><span class="o" lang="ja">愛は生命</span><span class="t" lang="zh">爱是生命</span></p>
+      <p><span class="o" lang="ja">愛はすべてを起こす</span><span class="t" lang="zh">爱让一切发生</span></p>
+      <p><span class="o" lang="ja">愛は受け入れること</span><span class="t" lang="zh">爱是接纳</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
+      <p><span class="o" lang="ja">光が愛を手渡している</span><span class="t" lang="zh">光传递着爱</span></p>
+      <p><span class="o" lang="ja">海が愛を手渡している</span><span class="t" lang="zh">海传递着爱</span></p>
+      <p><span class="o" lang="ja">存在こそ愛だ</span><span class="t" lang="zh">存在本身就是爱</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

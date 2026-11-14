@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>この街で – Orphius | Lyrics</title>
+<meta name="description" content="この街で（在这座城市 · Exist Here） by Orphius. Full lyrics with translation: 迷路をすり抜ける ガムはもう溶けそう / 赤か白か 渡れ？待って？ 見分けられない…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/04">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="この街で – Orphius">
+<meta property="og:description" content="在这座城市 · Exist Here. 迷路をすり抜ける ガムはもう溶けそう / 赤か白か 渡れ？待って？ 見分けられない">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/04">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/04/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "この街で", "alternateName": "在这座城市 · Exist Here", "url": "https://www.orphiusmusic.com/songs/04", "image": "https://media.orphiusmusic.com/orphius/songs/04/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT4M51S", "datePublished": "2025-08-11", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "この街で", "lyrics": {"@type": "CreativeWork", "text": "迷路をすり抜ける ガムはもう溶けそう\n赤か白か 渡れ？待って？ 見分けられない\n首に星の印の鳩が 肩先をかすめてゆくね\nあなたは使者？ それとも何かの合図？\n左右にスリップ 人波は潮のように押す\n角を斜めに切って 風がイヤホンコードをさらう\nまた馴染みの匂い 地下鉄の湿った息\n歩幅を限界までねじ上げ\nこの街に心をねじ込む\n歩幅を上げて 最速で駆ける\n私は立派なニューヨーカーになる\n柱にもたれて 疲れた目で 汚れていても\n時間通りの地下鉄を待つ\n勝手に曲を飛ばさないで\nこの区間のビートは 自分で合わせたい\n緑のリサイクルビンを覗き込み\nごめんね ただガムを吐きたいだけ\nネオンが靴裏で砕け キオスクは朝を折り畳む\n紙コップはまだ熱い 角で夢を拾い直す\nスマホが震えて 世界はまたログインを急かす\n信号の半拍のズレに 呼吸を合わせてみる\n指先は地下鉄の柱の 古傷をなぞり\n昨日の広告で埋まった 反響の壁\n歩幅で街のドラムを刻み\n鼓動にサインをさせる\n今この瞬間 私はただここにある\n人波が私を持ち上げ\nもう一度沈める\n風よ 胸を抜けて 夜をもっと広くして\n答えは急がないで 問いのまま生かしておいて\nこのまま感じさせて 全てを 全てを\n明かりと影は和解し\n脈とレールは並走する\nきっと私は最初から 一人で歌ってなんかいない\nこの歌は 無数の喉で\n同じ鼓動に拾われている\n私はここに あなたもここに\n街は呼吸し 私たちも呼吸する\nガムの甘さを 目覚めの勇気に変えて\n今この瞬間 今この瞬間\nあなたの瞳に 私はある\n地下鉄は遠のき 風だけが残る\n歩幅を少し緩めて\n夜が天を引き延ばす\n心は世界を もう少し広くする"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="04">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">この街で lyrics</h2>
+      <p><span class="o" lang="ja">迷路をすり抜ける ガムはもう溶けそう</span><span class="t" lang="zh">穿过迷宫一样的街道，嘴里的口香糖快要化掉了</span></p>
+      <p><span class="o" lang="ja">赤か白か 渡れ？待って？ 見分けられない</span><span class="t" lang="zh">红灯还是白灯？该走还是该等？我分不清</span></p>
+      <p><span class="o" lang="ja">首に星の印の鳩が 肩先をかすめてゆくね</span><span class="t" lang="zh">一只脖子上带着星星印记的鸽子，从我肩旁掠过</span></p>
+      <p><span class="o" lang="ja">あなたは使者？ それとも何かの合図？</span><span class="t" lang="zh">啊，你难道是替身使者？还是想给我什么暗示？</span></p>
+      <p><span class="o" lang="ja">左右にスリップ 人波は潮のように押す</span><span class="t" lang="zh">我左闪右躲，人潮像潮水一样涌过来</span></p>
+      <p><span class="o" lang="ja">角を斜めに切って 風がイヤホンコードをさらう</span><span class="t" lang="zh">斜着切过街角，风扯走了我的耳机线</span></p>
+      <p><span class="o" lang="ja">また馴染みの匂い 地下鉄の湿った息</span><span class="t" lang="zh">啊，又是那股熟悉的味道——是地铁站呢</span></p>
+      <p><span class="o" lang="ja">歩幅を限界までねじ上げ</span><span class="t" lang="zh">把步子迈到最大</span></p>
+      <p><span class="o" lang="ja">この街に心をねじ込む</span><span class="t" lang="zh">把自己硬塞进这座城市的节奏里</span></p>
+      <p><span class="o" lang="ja">歩幅を上げて 最速で駆ける</span><span class="t" lang="zh">加快脚步，全速穿行</span></p>
+      <p><span class="o" lang="ja">私は立派なニューヨーカーになる</span><span class="t" lang="zh">我要做一个合格的纽约客</span></p>
+      <p><span class="o" lang="ja">柱にもたれて 疲れた目で 汚れていても</span><span class="t" lang="zh">百无聊赖地靠在柱子上，眼神疲惫</span></p>
+      <p><span class="o" lang="ja">時間通りの地下鉄を待つ</span><span class="t" lang="zh">等着那班脏兮兮、却总算准点的地铁</span></p>
+      <p><span class="o" lang="ja">勝手に曲を飛ばさないで</span><span class="t" lang="zh">喂，别自作主张给我切歌啊</span></p>
+      <p><span class="o" lang="ja">この区間のビートは 自分で合わせたい</span><span class="t" lang="zh">这一段的节拍，我想自己来踩</span></p>
+      <p><span class="o" lang="ja">緑のリサイクルビンを覗き込み</span><span class="t" lang="zh">把头探进绿色的回收桶，像在探索什么古老的秘密</span></p>
+      <p><span class="o" lang="ja">ごめんね ただガムを吐きたいだけ</span><span class="t" lang="zh">啊，抱歉，我只是想吐个口香糖</span></p>
+      <p><span class="o" lang="ja">ネオンが靴裏で砕け キオスクは朝を折り畳む</span><span class="t" lang="zh">霓虹在鞋底碎了一地，报刊亭收起了清晨</span></p>
+      <p><span class="o" lang="ja">紙コップはまだ熱い 角で夢を拾い直す</span><span class="t" lang="zh">手里的纸杯还烫着，我在街角把梦重新捡起来</span></p>
+      <p><span class="o" lang="ja">スマホが震えて 世界はまたログインを急かす</span><span class="t" lang="zh">手机一震，世界又在催我上线</span></p>
+      <p><span class="o" lang="ja">信号の半拍のズレに 呼吸を合わせてみる</span><span class="t" lang="zh">红绿灯总慢半拍，我试着把呼吸对上它</span></p>
+      <p><span class="o" lang="ja">指先は地下鉄の柱の 古傷をなぞり</span><span class="t" lang="zh">指尖划过地铁柱子上的旧划痕</span></p>
+      <p><span class="o" lang="ja">昨日の広告で埋まった 反響の壁</span><span class="t" lang="zh">贴满过期广告的墙，回声来回打转</span></p>
+      <p><span class="o" lang="ja">歩幅で街のドラムを刻み</span><span class="t" lang="zh">用脚步敲出这座城市的鼓点</span></p>
+      <p><span class="o" lang="ja">鼓動にサインをさせる</span><span class="t" lang="zh">再让心跳签上自己的名字</span></p>
+      <p><span class="o" lang="ja">今この瞬間 私はただここにある</span><span class="t" lang="zh">此时此刻，我只是存在于此</span></p>
+      <p><span class="o" lang="ja">人波が私を持ち上げ</span><span class="t" lang="zh">人潮把我托起</span></p>
+      <p><span class="o" lang="ja">もう一度沈める</span><span class="t" lang="zh">又把我淹没</span></p>
+      <p><span class="o" lang="ja">風よ 胸を抜けて 夜をもっと広くして</span><span class="t" lang="zh">风啊，穿过我的胸口，让夜再宽一点</span></p>
+      <p><span class="o" lang="ja">答えは急がないで 問いのまま生かしておいて</span><span class="t" lang="zh">不用急着找答案，就让问题先留着吧</span></p>
+      <p><span class="o" lang="ja">このまま感じさせて 全てを 全てを</span><span class="t" lang="zh">就让我这样感受着吧，所有的一切，一切</span></p>
+      <p><span class="o" lang="ja">明かりと影は和解し</span><span class="t" lang="zh">光和影握手言和</span></p>
+      <p><span class="o" lang="ja">脈とレールは並走する</span><span class="t" lang="zh">脉搏和铁轨并肩奔跑</span></p>
+      <p><span class="o" lang="ja">きっと私は最初から 一人で歌ってなんかいない</span><span class="t" lang="zh">也许我一直以来，都不是一个人在唱这首歌</span></p>
+      <p><span class="o" lang="ja">この歌は 無数の喉で</span><span class="t" lang="zh">这首歌，有无数个声音在唱</span></p>
+      <p><span class="o" lang="ja">同じ鼓動に拾われている</span><span class="t" lang="zh">被同一种心跳接住</span></p>
+      <p><span class="o" lang="ja">私はここに あなたもここに</span><span class="t" lang="zh">我在这里，你也在这里</span></p>
+      <p><span class="o" lang="ja">街は呼吸し 私たちも呼吸する</span><span class="t" lang="zh">城市在呼吸，我们也在呼吸</span></p>
+      <p><span class="o" lang="ja">ガムの甘さを 目覚めの勇気に変えて</span><span class="t" lang="zh">把口香糖的甜味，换成清醒过来的勇气</span></p>
+      <p><span class="o" lang="ja">今この瞬間 今この瞬間</span><span class="t" lang="zh">此时此刻，此时此刻</span></p>
+      <p><span class="o" lang="ja">あなたの瞳に 私はある</span><span class="t" lang="zh">我就在你的眼睛里</span></p>
+      <p><span class="o" lang="ja">地下鉄は遠のき 風だけが残る</span><span class="t" lang="zh">地铁远去，只剩下风</span></p>
+      <p><span class="o" lang="ja">歩幅を少し緩めて</span><span class="t" lang="zh">把脚步放慢一点</span></p>
+      <p><span class="o" lang="ja">夜が天を引き延ばす</span><span class="t" lang="zh">夜把天空拉得好长好长</span></p>
+      <p><span class="o" lang="ja">心は世界を もう少し広くする</span><span class="t" lang="zh">心把世界又撑大了一点</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

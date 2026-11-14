@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>身体は老いていく、ゆっくりと感覚を失っていく。 – Orphius | Lyrics</title>
+<meta name="description" content="身体は老いていく、ゆっくりと感覚を失っていく。（蜘蛛的信条） by Orphius. Full lyrics with translation: 体は老いていく ゆっくりと感覚を失っていく / Everything returns quietly to silence…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/11">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="身体は老いていく、ゆっくりと感覚を失っていく。 – Orphius">
+<meta property="og:description" content="蜘蛛的信条. 体は老いていく ゆっくりと感覚を失っていく / Everything returns quietly to silence">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/11">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/11/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "身体は老いていく、ゆっくりと感覚を失っていく。", "alternateName": "蜘蛛的信条", "url": "https://www.orphiusmusic.com/songs/11", "image": "https://media.orphiusmusic.com/orphius/songs/11/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M19S", "datePublished": "2025-10-18", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "身体は老いていく、ゆっくりと感覚を失っていく。", "lyrics": {"@type": "CreativeWork", "text": "体は老いていく ゆっくりと感覚を失っていく\nEverything returns quietly to silence\nThe body stops resisting, the flame of life fades away\n死んだ殻は闇の片隅で静かに待っている\nThe heart begins to beat again, the flame of life reignites\nRebelling against the prison called \"body\"\n絶えず捨てることでしか 本当の自分に近づけない\nWith a still mind, I throw everything away\nI tear off the version of myself that has already died\n蜘蛛の信条 生きるためには全てを捨てなければならない\nFeelings are unnecessary, only by shedding again and again\ncan I accept myself\n一番深い闇の中で 静かに潜む\nI gaze upon the discarded shell\nI look at the self that has already died\nAnd within my heart, there is calm\n闇の奥深くで 美しくも致命的な糸を紡ぐ\nI am the spider, the law of survival\nTo take, and to let go\n蜘蛛の信条 生きるためには全てを捨てなければならない\nFeelings are unnecessary, only by shedding again and again\ncan I accept myself\n闇の奥深くで 美しくも致命的な糸を紡ぐ\nI am the spider, the law of survival\nTo take, and to let go\n「私は蜘蛛だ」と静かに繰り返す\nIt melts into the darkness\n「私は蜘蛛だ」と静かに繰り返す\nIt melts into the darkness, leaving only silence behind"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="11">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">身体は老いていく、ゆっくりと感覚を失っていく。 lyrics</h2>
+      <p><span class="o" lang="ja">体は老いていく ゆっくりと感覚を失っていく</span><span class="t" lang="zh">身体渐渐衰老，慢慢失去感觉</span></p>
+      <p><span class="o" lang="en">Everything returns quietly to silence</span><span class="t" lang="zh">一切静静地归于沉寂</span></p>
+      <p><span class="o" lang="en">The body stops resisting, the flame of life fades away</span><span class="t" lang="zh">身体不再抵抗，生命的火焰渐渐熄灭</span></p>
+      <p><span class="o" lang="ja">死んだ殻は闇の片隅で静かに待っている</span><span class="t" lang="zh">死去的躯壳，在黑暗的一角静静等待</span></p>
+      <p><span class="o" lang="en">The heart begins to beat again, the flame of life reignites</span><span class="t" lang="zh">心脏再次开始跳动，生命之火重新燃起</span></p>
+      <p><span class="o" lang="en">Rebelling against the prison called &quot;body&quot;</span><span class="t" lang="zh">反抗着名为“身体”的牢笼</span></p>
+      <p><span class="o" lang="ja">絶えず捨てることでしか 本当の自分に近づけない</span><span class="t" lang="zh">只有不断舍弃，才能接近真正的自己</span></p>
+      <p><span class="o" lang="en">With a still mind, I throw everything away</span><span class="t" lang="zh">心境平静，我抛下所有</span></p>
+      <p><span class="o" lang="en">I tear off the version of myself that has already died</span><span class="t" lang="zh">撕去那个早已死去的自己</span></p>
+      <p><span class="o" lang="ja">蜘蛛の信条 生きるためには全てを捨てなければならない</span><span class="t" lang="zh">蜘蛛的信条——为了生存，必须舍弃一切</span></p>
+      <p><span class="o" lang="en">Feelings are unnecessary, only by shedding again and again</span><span class="t" lang="zh">感情毫无必要，唯有一次次蜕变</span></p>
+      <p><span class="o" lang="en">can I accept myself</span><span class="t" lang="zh">我才能接纳自己</span></p>
+      <p><span class="o" lang="ja">一番深い闇の中で 静かに潜む</span><span class="t" lang="zh">在最深的黑暗中，静静潜伏</span></p>
+      <p><span class="o" lang="en">I gaze upon the discarded shell</span><span class="t" lang="zh">我凝视着被舍弃的外壳</span></p>
+      <p><span class="o" lang="en">I look at the self that has already died</span><span class="t" lang="zh">看着那个早已死去的自己</span></p>
+      <p><span class="o" lang="en">And within my heart, there is calm</span><span class="t" lang="zh">心中归于平静</span></p>
+      <p><span class="o" lang="ja">闇の奥深くで 美しくも致命的な糸を紡ぐ</span><span class="t" lang="zh">在幽暗深处，编织美丽却致命的丝线</span></p>
+      <p><span class="o" lang="en">I am the spider, the law of survival</span><span class="t" lang="zh">我是蜘蛛。生存的法则——</span></p>
+      <p><span class="o" lang="en">To take, and to let go</span><span class="t" lang="zh">掠取，然后放手</span></p>
+      <p><span class="o" lang="ja">蜘蛛の信条 生きるためには全てを捨てなければならない</span><span class="t" lang="zh">蜘蛛的信条——为了生存，必须舍弃一切</span></p>
+      <p><span class="o" lang="en">Feelings are unnecessary, only by shedding again and again</span><span class="t" lang="zh">感情毫无必要，唯有一次次蜕变</span></p>
+      <p><span class="o" lang="en">can I accept myself</span><span class="t" lang="zh">我才能接纳自己</span></p>
+      <p><span class="o" lang="ja">闇の奥深くで 美しくも致命的な糸を紡ぐ</span><span class="t" lang="zh">在幽暗深处，编织美丽却致命的丝线</span></p>
+      <p><span class="o" lang="en">I am the spider, the law of survival</span><span class="t" lang="zh">我是蜘蛛。生存的法则——</span></p>
+      <p><span class="o" lang="en">To take, and to let go</span><span class="t" lang="zh">掠取，然后放手</span></p>
+      <p><span class="o" lang="ja">「私は蜘蛛だ」と静かに繰り返す</span><span class="t" lang="zh">我静静地重复：“我是蜘蛛。”</span></p>
+      <p><span class="o" lang="en">It melts into the darkness</span><span class="t" lang="zh">一切融入黑暗</span></p>
+      <p><span class="o" lang="ja">「私は蜘蛛だ」と静かに繰り返す</span><span class="t" lang="zh">我静静地重复：“我是蜘蛛。”</span></p>
+      <p><span class="o" lang="en">It melts into the darkness, leaving only silence behind</span><span class="t" lang="zh">一切融入黑暗，只留下沉默</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

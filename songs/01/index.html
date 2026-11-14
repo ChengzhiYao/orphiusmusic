@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>興味を少しずつ失っていく – Orphius | Lyrics</title>
+<meta name="description" content="興味を少しずつ失っていく（渐渐失去兴趣的日常生活） by Orphius. Full lyrics with translation: 興味を少しずつ失っていく Daily Life / タバコのフレーバーも感じられず…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/01">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="興味を少しずつ失っていく – Orphius">
+<meta property="og:description" content="渐渐失去兴趣的日常生活. 興味を少しずつ失っていく Daily Life / タバコのフレーバーも感じられず">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/01">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/01/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "興味を少しずつ失っていく", "alternateName": "渐渐失去兴趣的日常生活", "url": "https://www.orphiusmusic.com/songs/01", "image": "https://media.orphiusmusic.com/orphius/songs/01/cover.jpg", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M21S", "datePublished": "2025-08-08", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "興味を少しずつ失っていく", "lyrics": {"@type": "CreativeWork", "text": "興味を少しずつ失っていく Daily Life\nタバコのフレーバーも感じられず\nボトルの最後の一滴を疲れて飲み干す\n残酷で 冷酷で 冷たい世界で\n哲学っぽい意味不明なナンセンスを口にして\n無意味なビデオをスワイプして\nただ時間を潰しているだけ\n「日の出を見に行こう」って？ How boring...\n「海に行こう」って？ Sorry, I'm not into that anymore\nやりたくない やりたくない\n本当に何もしたくない\nこの世界に生まれたことが Super annoying\n誰かに見られるのも Exhausted\n人と関わるのは Just troublesome\nFading into the background\n静かに 静かに disappearing...\nやりたくない やりたくない\n本当に何もしたくない\nこの世界に生まれたことが Super annoying\n誰かに見られるのも Exhausted\n人と関わるのは Just troublesome\nFading into the background\n静かに 静かに disappearing...\nやりたくない やりたくない\n本当に何もしたくない\nこの世界に生まれたことが Super annoying\nやりたくない やりたくない\n本当に何もしたくない\nこの世界に生まれたことが Super annoying\n誰かに見られるのも Exhausted\n人と関わるのは Just troublesome\nFading into the background\n静かに 静かに disappearing..."}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="01">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">興味を少しずつ失っていく lyrics</h2>
+      <p><span class="o" lang="ja">興味を少しずつ失っていく Daily Life</span><span class="t" lang="zh">一点一点失去兴趣的日常</span></p>
+      <p><span class="o" lang="ja">タバコのフレーバーも感じられず</span><span class="t" lang="zh">连香烟的味道也感觉不到</span></p>
+      <p><span class="o" lang="ja">ボトルの最後の一滴を疲れて飲み干す</span><span class="t" lang="zh">累得不行，把瓶底最后一滴也喝光</span></p>
+      <p><span class="o" lang="ja">残酷で 冷酷で 冷たい世界で</span><span class="t" lang="zh">在这个残酷、冷漠又冰冷的世界里</span></p>
+      <p><span class="o" lang="ja">哲学っぽい意味不明なナンセンスを口にして</span><span class="t" lang="zh">嘴里念叨着听起来像哲学、其实毫无意义的废话</span></p>
+      <p><span class="o" lang="ja">無意味なビデオをスワイプして</span><span class="t" lang="zh">刷着毫无意义的视频</span></p>
+      <p><span class="o" lang="ja">ただ時間を潰しているだけ</span><span class="t" lang="zh">只是在消磨时间而已</span></p>
+      <p><span class="o" lang="ja">「日の出を見に行こう」って？ How boring...</span><span class="t" lang="zh">“一起去看日出吧？”……好无聊</span></p>
+      <p><span class="o" lang="ja">「海に行こう」って？ Sorry, I&#x27;m not into that anymore</span><span class="t" lang="zh">“去海边吧？”……抱歉，我已经提不起兴趣了</span></p>
+      <p><span class="o" lang="ja">やりたくない やりたくない</span><span class="t" lang="zh">不想做，不想做</span></p>
+      <p><span class="o" lang="ja">本当に何もしたくない</span><span class="t" lang="zh">真的什么都不想做</span></p>
+      <p><span class="o" lang="ja">この世界に生まれたことが Super annoying</span><span class="t" lang="zh">生在这个世界上，真是烦透了</span></p>
+      <p><span class="o" lang="ja">誰かに見られるのも Exhausted</span><span class="t" lang="zh">被人注视着，也好累</span></p>
+      <p><span class="o" lang="ja">人と関わるのは Just troublesome</span><span class="t" lang="zh">和人打交道，只觉得麻烦</span></p>
+      <p><span class="o" lang="en">Fading into the background</span><span class="t" lang="zh">慢慢隐没进背景里</span></p>
+      <p><span class="o" lang="ja">静かに 静かに disappearing...</span><span class="t" lang="zh">静静地，静静地 消失……</span></p>
+      <p><span class="o" lang="ja">やりたくない やりたくない</span><span class="t" lang="zh">不想做，不想做</span></p>
+      <p><span class="o" lang="ja">本当に何もしたくない</span><span class="t" lang="zh">真的什么都不想做</span></p>
+      <p><span class="o" lang="ja">この世界に生まれたことが Super annoying</span><span class="t" lang="zh">生在这个世界上，真是烦透了</span></p>
+      <p><span class="o" lang="ja">誰かに見られるのも Exhausted</span><span class="t" lang="zh">被人注视着，也好累</span></p>
+      <p><span class="o" lang="ja">人と関わるのは Just troublesome</span><span class="t" lang="zh">和人打交道，只觉得麻烦</span></p>
+      <p><span class="o" lang="en">Fading into the background</span><span class="t" lang="zh">慢慢隐没进背景里</span></p>
+      <p><span class="o" lang="ja">静かに 静かに disappearing...</span><span class="t" lang="zh">静静地，静静地 消失……</span></p>
+      <p><span class="o" lang="ja">やりたくない やりたくない</span><span class="t" lang="zh">不想做，不想做</span></p>
+      <p><span class="o" lang="ja">本当に何もしたくない</span><span class="t" lang="zh">真的什么都不想做</span></p>
+      <p><span class="o" lang="ja">この世界に生まれたことが Super annoying</span><span class="t" lang="zh">生在这个世界上，真是烦透了</span></p>
+      <p><span class="o" lang="ja">やりたくない やりたくない</span><span class="t" lang="zh">不想做，不想做</span></p>
+      <p><span class="o" lang="ja">本当に何もしたくない</span><span class="t" lang="zh">真的什么都不想做</span></p>
+      <p><span class="o" lang="ja">この世界に生まれたことが Super annoying</span><span class="t" lang="zh">生在这个世界上，真是烦透了</span></p>
+      <p><span class="o" lang="ja">誰かに見られるのも Exhausted</span><span class="t" lang="zh">被人注视着，也好累</span></p>
+      <p><span class="o" lang="ja">人と関わるのは Just troublesome</span><span class="t" lang="zh">和人打交道，只觉得麻烦</span></p>
+      <p><span class="o" lang="en">Fading into the background</span><span class="t" lang="zh">慢慢隐没进背景里</span></p>
+      <p><span class="o" lang="ja">静かに 静かに disappearing...</span><span class="t" lang="zh">静静地，静静地 消失……</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

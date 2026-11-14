@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>Number Twelve – Orphius | Lyrics</title>
+<meta name="description" content="Number Twelve（第十二号） by Orphius. Full lyrics with translation: Tick Tick Tick / 十二時間の時計が　また鳴り出す…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/14">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="Number Twelve – Orphius">
+<meta property="og:description" content="第十二号. Tick Tick Tick / 十二時間の時計が　また鳴り出す">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/14">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/14/cover.jpg?r=6">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "Number Twelve", "alternateName": "第十二号", "url": "https://www.orphiusmusic.com/songs/14", "image": "https://media.orphiusmusic.com/orphius/songs/14/cover.jpg?r=6", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M53S", "datePublished": "2025-12-21", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "Number Twelve", "lyrics": {"@type": "CreativeWork", "text": "Tick Tick Tick\n十二時間の時計が　また鳴り出す\nTick Tick Tick\n世界は　私を　前へと押し出す\nTick Tick Tick\nI am number twelve\n名前のない　人造人間\nTick Tick Tick\nBorn without a past\nOnly the mark of twelve\n白く濁る息\n冷たい　ため息\nTwelve hours\nTwelve days, the cycle goes on\nTick Tick Tick\ntwelve twelve twelve\n終わりであり　始まり\ntwelve twelve twelve\nEnd and begin, end and begin\n運命は　何度も　繰り返され\n痛みで　私の存在を　証明する\nBlindly chasing fake hope\n崩れた世界の中で\n壊れた　number twelve\n引き裂かれ\n組み直され\nAgain and again\nAgain, again, and again\ntwelve, twelve\n名前も　未来も　失って\nそれでも　時間は止まらない\n壊れた心の世界は\nもう遠くで　崩れている\nTick Tick Tick\ntwelve twelve twelve\nこれは終わり　これは始まり\ntwelve twelve twelve\nFate repeats again\n世界は　それでも　歩けと言う\n希望も　絶望も　抱えたまま\n私は　そこから生まれた\nFrom hope and despair\nI am number twelve\nBorn again\nAgain\nAgain\nTick… Tick… Tick…\ntwelve"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="14">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">Number Twelve lyrics</h2>
+      <p><span class="o" lang="en">Tick Tick Tick</span><span class="t" lang="zh">嘀嗒　嘀嗒　嘀嗒</span></p>
+      <p><span class="o" lang="ja">十二時間の時計が　また鳴り出す</span><span class="t" lang="zh">十二小时的时钟，又一次响起</span></p>
+      <p><span class="o" lang="en">Tick Tick Tick</span><span class="t" lang="zh">嘀嗒　嘀嗒　嘀嗒</span></p>
+      <p><span class="o" lang="ja">世界は　私を　前へと押し出す</span><span class="t" lang="zh">世界推着我，一直往前走</span></p>
+      <p><span class="o" lang="en">Tick Tick Tick</span><span class="t" lang="zh">嘀嗒　嘀嗒　嘀嗒</span></p>
+      <p><span class="o" lang="en">I am number twelve</span><span class="t" lang="zh">我是十二号</span></p>
+      <p><span class="o" lang="ja">名前のない　人造人間</span><span class="t" lang="zh">一个没有名字的人造人</span></p>
+      <p><span class="o" lang="en">Tick Tick Tick</span><span class="t" lang="zh">嘀嗒　嘀嗒　嘀嗒</span></p>
+      <p><span class="o" lang="en">Born without a past</span><span class="t" lang="zh">生来就没有过去</span></p>
+      <p><span class="o" lang="en">Only the mark of twelve</span><span class="t" lang="zh">只有「十二」这个印记</span></p>
+      <p><span class="o" lang="ja">白く濁る息</span><span class="t" lang="zh">呼出的气，白而浑浊</span></p>
+      <p><span class="o" lang="ja">冷たい　ため息</span><span class="t" lang="zh">一声冰冷的叹息</span></p>
+      <p><span class="o" lang="en">Twelve hours</span><span class="t" lang="zh">十二个小时</span></p>
+      <p><span class="o" lang="en">Twelve days, the cycle goes on</span><span class="t" lang="zh">十二天，轮回还在继续</span></p>
+      <p><span class="o" lang="en">Tick Tick Tick</span><span class="t" lang="zh">嘀嗒　嘀嗒　嘀嗒</span></p>
+      <p><span class="o" lang="en">twelve twelve twelve</span><span class="t" lang="zh">十二　十二　十二</span></p>
+      <p><span class="o" lang="ja">終わりであり　始まり</span><span class="t" lang="zh">是终结，也是开始</span></p>
+      <p><span class="o" lang="en">twelve twelve twelve</span><span class="t" lang="zh">十二　十二　十二</span></p>
+      <p><span class="o" lang="en">End and begin, end and begin</span><span class="t" lang="zh">终结，然后开始</span></p>
+      <p><span class="o" lang="ja">運命は　何度も　繰り返され</span><span class="t" lang="zh">命运一遍又一遍地重来</span></p>
+      <p><span class="o" lang="ja">痛みで　私の存在を　証明する</span><span class="t" lang="zh">只能用疼痛，证明我还存在</span></p>
+      <p><span class="o" lang="en">Blindly chasing fake hope</span><span class="t" lang="zh">盲目地追着虚假的希望</span></p>
+      <p><span class="o" lang="ja">崩れた世界の中で</span><span class="t" lang="zh">在崩塌的世界里</span></p>
+      <p><span class="o" lang="ja">壊れた　number twelve</span><span class="t" lang="zh">坏掉的十二号</span></p>
+      <p><span class="o" lang="ja">引き裂かれ</span><span class="t" lang="zh">被撕开</span></p>
+      <p><span class="o" lang="ja">組み直され</span><span class="t" lang="zh">又被重新拼好</span></p>
+      <p><span class="o" lang="en">Again and again</span><span class="t" lang="zh">一次，又一次</span></p>
+      <p><span class="o" lang="en">Again, again, and again</span><span class="t" lang="zh">一次，一次，又一次</span></p>
+      <p><span class="o" lang="en">twelve, twelve</span><span class="t" lang="zh">十二，十二</span></p>
+      <p><span class="o" lang="ja">名前も　未来も　失って</span><span class="t" lang="zh">失去了名字，也失去了未来</span></p>
+      <p><span class="o" lang="ja">それでも　時間は止まらない</span><span class="t" lang="zh">可时间还是不肯停下</span></p>
+      <p><span class="o" lang="ja">壊れた心の世界は</span><span class="t" lang="zh">心里那个破碎的世界</span></p>
+      <p><span class="o" lang="ja">もう遠くで　崩れている</span><span class="t" lang="zh">早已在远处崩塌</span></p>
+      <p><span class="o" lang="en">Tick Tick Tick</span><span class="t" lang="zh">嘀嗒　嘀嗒　嘀嗒</span></p>
+      <p><span class="o" lang="en">twelve twelve twelve</span><span class="t" lang="zh">十二　十二　十二</span></p>
+      <p><span class="o" lang="ja">これは終わり　これは始まり</span><span class="t" lang="zh">这是终结，这是开始</span></p>
+      <p><span class="o" lang="en">twelve twelve twelve</span><span class="t" lang="zh">十二　十二　十二</span></p>
+      <p><span class="o" lang="en">Fate repeats again</span><span class="t" lang="zh">命运再一次重演</span></p>
+      <p><span class="o" lang="ja">世界は　それでも　歩けと言う</span><span class="t" lang="zh">世界却还是叫我继续走</span></p>
+      <p><span class="o" lang="ja">希望も　絶望も　抱えたまま</span><span class="t" lang="zh">抱着希望，也抱着绝望</span></p>
+      <p><span class="o" lang="ja">私は　そこから生まれた</span><span class="t" lang="zh">我就是从那里诞生的</span></p>
+      <p><span class="o" lang="en">From hope and despair</span><span class="t" lang="zh">诞生于希望与绝望之间</span></p>
+      <p><span class="o" lang="en">I am number twelve</span><span class="t" lang="zh">我是十二号</span></p>
+      <p><span class="o" lang="en">Born again</span><span class="t" lang="zh">再一次出生</span></p>
+      <p><span class="o" lang="en">Again</span><span class="t" lang="zh">再一次</span></p>
+      <p><span class="o" lang="en">Again</span><span class="t" lang="zh">再一次</span></p>
+      <p><span class="o" lang="en">Tick… Tick… Tick…</span><span class="t" lang="zh">嘀嗒……嘀嗒……嘀嗒……</span></p>
+      <p><span class="o" lang="en">twelve</span><span class="t" lang="zh">十二</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>近づく – Orphius | Lyrics</title>
+<meta name="description" content="近づく（想靠近，又不敢靠近） by Orphius. Full lyrics with translation: 近づきたい…… / でも——近づけない……haa……">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/13">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="近づく – Orphius">
+<meta property="og:description" content="想靠近，又不敢靠近. 近づきたい…… / でも——近づけない……haa…">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/13">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/13/cover.jpg?r=6">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "近づく", "alternateName": "想靠近，又不敢靠近", "url": "https://www.orphiusmusic.com/songs/13", "image": "https://media.orphiusmusic.com/orphius/songs/13/cover.jpg?r=6", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT2M35S", "datePublished": "2025-11-21", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "近づく", "lyrics": {"@type": "CreativeWork", "text": "近づきたい……\nでも——近づけない……haa…\n続く呼吸が　鼻の奥を刺す\n脳が興奮して　震えて　ああ——\nこの…この刺激は　何なの？\n回転…する…螺旋階段が落ちていく\n六道の子が耳元で…ざわ…ざわ…\n発がん剤の匂い\n空のミネラルボトルが転がり\n不眠症の患者が呼吸を数えて\n指先のダンス—— tap tap tap\nあ…あぁ…これ……何なんだよ？\nググ…ググ… フクロウが頭上をかすめて\nニャァ…ニャァ… 子猫が脚の上でぬくもりを残し\nワンワン…ワンワン…\n小さな犬が外へ出たいって吠えて\nプク…プク… 金魚が泡を吐いて…消えて\nもう…うるさい\nもういい　もういいよ\nもう知らない\n全部……全部……壊れよう\n近づきたい　近づけない\n耳の奥で呼吸だけがまとわりついて　ああ\n胸を叩く鼓動が\n助けを求めてるみたいで\nそして落ちていく"}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="13">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">近づく lyrics</h2>
+      <p><span class="o" lang="ja">近づきたい……</span><span class="t" lang="zh">想要靠近……</span></p>
+      <p><span class="o" lang="ja">でも——近づけない……haa…</span><span class="t" lang="zh">却——不敢靠近……haa…</span></p>
+      <p><span class="o" lang="ja">続く呼吸が　鼻の奥を刺す</span><span class="t" lang="zh">连贯的呼吸声　刺激着鼻腔</span></p>
+      <p><span class="o" lang="ja">脳が興奮して　震えて　ああ——</span><span class="t" lang="zh">大脑在兴奋　在颤抖　在　啊啊——</span></p>
+      <p><span class="o" lang="ja">この…この刺激は　何なの？</span><span class="t" lang="zh">这……这种刺激感又是什么呢？</span></p>
+      <p><span class="o" lang="ja">回転…する…螺旋階段が落ちていく</span><span class="t" lang="zh">回旋着……螺旋楼梯不断坠落</span></p>
+      <p><span class="o" lang="ja">六道の子が耳元で…ざわ…ざわ…</span><span class="t" lang="zh">六道之子在耳边……窸窣……窸窣……</span></p>
+      <p><span class="o" lang="ja">発がん剤の匂い</span><span class="t" lang="zh">致癌剂的气味</span></p>
+      <p><span class="o" lang="ja">空のミネラルボトルが転がり</span><span class="t" lang="zh">空矿泉水瓶滚来滚去</span></p>
+      <p><span class="o" lang="ja">不眠症の患者が呼吸を数えて</span><span class="t" lang="zh">失眠的病人数着自己的呼吸</span></p>
+      <p><span class="o" lang="ja">指先のダンス—— tap tap tap</span><span class="t" lang="zh">指尖在跳舞——嗒、嗒、嗒</span></p>
+      <p><span class="o" lang="ja">あ…あぁ…これ……何なんだよ？</span><span class="t" lang="zh">啊……啊啊……这……到底是什么？</span></p>
+      <p><span class="o" lang="ja">ググ…ググ… フクロウが頭上をかすめて</span><span class="t" lang="zh">咕咕……咕咕……猫头鹰掠过头顶</span></p>
+      <p><span class="o" lang="ja">ニャァ…ニャァ… 子猫が脚の上でぬくもりを残し</span><span class="t" lang="zh">喵……喵……小猫在腿上留下一点温度</span></p>
+      <p><span class="o" lang="ja">ワンワン…ワンワン…</span><span class="t" lang="zh">汪汪……汪汪……</span></p>
+      <p><span class="o" lang="ja">小さな犬が外へ出たいって吠えて</span><span class="t" lang="zh">小狗叫着想要出去</span></p>
+      <p><span class="o" lang="ja">プク…プク… 金魚が泡を吐いて…消えて</span><span class="t" lang="zh">噗……噗……金鱼吐着泡泡……消失了</span></p>
+      <p><span class="o" lang="ja">もう…うるさい</span><span class="t" lang="zh">够了……好吵</span></p>
+      <p><span class="o" lang="ja">もういい　もういいよ</span><span class="t" lang="zh">不管了　不管了</span></p>
+      <p><span class="o" lang="ja">もう知らない</span><span class="t" lang="zh">什么都不管了</span></p>
+      <p><span class="o" lang="ja">全部……全部……壊れよう</span><span class="t" lang="zh">全部……全部毁灭吧</span></p>
+      <p><span class="o" lang="ja">近づきたい　近づけない</span><span class="t" lang="zh">我想靠近　又不敢靠近</span></p>
+      <p><span class="o" lang="ja">耳の奥で呼吸だけがまとわりついて　ああ</span><span class="t" lang="zh">呼吸声在耳边缠着不走，啊——</span></p>
+      <p><span class="o" lang="ja">胸を叩く鼓動が</span><span class="t" lang="zh">心脏敲在胸腔里</span></p>
+      <p><span class="o" lang="ja">助けを求めてるみたいで</span><span class="t" lang="zh">像在求救</span></p>
+      <p><span class="o" lang="ja">そして落ちていく</span><span class="t" lang="zh">然后……坠落下去</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>

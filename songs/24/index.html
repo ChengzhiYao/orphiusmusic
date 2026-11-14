@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1424">
+<title>Send My Love Across the Night – Orphius | Lyrics</title>
+<meta name="description" content="Send My Love Across the Night（把我的爱，送过这片黑夜） by Orphius. Full lyrics with translation: Do not go gentle into that good night. / Rage, rage against the dying of the light.…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/24">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="Send My Love Across the Night – Orphius">
+<meta property="og:description" content="把我的爱，送过这片黑夜. Do not go gentle into that good night. / Rage, rage against the dying of the light.">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/24">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/24/cover.jpg?r=16">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "Send My Love Across the Night", "alternateName": "把我的爱，送过这片黑夜", "url": "https://www.orphiusmusic.com/songs/24", "image": "https://media.orphiusmusic.com/orphius/songs/24/cover.jpg?r=16", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/"}, "duration": "PT4M0S", "inLanguage": "en", "recordingOf": {"@type": "MusicComposition", "name": "Send My Love Across the Night", "lyrics": {"@type": "CreativeWork", "text": "Do not go gentle into that good night.\nRage, rage against the dying of the light.\nFlying into the night,\nsearching for your light.\nChasing by the dark,\nfading in the dawn.\nLost in time, I dream of you,\nseeking for an answer.\nIf love travel beyond the light,\nWill you find me in the night?\nAcross the tides of time,\nThere's a me you haven't met,\nBeneath the stars that shine,\nIn a world that knows no end.\nIf love can travel through space and time,\nPlease send my love across the night.\nIf love can travel through space and time,\nPlease send my love across the night.\nI search across universe to find your print,\nThe darkness nearly swallows me whole.\nYet a spark keeps me alive,\nGuiding me through the endless void.\nI reach for you across the stars,\nI call your name into the void.\nIf love can cross the universe,\nPlease guide me to your light.\nFlying into the night,\nsearching for your light,\nChased by the dark,\nfading with the morning light."}}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=2">
+</head>
+<body data-song="24">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">Send My Love Across the Night lyrics</h2>
+      <p><span class="o" lang="en">Do not go gentle into that good night.</span><span class="t" lang="zh">不要温和地走进那个良夜</span></p>
+      <p><span class="o" lang="en">Rage, rage against the dying of the light.</span><span class="t" lang="zh">怒斥，怒斥光明的消逝</span></p>
+      <p><span class="o" lang="en">Flying into the night,</span><span class="t" lang="zh">飞进黑夜里</span></p>
+      <p><span class="o" lang="en">searching for your light.</span><span class="t" lang="zh">寻找你的光</span></p>
+      <p><span class="o" lang="en">Chasing by the dark,</span><span class="t" lang="zh">被黑暗追赶着</span></p>
+      <p><span class="o" lang="en">fading in the dawn.</span><span class="t" lang="zh">在黎明中渐渐消散</span></p>
+      <p><span class="o" lang="en">Lost in time, I dream of you,</span><span class="t" lang="zh">迷失在时间里，我梦见你</span></p>
+      <p><span class="o" lang="en">seeking for an answer.</span><span class="t" lang="zh">寻找一个答案</span></p>
+      <p><span class="o" lang="en">If love travel beyond the light,</span><span class="t" lang="zh">如果爱能穿越光</span></p>
+      <p><span class="o" lang="en">Will you find me in the night?</span><span class="t" lang="zh">你会在黑夜里找到我吗？</span></p>
+      <p><span class="o" lang="en">Across the tides of time,</span><span class="t" lang="zh">跨过时间的潮汐</span></p>
+      <p><span class="o" lang="en">There&#x27;s a me you haven&#x27;t met,</span><span class="t" lang="zh">有一个你还没遇见的我</span></p>
+      <p><span class="o" lang="en">Beneath the stars that shine,</span><span class="t" lang="zh">在闪耀的星空下</span></p>
+      <p><span class="o" lang="en">In a world that knows no end.</span><span class="t" lang="zh">在一个没有尽头的世界里</span></p>
+      <p><span class="o" lang="en">If love can travel through space and time,</span><span class="t" lang="zh">如果爱能穿越时间与空间</span></p>
+      <p><span class="o" lang="en">Please send my love across the night.</span><span class="t" lang="zh">请把我的爱，送过这片黑夜</span></p>
+      <p><span class="o" lang="en">If love can travel through space and time,</span><span class="t" lang="zh">如果爱能穿越时间与空间</span></p>
+      <p><span class="o" lang="en">Please send my love across the night.</span><span class="t" lang="zh">请把我的爱，送过这片黑夜</span></p>
+      <p><span class="o" lang="en">I search across universe to find your print,</span><span class="t" lang="zh">我穿越宇宙，寻找你留下的痕迹</span></p>
+      <p><span class="o" lang="en">The darkness nearly swallows me whole.</span><span class="t" lang="zh">黑暗几乎将我整个吞没</span></p>
+      <p><span class="o" lang="en">Yet a spark keeps me alive,</span><span class="t" lang="zh">可一点火光让我活了下来</span></p>
+      <p><span class="o" lang="en">Guiding me through the endless void.</span><span class="t" lang="zh">指引我穿过无尽的虚空</span></p>
+      <p><span class="o" lang="en">I reach for you across the stars,</span><span class="t" lang="zh">我隔着群星向你伸出手</span></p>
+      <p><span class="o" lang="en">I call your name into the void.</span><span class="t" lang="zh">我朝着虚空呼喊你的名字</span></p>
+      <p><span class="o" lang="en">If love can cross the universe,</span><span class="t" lang="zh">如果爱能跨越宇宙</span></p>
+      <p><span class="o" lang="en">Please guide me to your light.</span><span class="t" lang="zh">请引我走向你的光</span></p>
+      <p><span class="o" lang="en">Flying into the night,</span><span class="t" lang="zh">飞进黑夜里</span></p>
+      <p><span class="o" lang="en">searching for your light,</span><span class="t" lang="zh">寻找你的光</span></p>
+      <p><span class="o" lang="en">Chased by the dark,</span><span class="t" lang="zh">被黑暗追赶着</span></p>
+      <p><span class="o" lang="en">fading with the morning light.</span><span class="t" lang="zh">随着晨光渐渐消散</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/scene/songs.js?v=1"></script>
+<script src="/scene/scene.js?v=1"></script>
+<script src="/scene/player.js?v=1"></script>
+</body>
+</html>
