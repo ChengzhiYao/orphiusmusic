@@ -4919,6 +4919,66 @@ void main(){
   };
 
 
+  // ═════════ 实拍影片（orphiusmusic.com）：按歌词剪好的片段，和音乐同一条时间轴 ═════════
+  // songs.js 里写 scene: "film", film: "film.mp4"。影片和歌一样长；音乐暂停影片就停，进度差太多就对齐。
+  SCENES.film = (song) => {
+    const th = song.theme || {}, glow = th.glow || "236,226,206";
+    const v = document.createElement("video");
+    v.crossOrigin = "anonymous"; v.muted = true; v.playsInline = true; v.preload = "auto";
+    v.setAttribute("muted", ""); v.setAttribute("playsinline", "");
+    v.src = `${MEDIA_BASE}/${song.id}/${song.film || "film.mp4"}${song.rev ? "?r=" + song.rev : ""}`;
+    let grain = null, gctx = null, bassS = 0, seen = false;
+    function makeGrain() {
+      grain = document.createElement("canvas"); grain.width = grain.height = 256; gctx = grain.getContext("2d");
+    }
+    function noise() {
+      const id = gctx.createImageData(256, 256), d = id.data;
+      for (let i = 0; i < d.length; i += 4) { const g = Math.random() * 255; d[i] = d[i + 1] = d[i + 2] = g; d[i + 3] = 18; }
+      gctx.putImageData(id, 0, 0);
+    }
+    return {
+      wet: false,
+      init() { if (!grain) makeGrain(); },
+      draw(I, lv) {
+        const playing = !!window.__playing, t = window.__time || 0;
+        bassS += ((window.__bass || 0) - bassS) * .08;
+        // 同步：播放时跟着走，差 0.35 秒以上就跳过去；暂停时停在同一帧
+        if (v.readyState >= 1) {
+          if (playing) {
+            if (Math.abs(v.currentTime - t) > .35) v.currentTime = t;
+            if (v.paused) v.play().catch(() => {});
+          } else {
+            if (!v.paused) v.pause();
+            if (Math.abs(v.currentTime - t) > .35) v.currentTime = t;
+          }
+        }
+        ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+        if (v.readyState >= 2 && v.videoWidth) {
+          seen = true;
+          const k = Math.max(W / v.videoWidth, H / v.videoHeight) * (1.03 + bassS * .015);
+          const w = v.videoWidth * k, h = v.videoHeight * k;
+          ctx.globalAlpha = playing ? 1 : .55;
+          ctx.drawImage(v, (W - w) / 2, (H - h) / 2, w, h);
+          ctx.globalAlpha = 1;
+        }
+        // 副歌更亮：一层很淡的主题色光
+        const a = lv * .16 + bassS * .06;
+        if (a > .01) { ctx.globalCompositeOperation = "screen"; ctx.fillStyle = `rgba(${glow},${a.toFixed(3)})`; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = "source-over"; }
+        // 四周压暗
+        const vg = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * .32, W / 2, H / 2, Math.hypot(W, H) * .6);
+        vg.addColorStop(0, "rgba(0,0,0,0)"); vg.addColorStop(1, "rgba(0,0,0,.6)");
+        ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+        // 胶片颗粒
+        if (seen && grain) {
+          if ((performance.now() / 70 | 0) % 2 === 0) noise();
+          ctx.globalCompositeOperation = "overlay";
+          ctx.fillStyle = ctx.createPattern(grain, "repeat"); ctx.fillRect(0, 0, W, H);
+          ctx.globalCompositeOperation = "source-over";
+        }
+      }
+    };
+  };
+
   // ═════════ 封面氛围（orphiusmusic.com）：不画具体物体，只用封面本身 + 光 + 浮尘 ═════════
   // 封面铺满全屏（模糊、压暗），极慢地推近和平移；主题色的柔光跟着响度和低音呼吸；细小的浮尘缓缓上升。
   SCENES.ambient = (song) => {
