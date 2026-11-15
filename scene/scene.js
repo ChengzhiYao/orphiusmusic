@@ -5101,7 +5101,10 @@ void main(){
     const cfg = K.lines || {};
     const defModes = ["center", "vert", "scatter"];
     // 平滑过的段落参数
-    const S = { speed: .4, dark: .5, tint: 0, glitch: .05, embers: 0 };
+    const S = { speed: .4, dark: .5, tint: 0, glitch: .05, embers: 0, face: 0, warp: 0, melt: 0 };
+    // 可选：几张同一构图、逐渐变形的脸（faces: ["face1.jpg", …]），按段落的 face 值在它们之间过渡，并随音乐扭曲
+    const faces = (K.faces || []).map(f => { const im = new Image(); im.crossOrigin = "anonymous"; im.src = `${MEDIA_BASE}/${song.id}/${f}${song.rev ? "?r=" + song.rev : ""}`; return im; });
+    let fbuf = null, fctx = null, wbuf = null, wctx = null, snap = null, sctx = null, faceFlash = -1, faceFlashUntil = 0;
     let prevT = -1, secIdx = -1, cache = new Map(), cacheW = 0;
     let spike = 0, flash = 0, flashCol = "255,255,255", punch = 0, shake = 0, invert = 0, lastReal = performance.now(), bassS = 0, bassPrev = 0;
     let grain = null, gctx = null, tmp = null, tctx = null, scan = null, embers = [];
@@ -5164,6 +5167,8 @@ void main(){
     }
 
     function onset(L, ch, i) {
+      if (faces.length && L.mode === "strobe") { faceFlash = ch.alt ? faces.length - 1 : 0; faceFlashUntil = performance.now() + 140; }
+      if (faces.length && L.mode !== "strobe" && ch.hi && (i === 0 || !L.chars[i - 1].hi)) { faceFlash = faces.length - 1; faceFlashUntil = performance.now() + 160; }
       if (L.mode === "strobe") { punch = Math.max(punch, .06); flash = Math.max(flash, .14); flashCol = ch.alt ? hotRgb : "255,255,255"; spike = Math.max(spike, .55); if (ch.inv) invert = .85; shake = Math.max(shake, .5); return; }
       if (ch.hi && (i === 0 || !L.chars[i - 1].hi)) { punch = Math.max(punch, .045); flash = Math.max(flash, .32); flashCol = hotRgb; spike = Math.max(spike, .85); shake = Math.max(shake, .6); }
     }
@@ -5183,16 +5188,19 @@ void main(){
     // 撕裂：横向切条错位 + 红/青色差
     function tear(g) {
       const n = 2 + (g * 10 | 0);
+      if (!snap) { snap = document.createElement("canvas"); sctx = snap.getContext("2d"); }
+      if (snap.width !== W || snap.height !== H) { snap.width = W; snap.height = H; }
+      sctx.drawImage(cv, 0, 0);
       for (let i = 0; i < n; i++) {
         const h = rand(2, 26) * dpr * (1 + g * 3), y = rand(0, H - h), dx = (Math.random() - .5) * W * .14 * g;
-        ctx.drawImage(cv, 0, y, W, h, dx, y, W, h);
+        ctx.drawImage(snap, 0, y, W, h, dx, y, W, h);
       }
       if (g > .22) {
         const tw = W >> 1, thh = H >> 1;
         if (tmp.width !== tw || tmp.height !== thh) { tmp.width = tw; tmp.height = thh; }
         const off = W * .012 * g;
         [["#ff2020", off], ["#00e5ff", -off]].forEach(([col, dx]) => {
-          tctx.globalCompositeOperation = "source-over"; tctx.drawImage(cv, 0, 0, tw, thh);
+          tctx.globalCompositeOperation = "source-over"; tctx.drawImage(snap, 0, 0, tw, thh);
           tctx.globalCompositeOperation = "multiply"; tctx.fillStyle = col; tctx.fillRect(0, 0, tw, thh);
           ctx.globalCompositeOperation = "lighter"; ctx.globalAlpha = .35 * g;
           ctx.drawImage(tmp, dx, 0, W, H);
@@ -5224,21 +5232,65 @@ void main(){
         const k = 1 - Math.pow(.02, dt);
         S.speed += ((sec.speed ?? .3) - S.speed) * k; S.dark += ((sec.dark ?? .55) - S.dark) * k;
         S.tint += ((sec.tint ?? 0) - S.tint) * k; S.glitch += ((sec.glitch ?? .05) - S.glitch) * k; S.embers += ((sec.embers ?? 0) - S.embers) * k;
+        const kf = 1 - Math.pow(.45, dt);
+        S.face += ((sec.face ?? 0) - S.face) * kf; S.warp += ((sec.warp ?? 0) - S.warp) * k; S.melt += ((sec.melt ?? 0) - S.melt) * kf;
         const jumped = prevT < 0 || Math.abs(t - prevT) > 1;
         if (si !== secIdx) { if (!jumped && playing && si >= 0) { spike = 1; flash = .5; flashCol = "255,255,255"; punch = .07; } secIdx = si; }
         // 低音的上升沿 → 轻推一下
         bassS += ((window.__bass || 0) - bassS) * .25;
-        if (playing && bassS - bassPrev > .06 && bassS > .45) { punch = Math.max(punch, .018 + S.speed * .004); spike = Math.max(spike, S.glitch * .6); }
+        if (playing && bassS - bassPrev > .06 && bassS > .45) { punch = Math.max(punch, .018 + S.speed * .004); spike = Math.max(spike, S.glitch * .6); if (faces.length && S.glitch > .3 && Math.random() < .5) { faceFlash = faces.length - 1; faceFlashUntil = now + 70; } }
         bassPrev = bassS;
 
         // ── 背景：封面，按段落速度推近，段落之间换方向 ──
         ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
         ctx.save();
         if (shake > .01) ctx.translate((Math.random() - .5) * shake * 26 * dpr, (Math.random() - .5) * shake * 18 * dpr);
-        if (img.complete && img.naturalWidth) {
-          const into = sec.a != null ? t - sec.a : t;
-          const dir = (si % 4 + 4) % 4, prog = 1 - Math.exp(-into * S.speed * .035);
-          const z = 1.06 + prog * (.22 + S.speed * .05) + punch;
+        const into = sec.a != null ? t - sec.a : t;
+        const dir = (si % 4 + 4) % 4, prog = 1 - Math.exp(-into * S.speed * .035);
+        const z = 1.06 + prog * (.22 + S.speed * .05) + punch;
+        const ready = faces.length ? faces.every(f => f.complete && f.naturalWidth) : img.complete && img.naturalWidth;
+        if (ready && faces.length) {
+          // 先把（过渡中的）脸画到半分辨率缓冲里，再按行错位画上来 → 水波般的扭曲
+          const bw = W >> 1, bh = H >> 1;
+          if (!fbuf) { fbuf = document.createElement("canvas"); fctx = fbuf.getContext("2d"); }
+          if (fbuf.width !== bw || fbuf.height !== bh) { fbuf.width = bw; fbuf.height = bh; }
+          const f0 = faces[0], kk = Math.max(bw / f0.naturalWidth, bh / f0.naturalHeight) * z;
+          const w = f0.naturalWidth * kk, h = f0.naturalHeight * kk;
+          const px = [.5, -.5, .3, -.3][dir] * (w - bw) * .5 * prog, py = [-.3, .3, .5, -.5][dir] * (h - bh) * .5 * prog;
+          const dx = (bw - w) / 2 + px, dy = (bh - h) / 2 + py;
+          fctx.save(); if (sec.flip) { fctx.translate(bw, 0); fctx.scale(-1, 1); }
+          const fv = clamp(S.face, 0, faces.length - 1), a0 = Math.floor(fv), fr = fv - a0;
+          fctx.globalAlpha = 1; fctx.drawImage(faces[a0], dx, dy, w, h);
+          if (fr > .01 && faces[a0 + 1]) { fctx.globalAlpha = fr; fctx.drawImage(faces[a0 + 1], dx, dy, w, h); }
+          if (faceFlash >= 0 && now < faceFlashUntil) { fctx.globalAlpha = .92; fctx.drawImage(faces[faceFlash], dx + (Math.random() - .5) * bw * .01, dy, w, h); }
+          fctx.restore();
+          const amp = (S.warp * (.5 + bassS * 1.2) + spike * .35) * bw * .028;
+          let src = fbuf;
+          if (amp >= .3) {
+            // 按行错位（半分辨率里做）→ 水波般的扭曲
+            if (!wbuf) { wbuf = document.createElement("canvas"); wctx = wbuf.getContext("2d"); }
+            if (wbuf.width !== bw || wbuf.height !== bh) { wbuf.width = bw; wbuf.height = bh; }
+            wctx.fillStyle = "#000"; wctx.fillRect(0, 0, bw, bh);
+            const sh = 3, tt = now / 1000;
+            for (let y = 0; y < bh; y += sh) {
+              const u = y / bh;
+              const off = amp * (Math.sin(u * 9 + tt * 1.6) + .45 * Math.sin(u * 37 - tt * 3.1)) + (Math.random() < S.warp * .02 ? (Math.random() - .5) * amp * 6 : 0);
+              wctx.drawImage(fbuf, 0, y, bw, sh, off - bw * .03, y, bw * 1.06, sh);
+            }
+            src = wbuf;
+          }
+          ctx.globalAlpha = (playing || t > 0) ? 1 : .6;
+          if (S.melt > .02) {
+            // 融化：竖条往下流
+            const cw = 6, tt = now / 1000, sx = W / bw;
+            for (let x = 0; x < bw; x += cw) {
+              const n = .5 + .5 * Math.sin(x * .022 + tt * .6) * Math.sin(x * .0074 - tt * .25);
+              const d = S.melt * bh * .07 * n * n * (1 + bassS);
+              ctx.drawImage(src, x, 0, cw, bh - d, x * sx, d * sx, cw * sx + 1, (bh - d) * sx);
+            }
+          } else ctx.drawImage(src, 0, 0, W, H);
+          ctx.globalAlpha = 1;
+        } else if (ready) {
           const kk = Math.max(W / img.naturalWidth, H / img.naturalHeight) * z;
           const w = img.naturalWidth * kk, h = img.naturalHeight * kk;
           const px = [.5, -.5, .3, -.3][dir] * (w - W) * .5 * prog, py = [-.3, .3, .5, -.5][dir] * (h - H) * .5 * prog;

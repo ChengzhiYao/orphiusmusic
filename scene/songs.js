@@ -435,19 +435,20 @@ window.SONGS = [
     place: "",
     scene: "kinetic",
     kinetic: {
+      faces: ["face1.jpg", "face2.jpg", "face3.jpg"],
       sections: [
-        [0, 3.9,      { speed: .2, dark: .6,  glitch: .05 }],
-        [3.9, 19.5,   { speed: .6, dark: .45, glitch: .1 }],
-        [19.5, 40.5,  { speed: .4, dark: .5,  glitch: .12, tint: .25, flip: true }],
-        [40.5, 57.5,  { speed: 1,  dark: .35, glitch: .15, tint: .1 }],
-        [57.5, 72.8,  { speed: 2,  dark: .25, glitch: .35, tint: .45 }],
-        [72.8, 89,    { speed: 4,  dark: .3,  glitch: .6,  tint: .6 }],
-        [89, 108,     { speed: .5, dark: .45, glitch: .2,  flip: true }],
-        [108, 125.8,  { speed: 1.2, dark: .35, glitch: .3, tint: .2 }],
-        [125.8, 142.5, { speed: 5, dark: .25, glitch: .75, tint: .7 }],
-        [142.5, 151.2, { speed: .3, dark: .55, glitch: .15, tint: .5, embers: 1 }],
-        [151.2, 167,  { speed: 2.5, dark: .3, glitch: .55, tint: .5, embers: .4 }],
-        [167, 999,    { speed: .15, dark: .7, glitch: .05 }]
+        [0, 3.9,      { speed: .2, dark: .6,  glitch: .05, face: 0 }],
+        [3.9, 19.5,   { speed: .6, dark: .45, glitch: .1,  face: 0, warp: .15 }],
+        [19.5, 40.5,  { speed: .4, dark: .5,  glitch: .12, tint: .2, face: .6, warp: .3, flip: true }],
+        [40.5, 57.5,  { speed: 1,  dark: .35, glitch: .15, tint: .1, face: 1, warp: .25 }],
+        [57.5, 72.8,  { speed: 2,  dark: .25, glitch: .35, tint: .4, face: 1.7, warp: .6 }],
+        [72.8, 89,    { speed: 4,  dark: .3,  glitch: .6,  tint: .55, face: 2, warp: .9, melt: .6 }],
+        [89, 108,     { speed: .5, dark: .45, glitch: .2,  face: 1, warp: .3, flip: true }],
+        [108, 125.8,  { speed: 1.2, dark: .35, glitch: .3, tint: .2, face: 1.5, warp: .5 }],
+        [125.8, 142.5, { speed: 5, dark: .25, glitch: .75, tint: .65, face: 2, warp: 1, melt: 1 }],
+        [142.5, 151.2, { speed: .3, dark: .5, glitch: .15, tint: .45, face: 1, warp: .2, embers: 1 }],
+        [151.2, 167,  { speed: 2.5, dark: .3, glitch: .55, tint: .5, face: 2, warp: .8, melt: .5, embers: .4 }],
+        [167, 999,    { speed: .15, dark: .6, glitch: .05, face: 0, warp: .1 }]
       ],
       lines: {
         0: { mode: "scatter", hi: ["へび"] },
