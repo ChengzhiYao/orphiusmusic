@@ -1,5 +1,5 @@
 // 首页大图展示哪首歌（填编号）
-window.FEATURED = "27";
+window.FEATURED = "29";
 // YouTube 频道
 window.CHANNEL = "https://www.youtube.com/@Orphius1";
 // 每首歌：yt 填 YouTube 视频 ID（watch?v= 后面那串），没有就不填
@@ -284,6 +284,16 @@ window.SONGS = [
   "rev": 2,
   "accent": "#c9a87a",
   "dur": 264,
+  "lyrics": true
+ },
+ {
+  "id": "29",
+  "title": "Why am I keep falling?",
+  "sub": "为什么我一直在往下掉",
+  "date": "2026.11.14",
+  "rev": 1,
+  "accent": "#b9c2d4",
+  "dur": 102,
   "lyrics": true
  }
 ];

@@ -473,5 +473,17 @@ window.SONGS = [
     coverFill: "50% 50%",
     theme: { night: "#090706", nightRgb: "9,7,6", glow: "230,210,180", accent: "#c9a87a" },
     note: []
+  },
+  {
+    id: "29",
+    title: "Why am I keep falling?",
+    subtitle: "为什么我一直在往下掉",
+    rev: 1,
+    date: "2026.11.14",
+    place: "",
+    scene: "film", film: "film.mp4",   // MV 里的四张画，按歌词和节拍剪好的镜头（不带字）
+    coverFill: "50% 45%",
+    theme: { night: "#08090c", nightRgb: "8,9,12", glow: "214,220,232", accent: "#b9c2d4" },
+    note: []
   }
 ];
