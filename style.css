@@ -5,6 +5,7 @@
   --ash: #a29d94;
   --rule: #2a2926;
   --accent: #d9cfb8;          /* set by the song that is playing */
+  --display: "Cormorant Garamond", "Zen Old Mincho", serif;
   --mincho: "Zen Old Mincho", "Hiragino Mincho ProN", "Songti SC", serif;
   --gothic: "Zen Kaku Gothic New", "Hiragino Sans", "PingFang SC", system-ui, sans-serif;
   --pad: clamp(20px, 5vw, 64px);
@@ -46,7 +47,9 @@ body { background: transparent; }
   background: rgba(0,0,0,.82); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--rule);
 }
-.mark { font: 600 22px/1 var(--mincho); letter-spacing: .04em; text-decoration: none; }
+.mark { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.mark img { width: 34px; height: auto; display: block; }
+.mark span { font: 500 19px/1 var(--display); text-transform: uppercase; letter-spacing: .32em; margin-right: -.32em; }
 .top nav { display: flex; align-items: center; gap: clamp(14px, 3vw, 32px); font-size: 15px; }
 .top nav a { text-decoration: none; color: var(--ash); }
 .top nav a:hover { color: var(--bone); }
@@ -75,7 +78,7 @@ body { background: transparent; }
   display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: center;
 }
 .intro { max-width: 34em; }
-.intro h1 { font: 900 clamp(52px, 8vw, 112px)/.95 var(--mincho); margin: 0 0 20px; letter-spacing: .01em; }
+.intro h1 { font: 400 clamp(44px, 6.4vw, 92px)/1 var(--display); text-transform: uppercase; letter-spacing: .22em; margin: 0 -.22em 22px 0; }
 .tagline { font: 400 clamp(18px, 2vw, 22px)/1.6 var(--mincho); color: var(--ash); margin: 0 0 28px; max-width: 30em; }
 
 .feature {
