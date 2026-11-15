@@ -466,7 +466,7 @@ window.SONGS = [
     id: "28",
     title: "黒い輪あそび",
     subtitle: "黑色的圆圈游戏",
-    rev: 2,
+    rev: 3,
     date: "2026.11.14",
     place: "",
     scene: "ambient",              // 先用封面色的流动背景，专属特效之后再做

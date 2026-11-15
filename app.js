@@ -208,7 +208,7 @@
     if (song.yt) $("#sYt").href = `https://www.youtube.com/watch?v=${song.yt}`;
     box.innerHTML = ""; lines = []; lineEls = [];
     if (song.lyrics !== false) {
-      try { const r = await fetch(`${MEDIA}/${song.id}/lyrics.json?l=2`); lines = r.ok ? await r.json() : []; } catch { lines = []; }
+      try { const r = await fetch(`${MEDIA}/${song.id}/lyrics.json?l=2${song.rev ? "&r=" + song.rev : ""}`); lines = r.ok ? await r.json() : []; } catch { lines = []; }
     }
     if (shown !== song) return;
     if (!lines.length) { box.innerHTML = '<p class="none">This song has no lyrics yet.</p>'; return; }
