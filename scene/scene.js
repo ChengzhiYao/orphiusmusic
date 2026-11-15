@@ -5080,6 +5080,243 @@ void main(){
     };
   };
 
+  // ═════════ 动态字幕背景（kinetic）：封面 + 跟歌词逐字同步的艺术大字 + 快慢推镜 + glitch ═════════
+  // songs.js 里写 scene: "kinetic"，再写一份 kinetic: { sections, lines } 乐谱：
+  //   sections: [[从, 到, { speed 推镜速度, dark 压暗, tint 主题色染色, glitch 撕裂强度, flip 镜像, embers 红色光点 }], …]
+  //   lines: { 行号: { mode: "scatter"|"vert"|"center"|"giant"|"strobe", hi: ["要放大的词"], outline, fx: "sink wave noise grind shake glow fade" } }
+  // 字和背景画在同一张画布上，所以 glitch 会同时撕开画面和文字；关键词出现的那一刻会闪一下、推一下、撕一下。
+  SCENES.kinetic = (song) => {
+    const K = song.kinetic || {}, th = song.theme || {};
+    const hot = K.hot || th.accent || "#d8584a", ink = K.ink || "#efe6dc";
+    const hotRgb = hexRgb(hot), glow = th.glow || "236,226,206";
+    const FONT = K.font || '"Zen Old Mincho", "Hiragino Mincho ProN", serif';
+    const bgMode = document.documentElement.classList.contains("bg-mode");
+    const img = new Image(); img.crossOrigin = "anonymous";
+    img.src = `${MEDIA_BASE}/${song.id}/cover.jpg${song.rev ? "?r=" + song.rev : ""}`;
+    let lines = [], fontOk = false;
+    fetch(`${MEDIA_BASE}/${song.id}/lyrics.json?l=2${song.rev ? "&r=" + song.rev : ""}`).then(r => r.ok ? r.json() : []).catch(() => []).then(L => { lines = L || []; });
+    if (document.fonts) document.fonts.load(`900 64px ${FONT}`).then(() => (fontOk = true)).catch(() => (fontOk = true)); else fontOk = true;
+
+    const secs = (K.sections || []).map(([a, b, o]) => ({ a, b, ...o }));
+    const cfg = K.lines || {};
+    const defModes = ["center", "vert", "scatter"];
+    // 平滑过的段落参数
+    const S = { speed: .4, dark: .5, tint: 0, glitch: .05, embers: 0 };
+    let prevT = -1, secIdx = -1, cache = new Map(), cacheW = 0;
+    let spike = 0, flash = 0, flashCol = "255,255,255", punch = 0, shake = 0, invert = 0, lastReal = performance.now(), bassS = 0, bassPrev = 0;
+    let grain = null, gctx = null, tmp = null, tctx = null, scan = null, embers = [];
+
+    function hexRgb(h) { const m = /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i.exec(h || ""); return m ? `${parseInt(m[1], 16)},${parseInt(m[2], 16)},${parseInt(m[3], 16)}` : "216,88,74"; }
+    function seeded(n) { let s = n * 9301 + 49297; return () => ((s = (s * 9301 + 49297) % 233280) / 233280); }
+    const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+    const easeOut = x => 1 - Math.pow(1 - x, 3);
+
+    function secAt(t) { for (let i = 0; i < secs.length; i++) if (t >= secs[i].a && t < secs[i].b) return i; return -1; }
+
+    // 一行字的排版：按模式算出每个字的位置、大小
+    function layout(li) {
+      const l = lines[li], c = cfg[li] || {}, mode = c.mode || defModes[li % 3];
+      const text = l.w.map(x => x[0]).join("");
+      const hiSet = new Set();
+      (c.hi || []).forEach(word => { let p = text.indexOf(word); while (p >= 0) { for (let k = 0; k < word.length; k++) hiSet.add(p + k); p = text.indexOf(word, p + 1); } });
+      const rnd = seeded(li + 7);
+      const chars = l.w.map((x, i) => ({ ch: x[0], t0: x[1], t1: x[2], hi: hiSet.has(i), sp: x[0] === "　" || x[0] === " " }));
+      const hiK = c.hiScale || 1.7;
+      // 按空格分组，太长的组再切开
+      const groups = []; let g = [];
+      chars.forEach(ch => { if (ch.sp) { if (g.length) groups.push(g); g = []; } else g.push(ch); });
+      if (g.length) groups.push(g);
+      const maxRow = mode === "giant" ? 5 : mode === "vert" ? 9 : 10;
+      const rows = [];
+      groups.forEach(gr => { const n = Math.ceil(gr.length / maxRow), per = Math.ceil(gr.length / n); for (let i = 0; i < gr.length; i += per) rows.push(gr.slice(i, i + per)); });
+      const units = r => r.reduce((s, ch) => s + (ch.hi ? hiK : 1), 0);
+      if (mode === "center" || mode === "giant") {
+        const maxU = Math.max(...rows.map(units));
+        let fs = Math.min(W * (mode === "giant" ? .92 : .84) / maxU, H * (mode === "giant" ? .46 : .26) / Math.max(1, rows.length * .9));
+        const lh = fs * 1.12, total = rows.length * lh;
+        rows.forEach((r, ri) => {
+          let x = (W - units(r) * fs) / 2;
+          const y = H / 2 - total / 2 + lh * (ri + .55);
+          r.forEach(ch => { const s = ch.hi ? fs * hiK : fs; ch.x = x + s / 2; ch.y = y; ch.s = s; ch.r = 0; x += s; });
+        });
+      } else if (mode === "vert") {
+        // 竖排，从右往左
+        const maxU = Math.max(...rows.map(units));
+        const fs = Math.min(H * .78 / maxU, W * .16);
+        const colW = fs * 1.25, side = rnd() < .5 ? 1 : -1;
+        const x0 = W / 2 + side * (W * .22) + (rows.length - 1) * colW / 2 * (side > 0 ? 1 : 1);
+        rows.forEach((r, ri) => {
+          let y = (H - units(r) * fs) / 2;
+          const x = x0 - ri * colW;
+          r.forEach(ch => { const s = ch.hi ? fs * hiK : fs; ch.x = x; ch.y = y + s / 2; ch.s = s; ch.r = 0; y += s; });
+        });
+      } else if (mode === "scatter") {
+        const base = Math.min(W, H);
+        chars.forEach(ch => {
+          if (ch.sp) return;
+          ch.s = base * (ch.hi ? .34 + rnd() * .12 : .09 + rnd() * .12);
+          ch.x = W * (.12 + rnd() * .76); ch.y = H * (.18 + rnd() * .66); ch.r = (rnd() - .5) * .35;
+        });
+      } else if (mode === "strobe") {
+        chars.forEach((ch, i) => { ch.s = Math.min(W * .62, H * .78); ch.x = W / 2 + (rnd() - .5) * W * .2; ch.y = H / 2 + (rnd() - .5) * H * .08; ch.r = (rnd() - .5) * .2; ch.alt = i % 2; ch.inv = i % 4 === 0; });
+      }
+      return { mode, chars: chars.filter(ch => !ch.sp), c, fx: (c.fx || "").split(/\s+/), outline: !!c.outline };
+    }
+
+    function onset(L, ch, i) {
+      if (L.mode === "strobe") { punch = Math.max(punch, .06); flash = Math.max(flash, .14); flashCol = ch.alt ? hotRgb : "255,255,255"; spike = Math.max(spike, .55); if (ch.inv) invert = .85; shake = Math.max(shake, .5); return; }
+      if (ch.hi && (i === 0 || !L.chars[i - 1].hi)) { punch = Math.max(punch, .045); flash = Math.max(flash, .32); flashCol = hotRgb; spike = Math.max(spike, .85); shake = Math.max(shake, .6); }
+    }
+
+    function makeAux() {
+      grain = document.createElement("canvas"); grain.width = grain.height = 256; gctx = grain.getContext("2d");
+      tmp = document.createElement("canvas"); tctx = tmp.getContext("2d");
+      scan = document.createElement("canvas"); scan.width = 4; scan.height = 4 * dpr;
+      const sc = scan.getContext("2d"); sc.fillStyle = "rgba(0,0,0,.35)"; sc.fillRect(0, 0, 4, Math.max(1, dpr));
+    }
+    function noise() {
+      const id = gctx.createImageData(256, 256), d = id.data;
+      for (let i = 0; i < d.length; i += 4) { const g = Math.random() * 255; d[i] = d[i + 1] = d[i + 2] = g; d[i + 3] = 20; }
+      gctx.putImageData(id, 0, 0);
+    }
+
+    // 撕裂：横向切条错位 + 红/青色差
+    function tear(g) {
+      const n = 2 + (g * 10 | 0);
+      for (let i = 0; i < n; i++) {
+        const h = rand(2, 26) * dpr * (1 + g * 3), y = rand(0, H - h), dx = (Math.random() - .5) * W * .14 * g;
+        ctx.drawImage(cv, 0, y, W, h, dx, y, W, h);
+      }
+      if (g > .22) {
+        const tw = W >> 1, thh = H >> 1;
+        if (tmp.width !== tw || tmp.height !== thh) { tmp.width = tw; tmp.height = thh; }
+        const off = W * .012 * g;
+        [["#ff2020", off], ["#00e5ff", -off]].forEach(([col, dx]) => {
+          tctx.globalCompositeOperation = "source-over"; tctx.drawImage(cv, 0, 0, tw, thh);
+          tctx.globalCompositeOperation = "multiply"; tctx.fillStyle = col; tctx.fillRect(0, 0, tw, thh);
+          ctx.globalCompositeOperation = "lighter"; ctx.globalAlpha = .35 * g;
+          ctx.drawImage(tmp, dx, 0, W, H);
+        });
+        ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
+      }
+    }
+
+    function drawChar(ch, x, y, s, rot, alpha, L, col, blur) {
+      ctx.save(); ctx.translate(x, y); if (rot) ctx.rotate(rot);
+      ctx.font = `900 ${s}px ${FONT}`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.globalAlpha = alpha;
+      if (blur) { ctx.shadowColor = `rgba(${col},${Math.min(1, alpha)})`; ctx.shadowBlur = blur; }
+      if (L.outline && !ch.hi) { ctx.lineWidth = Math.max(1, s * .022); ctx.strokeStyle = `rgb(${col})`; ctx.strokeText(ch.ch, 0, 0); }
+      else { ctx.fillStyle = `rgb(${col})`; ctx.fillText(ch.ch, 0, 0); }
+      ctx.restore();
+    }
+
+    return {
+      wet: false,
+      init() { if (!grain) makeAux(); cache.clear(); cacheW = W;
+        embers = Array.from({ length: 70 }, () => ({ x: rand(0, 1), y: rand(0, 1), r: rand(.6, 2.6), ph: rand(0, 6.28), v: rand(.2, 1) })); },
+      draw() {
+        const now = performance.now(), dt = Math.min(.1, (now - lastReal) / 1000); lastReal = now;
+        const playing = !!window.__playing, t = window.__time || 0;
+        const D = Math.hypot(W, H);
+        // 段落参数（平滑过渡），进入新段落时做一次“剪切”
+        const si = secAt(t), sec = secs[si] || {};
+        const k = 1 - Math.pow(.02, dt);
+        S.speed += ((sec.speed ?? .3) - S.speed) * k; S.dark += ((sec.dark ?? .55) - S.dark) * k;
+        S.tint += ((sec.tint ?? 0) - S.tint) * k; S.glitch += ((sec.glitch ?? .05) - S.glitch) * k; S.embers += ((sec.embers ?? 0) - S.embers) * k;
+        const jumped = prevT < 0 || Math.abs(t - prevT) > 1;
+        if (si !== secIdx) { if (!jumped && playing && si >= 0) { spike = 1; flash = .5; flashCol = "255,255,255"; punch = .07; } secIdx = si; }
+        // 低音的上升沿 → 轻推一下
+        bassS += ((window.__bass || 0) - bassS) * .25;
+        if (playing && bassS - bassPrev > .06 && bassS > .45) { punch = Math.max(punch, .018 + S.speed * .004); spike = Math.max(spike, S.glitch * .6); }
+        bassPrev = bassS;
+
+        // ── 背景：封面，按段落速度推近，段落之间换方向 ──
+        ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+        ctx.save();
+        if (shake > .01) ctx.translate((Math.random() - .5) * shake * 26 * dpr, (Math.random() - .5) * shake * 18 * dpr);
+        if (img.complete && img.naturalWidth) {
+          const into = sec.a != null ? t - sec.a : t;
+          const dir = (si % 4 + 4) % 4, prog = 1 - Math.exp(-into * S.speed * .035);
+          const z = 1.06 + prog * (.22 + S.speed * .05) + punch;
+          const kk = Math.max(W / img.naturalWidth, H / img.naturalHeight) * z;
+          const w = img.naturalWidth * kk, h = img.naturalHeight * kk;
+          const px = [.5, -.5, .3, -.3][dir] * (w - W) * .5 * prog, py = [-.3, .3, .5, -.5][dir] * (h - H) * .5 * prog;
+          ctx.save();
+          if (sec.flip) { ctx.translate(W, 0); ctx.scale(-1, 1); }
+          ctx.globalAlpha = (playing || t > 0) ? 1 : .6;
+          ctx.drawImage(img, (W - w) / 2 + px, (H - h) / 2 + py, w, h);
+          ctx.restore(); ctx.globalAlpha = 1;
+        }
+        // 染色 + 压暗
+        if (S.tint > .01) { ctx.globalCompositeOperation = "multiply"; ctx.fillStyle = `rgba(${hotRgb},${(S.tint * .85).toFixed(3)})`; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = "source-over"; }
+        ctx.fillStyle = `rgba(0,0,0,${clamp(S.dark + (bgMode ? .12 : 0)).toFixed(3)})`; ctx.fillRect(0, 0, W, H);
+        // 红色光点（“红宝石般的眼睛”那种）
+        if (S.embers > .02) {
+          for (const e of embers) {
+            const tw = .5 + .5 * Math.sin(now / 1000 * e.v * 3 + e.ph);
+            ctx.fillStyle = `rgba(${hotRgb},${(S.embers * tw * .9).toFixed(3)})`;
+            ctx.shadowColor = `rgb(${hotRgb})`; ctx.shadowBlur = 12 * dpr;
+            ctx.beginPath(); ctx.arc(e.x * W, ((e.y - now / 1000 * .01 * e.v) % 1 + 1) % 1 * H, e.r * dpr * (1 + tw), 0, 6.283); ctx.fill();
+          }
+          ctx.shadowBlur = 0;
+        }
+
+        // ── 文字 ──
+        if (cacheW !== W) { cache.clear(); cacheW = W; }
+        let grind = 0, fadeDark = 0;
+        const textA = bgMode ? .62 : .9;
+        if (fontOk) lines.forEach((l, li) => {
+          const OUT = .7;
+          if (t < l.t - .2 || t > (l.e || l.t + 3) + OUT) return;
+          let L = cache.get(li); if (!L) { L = layout(li); cache.set(li, L); }
+          const e = l.e || l.t + 3, q = clamp((t - e) / OUT), lineA = 1 - easeOut(q);
+          const fx = L.fx, has = f => fx.includes(f);
+          if (has("grind") && t >= l.t && t <= e) grind = Math.max(grind, .45);
+          if (has("fade")) fadeDark = Math.max(fadeDark, clamp((t - l.t) / (e - l.t)) * (1 - q) * .55);
+          if (has("shake") && t >= l.t && t <= e) shake = Math.max(shake, .35);
+          const strobeCur = L.mode === "strobe" ? L.chars.reduce((c, ch, i) => (ch.t0 <= t ? i : c), -1) : -1;
+          L.chars.forEach((ch, i) => {
+            if (!jumped && playing && prevT < ch.t0 && t >= ch.t0) onset(L, ch, i);
+            if (t < ch.t0 - .02) return;
+            if (L.mode === "strobe" && i !== strobeCur) return;
+            const p = clamp((t - ch.t0) / .2), ep = easeOut(p);
+            let s = ch.s * (1 + (1 - ep) * (ch.hi ? 1.1 : .6)), x = ch.x, y = ch.y, rot = ch.r, a = ep * lineA * textA;
+            if (L.mode === "strobe") { const life = clamp((t - ch.t0) / Math.max(.08, (ch.t1 - ch.t0) + .05)); a = textA * (1 - life * .6) * lineA; s = ch.s * (1.15 - ep * .15); }
+            const age = t - ch.t0;
+            if (has("sink") && age > .4) { const d = age - .4; y += d * d * H * .05; a *= clamp(1 - d / 2.2); }
+            if (has("wave")) { x += Math.sin(now / 420 + i * .7) * ch.s * .08; y += Math.cos(now / 520 + i * .9) * ch.s * .06; }
+            if (has("noise")) { x += (Math.random() - .5) * ch.s * .05; y += (Math.random() - .5) * ch.s * .05; }
+            if (q > 0) { y -= q * ch.s * .25; if (S.glitch > .3) x += (Math.random() - .5) * q * W * .05; }
+            const col = ch.hi ? hotRgb : L.mode === "strobe" && ch.alt ? hotRgb : "239,230,220";
+            const blur = ch.hi || has("glow") ? 30 * dpr * (1 + flash) : 0;
+            drawChar(ch, x, y, s, rot, a, L, col, blur);
+          });
+        });
+        if (fadeDark > .01) { ctx.fillStyle = `rgba(0,0,0,${fadeDark.toFixed(3)})`; ctx.fillRect(0, 0, W, H); }
+        ctx.restore();
+
+        // ── 效果 ──
+        const g = clamp(Math.max(spike, grind, S.glitch * (.35 + bassS * .9) * (Math.random() < .12 + S.glitch * .4 ? 1 : .15)));
+        if (g > .06 && playing) tear(g);
+        if (invert > .05) { ctx.globalCompositeOperation = "difference"; ctx.fillStyle = `rgba(255,255,255,${(invert * .9).toFixed(3)})`; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = "source-over"; }
+        if (flash > .01) { ctx.globalCompositeOperation = "screen"; ctx.fillStyle = `rgba(${flashCol},${(flash * .55).toFixed(3)})`; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = "source-over"; }
+        // 扫描线（越乱越明显）+ 颗粒 + 四周压暗
+        if (S.glitch > .1 || g > .1) { ctx.globalAlpha = clamp(.25 + g); ctx.fillStyle = ctx.createPattern(scan, "repeat"); ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
+        if ((now / 70 | 0) % 2 === 0) noise();
+        ctx.globalCompositeOperation = "overlay"; ctx.fillStyle = ctx.createPattern(grain, "repeat"); ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = "source-over";
+        const vg = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * .3, W / 2, H / 2, D * .6);
+        vg.addColorStop(0, "rgba(0,0,0,0)"); vg.addColorStop(1, "rgba(0,0,0,.6)");
+        ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+
+        // 衰减
+        const dk = Math.pow(.004, dt);
+        spike *= dk; flash *= Math.pow(.0005, dt); punch *= Math.pow(.02, dt); shake *= Math.pow(.01, dt); invert *= Math.pow(.00001, dt);
+        prevT = t;
+      }
+    };
+  };
+
   SCENES.none = () => ({ init() {}, draw() {} });
 
   // ═════════ 引擎 ═════════
