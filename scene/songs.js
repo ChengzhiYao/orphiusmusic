@@ -457,7 +457,7 @@ window.SONGS = [
     rev: 1,
     date: "2026.11.14",
     place: "",
-    scene: "ambient",              // 先用封面色的流动背景，专属特效之后再做
+    scene: "film", film: "film.mp4", canvas: { src: "canvas.mp4", from: 73.5, to: 100 },              // 先用封面色的流动背景，专属特效之后再做
     coverFill: "66% 30%",
     theme: { night: "#0a0909", nightRgb: "10,9,9", glow: "240,232,222", accent: "#d8cbbd" },
     note: []

@@ -4928,6 +4928,20 @@ void main(){
     v.setAttribute("muted", ""); v.setAttribute("playsinline", "");
     v.src = `${MEDIA_BASE}/${song.id}/${song.film || "film.mp4"}${song.rev ? "?r=" + song.rev : ""}`;
     let grain = null, gctx = null, bassS = 0, seen = false;
+    // 可选：某一段时间把封面换成一段循环小视频（比如 Spotify Canvas）。songs.js 里写 canvas: { src, from, to }
+    let cv = null;
+    const cvo = song.canvas;
+    if (cvo) {
+      const wrap = document.querySelector(".cover-wrap");
+      if (wrap) {
+        cv = document.createElement("video");
+        cv.className = "cover-canvas"; cv.crossOrigin = "anonymous"; cv.muted = true; cv.loop = true; cv.playsInline = true; cv.preload = "auto";
+        cv.setAttribute("muted", ""); cv.setAttribute("playsinline", ""); cv.setAttribute("aria-hidden", "true");
+        cv.src = `${MEDIA_BASE}/${song.id}/${cvo.src}${song.rev ? "?r=" + song.rev : ""}`;
+        const img = wrap.querySelector("#cover");
+        img && img.after ? img.after(cv) : wrap.appendChild(cv);
+      }
+    }
     function makeGrain() {
       grain = document.createElement("canvas"); grain.width = grain.height = 256; gctx = grain.getContext("2d");
     }
@@ -4951,6 +4965,12 @@ void main(){
             if (!v.paused) v.pause();
             if (Math.abs(v.currentTime - t) > .35) v.currentTime = t;
           }
+        }
+        if (cv) {
+          const on = t >= cvo.from && t < cvo.to;
+          cv.classList.toggle("on", on);
+          if (on && playing) { if (cv.paused) cv.play().catch(() => {}); }
+          else if (!cv.paused) cv.pause();
         }
         ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
         if (v.readyState >= 2 && v.videoWidth) {

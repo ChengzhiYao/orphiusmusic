@@ -252,3 +252,7 @@ html.bg-mode main { width: 100%; padding-top: 0; min-height: 100vh; display: fle
 html.bg-mode .cover-wrap { position: fixed; left: 50%; top: 50%; width: min(60vmin, 520px); margin: 0; transform: translate(-50%, -50%); visibility: hidden; }
 html.bg-mode.show-cover .cover-wrap { left: var(--cx); top: var(--cy); width: var(--cw); transform: none; visibility: visible; }
 html.bg-mode .rise { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+/* 封面位置的循环小视频（Spotify Canvas 等），由 film 场景按时间显示 */
+.cover-canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }  /* 在封面之上、歌词之下（按 DOM 顺序）*/
+.cover-canvas.on { opacity: 1; }
