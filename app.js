@@ -84,7 +84,7 @@
     $("#player").hidden = false;
     document.body.classList.add("has-player");
     setBar();
-    $("#pImg").src = `${MEDIA}/${song.id}/card.jpg?c=2`;
+    $("#pImg").src = `${MEDIA}/${song.id}/card.jpg?c=3`;
     $("#pArt").href = $("#pTitle").href = page(song);
     $("#pTitle").textContent = song.title;
     $("#pSub").textContent = song.sub;
@@ -128,7 +128,7 @@
 
   // ── Featured song ──────────────────────────────
   const feat = byId[window.FEATURED] || SONGS[0];
-  $("#fImg").src = `${MEDIA}/${feat.id}/card.jpg?c=2`;
+  $("#fImg").src = `${MEDIA}/${feat.id}/card.jpg?c=3`;
   $("#fImg").alt = `Cover of ${feat.title}`;
   $("#fLink").href = $("#fOpen").href = page(feat);
   $("#fTitle").textContent = feat.title;
@@ -143,7 +143,7 @@
   grid.innerHTML = SONGS.map(s => `
     <li class="card" data-id="${s.id}" style="--c:${s.accent}">
       <button class="card-btn" type="button" aria-label="Play ${esc(s.title)} and show lyrics">
-        <span class="card-art"><img src="${MEDIA}/${s.id}/card.jpg?c=2" alt="" loading="lazy" width="320" height="320"><span class="card-play" aria-hidden="true">${ICON}</span></span>
+        <span class="card-art"><img src="${MEDIA}/${s.id}/card.jpg?c=3" alt="" loading="lazy" width="320" height="320"><span class="card-play" aria-hidden="true">${ICON}</span></span>
         <span class="card-title">${esc(s.title)}</span>
         <span class="card-sub">${esc(s.sub || "")}</span>
         <span class="card-meta">${s.date ? `<span>${esc(s.date)}</span>` : ""}<span>${fmt(s.dur)}</span></span>
@@ -200,7 +200,7 @@
   async function fillSheet(song) {
     if (shown === song) return;
     shown = song; lastLine = -1;
-    $("#sBg").src = $("#sCover").src = `${MEDIA}/${song.id}/card.jpg?c=2`;
+    $("#sBg").src = $("#sCover").src = `${MEDIA}/${song.id}/card.jpg?c=3`;
     $("#sTitle").textContent = song.title;
     $("#sSub").textContent = song.sub;
     $("#sOpen").href = page(song);
