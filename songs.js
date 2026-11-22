@@ -1,5 +1,5 @@
 // 首页大图展示哪首歌（填编号）
-window.FEATURED = "29";
+window.FEATURED = "32";
 // YouTube 频道
 window.CHANNEL = "https://www.youtube.com/@Orphius1";
 // 每首歌：yt 填 YouTube 视频 ID（watch?v= 后面那串），没有就不填
@@ -294,6 +294,36 @@ window.SONGS = [
   "rev": 1,
   "accent": "#b9c2d4",
   "dur": 102,
+  "lyrics": true
+ },
+ {
+  "id": "30",
+  "title": "禁断の果実",
+  "sub": "禁忌的果实 · Forbidden Fruit",
+  "date": "",
+  "rev": 1,
+  "accent": "#c61c28",
+  "dur": 182,
+  "lyrics": true
+ },
+ {
+  "id": "31",
+  "title": "洞窟",
+  "sub": "洞穴 · The Cave",
+  "date": "",
+  "rev": 1,
+  "accent": "#d8cfc0",
+  "dur": 227,
+  "lyrics": true
+ },
+ {
+  "id": "32",
+  "title": "僕らは人間だから",
+  "sub": "因为我们是人 · Because We Are Human",
+  "date": "",
+  "rev": 1,
+  "accent": "#e8a868",
+  "dur": 214,
   "lyrics": true
  }
 ];

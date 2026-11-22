@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja" data-sub="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<title>禁断の果実 – Orphius | Lyrics</title>
+<meta name="description" content="禁断の果実（禁忌的果实 · Forbidden Fruit） by Orphius. Full lyrics with translation: ただ禁断の果実を口にしただけで、 / 楽園から追放された。…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/30">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="禁断の果実 – Orphius">
+<meta property="og:description" content="禁忌的果实 · Forbidden Fruit. ただ禁断の果実を口にしただけで、 / 楽園から追放された。">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/30">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/30/cover.jpg?r=1">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "禁断の果実", "alternateName": "禁忌的果实 · Forbidden Fruit", "url": "https://www.orphiusmusic.com/songs/30", "image": "https://media.orphiusmusic.com/orphius/songs/30/cover.jpg?r=1", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/", "sameAs": ["https://www.youtube.com/@Orphius1", "https://open.spotify.com/artist/4VfMeWk8q1RLkPyBs9E7sQ", "https://music.apple.com/us/artist/orphius/1845487964"]}, "duration": "PT3M2S", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "禁断の果実", "lyrics": {"@type": "CreativeWork", "text": "ただ禁断の果実を口にしただけで、\n楽園から追放された。\nふふっ、なんて醜く、欲深い生き物なんだろう。\nけれど、\n神にいったい何の資格があって、\n人間の善悪を裁けるというの？\n人間の愚かさを嘲笑いながら、\n知恵を持つことさえ許さない。\n人間に欲望を与えたのは、いったい誰？\nそして、その欲望を罪と呼んだのは誰？\nもし神自身に罪があるのなら、\nいったい誰が神を裁くというの？\nああ、本来この世に存在するはずのなかった純潔の果実が、\n血にまみれてしまった。\n無邪気な子供たちに罪の名が着せられた。\nいったい何を捧げれば、救済を得られるの？\nララララ\n本来この世に存在するはずのなかった純真の果実が、\n欲望の色に染められてしまった。\nどうすれば洗い清められるの？\n知恵を得た者たちは、\n野獣よりも貪欲で、暴力的で、残虐になった。\nララララ\nそれは、いったい誰の罪なの？"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;900&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=8">
+</head>
+<body data-song="30">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  <div class="sub-switch rise" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="https://open.spotify.com/artist/4VfMeWk8q1RLkPyBs9E7sQ" target="_blank" rel="noopener">Spotify</a><a class="lnk" href="https://music.apple.com/us/artist/orphius/1845487964" target="_blank" rel="noopener">Apple Music</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">禁断の果実 lyrics</h2>
+    <div class="sub-switch" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+      <p><span class="o" lang="ja">ただ禁断の果実を口にしただけで、</span><span class="t" data-l="en" lang="en">Only for tasting the forbidden fruit,</span><span class="t" data-l="zh" lang="zh">只不过尝了一口禁忌的果实，</span></p>
+      <p><span class="o" lang="ja">楽園から追放された。</span><span class="t" data-l="en" lang="en">we were cast out of paradise.</span><span class="t" data-l="zh" lang="zh">便被逐出了乐园。</span></p>
+      <p><span class="o" lang="ja">ふふっ、なんて醜く、欲深い生き物なんだろう。</span><span class="t" data-l="en" lang="en">Heh — what ugly, greedy creatures we are.</span><span class="t" data-l="zh" lang="zh">呵呵，多么丑陋、贪婪的生物啊。</span></p>
+      <p><span class="o" lang="ja">けれど、</span><span class="t" data-l="en" lang="en">And yet,</span><span class="t" data-l="zh" lang="zh">可是，</span></p>
+      <p><span class="o" lang="ja">神にいったい何の資格があって、</span><span class="t" data-l="en" lang="en">by what right does God</span><span class="t" data-l="zh" lang="zh">神究竟有什么资格，</span></p>
+      <p><span class="o" lang="ja">人間の善悪を裁けるというの？</span><span class="t" data-l="en" lang="en">pass judgment on our good and evil?</span><span class="t" data-l="zh" lang="zh">来审判人类的善恶？</span></p>
+      <p><span class="o" lang="ja">人間の愚かさを嘲笑いながら、</span><span class="t" data-l="en" lang="en">Laughing at human foolishness,</span><span class="t" data-l="zh" lang="zh">一边嘲笑着人类的愚蠢，</span></p>
+      <p><span class="o" lang="ja">知恵を持つことさえ許さない。</span><span class="t" data-l="en" lang="en">yet forbidding us even to be wise.</span><span class="t" data-l="zh" lang="zh">却连拥有智慧都不允许。</span></p>
+      <p><span class="o" lang="ja">人間に欲望を与えたのは、いったい誰？</span><span class="t" data-l="en" lang="en">Who was it that gave us desire?</span><span class="t" data-l="zh" lang="zh">将欲望赋予人类的，究竟是谁？</span></p>
+      <p><span class="o" lang="ja">そして、その欲望を罪と呼んだのは誰？</span><span class="t" data-l="en" lang="en">And who named that desire a sin?</span><span class="t" data-l="zh" lang="zh">又是谁，把那欲望称作罪？</span></p>
+      <p><span class="o" lang="ja">もし神自身に罪があるのなら、</span><span class="t" data-l="en" lang="en">If God himself has sinned,</span><span class="t" data-l="zh" lang="zh">倘若神自身也有罪，</span></p>
+      <p><span class="o" lang="ja">いったい誰が神を裁くというの？</span><span class="t" data-l="en" lang="en">then who will judge God?</span><span class="t" data-l="zh" lang="zh">那么，又有谁来审判神？</span></p>
+      <p><span class="o" lang="ja">ああ、本来この世に存在するはずのなかった純潔の果実が、</span><span class="t" data-l="en" lang="en">Ah — the pure fruit that was never meant to exist</span><span class="t" data-l="zh" lang="zh">啊，那本不该存在于世间的纯洁果实，</span></p>
+      <p><span class="o" lang="ja">血にまみれてしまった。</span><span class="t" data-l="en" lang="en">is now drenched in blood.</span><span class="t" data-l="zh" lang="zh">已沾满了鲜血。</span></p>
+      <p><span class="o" lang="ja">無邪気な子供たちに罪の名が着せられた。</span><span class="t" data-l="en" lang="en">Innocent children were dressed in the name of sin.</span><span class="t" data-l="zh" lang="zh">天真的孩子们被冠上了罪名。</span></p>
+      <p><span class="o" lang="ja">いったい何を捧げれば、救済を得られるの？</span><span class="t" data-l="en" lang="en">What must we offer to be saved?</span><span class="t" data-l="zh" lang="zh">究竟要献上什么，才能得到救赎？</span></p>
+      <p><span class="o" lang="ja">ララララ</span><span class="t" data-l="en" lang="en">La la la la</span><span class="t" data-l="zh" lang="zh">啦啦啦啦</span></p>
+      <p><span class="o" lang="ja">本来この世に存在するはずのなかった純真の果実が、</span><span class="t" data-l="en" lang="en">The innocent fruit that was never meant to exist</span><span class="t" data-l="zh" lang="zh">那本不该存在于世间的纯真果实，</span></p>
+      <p><span class="o" lang="ja">欲望の色に染められてしまった。</span><span class="t" data-l="en" lang="en">has been dyed the colour of desire.</span><span class="t" data-l="zh" lang="zh">已被染上了欲望的颜色。</span></p>
+      <p><span class="o" lang="ja">どうすれば洗い清められるの？</span><span class="t" data-l="en" lang="en">How could it ever be washed clean?</span><span class="t" data-l="zh" lang="zh">要怎样才能将它洗净？</span></p>
+      <p><span class="o" lang="ja">知恵を得た者たちは、</span><span class="t" data-l="en" lang="en">Those who gained wisdom</span><span class="t" data-l="zh" lang="zh">获得了智慧的人们，</span></p>
+      <p><span class="o" lang="ja">野獣よりも貪欲で、暴力的で、残虐になった。</span><span class="t" data-l="en" lang="en">grew greedier, more violent, crueller than beasts.</span><span class="t" data-l="zh" lang="zh">变得比野兽更贪婪、更暴力、更残忍。</span></p>
+      <p><span class="o" lang="ja">ララララ</span><span class="t" data-l="en" lang="en">La la la la</span><span class="t" data-l="zh" lang="zh">啦啦啦啦</span></p>
+      <p><span class="o" lang="ja">それは、いったい誰の罪なの？</span><span class="t" data-l="en" lang="en">Whose sin is it, then?</span><span class="t" data-l="zh" lang="zh">那究竟，是谁的罪？</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/sub.js?v=2"></script>
+<script src="/scene/songs.js?v=9"></script>
+<script src="/scene/scene.js?v=6"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
+</body>
+</html>

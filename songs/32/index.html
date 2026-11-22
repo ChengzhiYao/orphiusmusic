@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja" data-sub="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/brand/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<title>僕らは人間だから – Orphius | Lyrics</title>
+<meta name="description" content="僕らは人間だから（因为我们是人 · Because We Are Human） by Orphius. Full lyrics with translation: 望むと望まざるとにかかわらず / この世界は僕らを二つに分けてきた…">
+<link rel="canonical" href="https://www.orphiusmusic.com/songs/32">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Orphius">
+<meta property="og:title" content="僕らは人間だから – Orphius">
+<meta property="og:description" content="因为我们是人 · Because We Are Human. 望むと望まざるとにかかわらず / この世界は僕らを二つに分けてきた">
+<meta property="og:url" content="https://www.orphiusmusic.com/songs/32">
+<meta property="og:image" content="https://media.orphiusmusic.com/orphius/songs/32/cover.jpg?r=1">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "name": "僕らは人間だから", "alternateName": "因为我们是人 · Because We Are Human", "url": "https://www.orphiusmusic.com/songs/32", "image": "https://media.orphiusmusic.com/orphius/songs/32/cover.jpg?r=1", "byArtist": {"@type": "MusicGroup", "name": "Orphius", "url": "https://www.orphiusmusic.com/", "sameAs": ["https://www.youtube.com/@Orphius1", "https://open.spotify.com/artist/4VfMeWk8q1RLkPyBs9E7sQ", "https://music.apple.com/us/artist/orphius/1845487964"]}, "duration": "PT3M34S", "inLanguage": "ja", "recordingOf": {"@type": "MusicComposition", "name": "僕らは人間だから", "lyrics": {"@type": "CreativeWork", "text": "望むと望まざるとにかかわらず\nこの世界は僕らを二つに分けてきた\n時代を前に進める者と\nそうでない者\nそして僕らも、知らず知らずのうちに\n前に進める側に立っていた\nこの世界の闇が\nどれほど僕らを押し潰そうとも\n人の可能性は無限だと\n僕は信じている\n誰かの力を\n縛るべきではない\n打ち破れ　打ち破れ　打ち破れ\nこの世界の不公平なルールを\n進め　進め　進み続けろ\nたとえ道が見えなくとも\n自分の生まれを憎まないで\nこの時代なら\n君は何だってできる\nだから努力せよ\n叫べ　叫べ\nこの世界に\n君の存在を見せつけろ\nたとえすべてを懸けようとも\n君の生まれが\n君の未来を決めるわけじゃない\n生まれながらに\n夢を奪われる者などいない\n社会の階級によって\n人生を定められる者などいない\nたとえ前路が見えずとも\n世界のルールに押し潰されようとも\nそれでも自分の力を信じ\n自分の可能性を信じて\n君が生まれながらに持つ\nそのわずかな可能性を\n打ち破れ　打ち破れ　打ち破れ\n進め　進め　進み続けろ\n打ち破れ　打ち破れ　打ち破れ\n進め　進め　進み続けろ\n僕らには誰もが\n自分の運命を選ぶ権利がある\n僕らは人間だから"}}}</script>
+<script>if (/[?&]bg=1/.test(location.search)) document.documentElement.classList.add("bg-mode");</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;900&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/scene/style.css?v=8">
+</head>
+<body data-song="32">
+<div class="backdrop"></div>
+<canvas id="scene"></canvas>
+
+<div class="gate" role="button" aria-label="开始播放">
+  <div class="gate-inner">
+    <div class="gate-no"></div>
+    <div class="gate-title"></div>
+    <div class="gate-hint">Tap to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="topbar rise"><span id="no"></span><a href="/#songs">Orphius · All songs</a></div>
+
+  <div class="cover-wrap rise">
+    <img id="cover" alt="" crossorigin="anonymous">
+    <div class="cover-shade"></div>
+    <section class="lyrics-box" id="lyricsBox" aria-label="歌词">
+      <div class="lyrics-scroll" id="lyrics"></div>
+    </section>
+  </div>
+
+  <div class="meta rise">
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+  <div class="sub-switch rise" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+
+  <div class="player rise">
+    <canvas id="viz"></canvas>
+    <div class="bar"><div class="bar-track"></div><div class="bar-fill"></div><div class="bar-knob"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="ctl" id="back" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="ctl main" id="play" aria-label="播放 / 暂停">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.6.6 0 0 0 .9.5l10.4-6.5a.6.6 0 0 0 0-1L8.9 5a.6.6 0 0 0-.9.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="ctl loop" id="loop" aria-label="单曲循环">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="links rise"><a class="lnk" href="https://www.youtube.com/@Orphius1" target="_blank" rel="noopener">Orphius on YouTube</a><a class="lnk" href="https://open.spotify.com/artist/4VfMeWk8q1RLkPyBs9E7sQ" target="_blank" rel="noopener">Spotify</a><a class="lnk" href="https://music.apple.com/us/artist/orphius/1845487964" target="_blank" rel="noopener">Apple Music</a><a class="lnk" href="/#songs">All songs</a></div>
+
+  <section class="full-lyrics" aria-label="Lyrics">
+    <h2 class="fl-head">僕らは人間だから lyrics</h2>
+    <div class="sub-switch" role="group" aria-label="Lyrics subtitles"><span class="sub-label">Subtitles</span><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button><button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button></div>
+      <p><span class="o" lang="ja">望むと望まざるとにかかわらず</span><span class="t" data-l="en" lang="en">Whether we wish it or not,</span><span class="t" data-l="zh" lang="zh">无论愿意与否</span></p>
+      <p><span class="o" lang="ja">この世界は僕らを二つに分けてきた</span><span class="t" data-l="en" lang="en">this world has split us in two —</span><span class="t" data-l="zh" lang="zh">这个世界一直把我们分成两种人</span></p>
+      <p><span class="o" lang="ja">時代を前に進める者と</span><span class="t" data-l="en" lang="en">those who move the age forward,</span><span class="t" data-l="zh" lang="zh">推动时代前进的人，</span></p>
+      <p><span class="o" lang="ja">そうでない者</span><span class="t" data-l="en" lang="en">and those who don&#x27;t.</span><span class="t" data-l="zh" lang="zh">和不能的人。</span></p>
+      <p><span class="o" lang="ja">そして僕らも、知らず知らずのうちに</span><span class="t" data-l="en" lang="en">And without even knowing it,</span><span class="t" data-l="zh" lang="zh">而我们也在不知不觉间</span></p>
+      <p><span class="o" lang="ja">前に進める側に立っていた</span><span class="t" data-l="en" lang="en">we had come to stand on the side that moves ahead.</span><span class="t" data-l="zh" lang="zh">站到了前进的那一边</span></p>
+      <p><span class="o" lang="ja">この世界の闇が</span><span class="t" data-l="en" lang="en">However hard this world&#x27;s darkness</span><span class="t" data-l="zh" lang="zh">无论这世界的黑暗</span></p>
+      <p><span class="o" lang="ja">どれほど僕らを押し潰そうとも</span><span class="t" data-l="en" lang="en">tries to crush us,</span><span class="t" data-l="zh" lang="zh">如何压垮我们</span></p>
+      <p><span class="o" lang="ja">人の可能性は無限だと</span><span class="t" data-l="en" lang="en">that human potential is limitless —</span><span class="t" data-l="zh" lang="zh">人的可能性是无限的</span></p>
+      <p><span class="o" lang="ja">僕は信じている</span><span class="t" data-l="en" lang="en">this I believe.</span><span class="t" data-l="zh" lang="zh">我这样相信着</span></p>
+      <p><span class="o" lang="ja">誰かの力を</span><span class="t" data-l="en" lang="en">No one&#x27;s strength</span><span class="t" data-l="zh" lang="zh">谁的力量</span></p>
+      <p><span class="o" lang="ja">縛るべきではない</span><span class="t" data-l="en" lang="en">should ever be bound.</span><span class="t" data-l="zh" lang="zh">都不该被束缚</span></p>
+      <p><span class="o" lang="ja">打ち破れ　打ち破れ　打ち破れ</span><span class="t" data-l="en" lang="en">Break it, break it, break it</span><span class="t" data-l="zh" lang="zh">打破 打破 打破</span></p>
+      <p><span class="o" lang="ja">この世界の不公平なルールを</span><span class="t" data-l="en" lang="en">this world&#x27;s unfair rules</span><span class="t" data-l="zh" lang="zh">这个世界不公平的规则</span></p>
+      <p><span class="o" lang="ja">進め　進め　進み続けろ</span><span class="t" data-l="en" lang="en">Go, go, keep going</span><span class="t" data-l="zh" lang="zh">前进 前进 继续前进</span></p>
+      <p><span class="o" lang="ja">たとえ道が見えなくとも</span><span class="t" data-l="en" lang="en">even if you can&#x27;t see the road</span><span class="t" data-l="zh" lang="zh">即使看不见路</span></p>
+      <p><span class="o" lang="ja">自分の生まれを憎まないで</span><span class="t" data-l="en" lang="en">Don&#x27;t hate where you were born.</span><span class="t" data-l="zh" lang="zh">不要憎恨自己的出身</span></p>
+      <p><span class="o" lang="ja">この時代なら</span><span class="t" data-l="en" lang="en">In this age</span><span class="t" data-l="zh" lang="zh">在这个时代</span></p>
+      <p><span class="o" lang="ja">君は何だってできる</span><span class="t" data-l="en" lang="en">you can do anything.</span><span class="t" data-l="zh" lang="zh">你什么都做得到</span></p>
+      <p><span class="o" lang="ja">だから努力せよ</span><span class="t" data-l="en" lang="en">So strive.</span><span class="t" data-l="zh" lang="zh">所以努力吧</span></p>
+      <p><span class="o" lang="ja">叫べ　叫べ</span><span class="t" data-l="en" lang="en">Shout, shout.</span><span class="t" data-l="zh" lang="zh">呐喊吧 呐喊吧</span></p>
+      <p><span class="o" lang="ja">この世界に</span><span class="t" data-l="en" lang="en">Make this world</span><span class="t" data-l="zh" lang="zh">让这个世界</span></p>
+      <p><span class="o" lang="ja">君の存在を見せつけろ</span><span class="t" data-l="en" lang="en">see that you exist.</span><span class="t" data-l="zh" lang="zh">看见你的存在</span></p>
+      <p><span class="o" lang="ja">たとえすべてを懸けようとも</span><span class="t" data-l="en" lang="en">Even if it costs you everything,</span><span class="t" data-l="zh" lang="zh">即使要赌上一切</span></p>
+      <p><span class="o" lang="ja">君の生まれが</span><span class="t" data-l="en" lang="en">where you were born</span><span class="t" data-l="zh" lang="zh">你的出身</span></p>
+      <p><span class="o" lang="ja">君の未来を決めるわけじゃない</span><span class="t" data-l="en" lang="en">does not decide your future.</span><span class="t" data-l="zh" lang="zh">不会决定你的未来</span></p>
+      <p><span class="o" lang="ja">生まれながらに</span><span class="t" data-l="en" lang="en">No one is born</span><span class="t" data-l="zh" lang="zh">没有人生来</span></p>
+      <p><span class="o" lang="ja">夢を奪われる者などいない</span><span class="t" data-l="en" lang="en">to have their dreams taken away.</span><span class="t" data-l="zh" lang="zh">就该被夺走梦想</span></p>
+      <p><span class="o" lang="ja">社会の階級によって</span><span class="t" data-l="en" lang="en">No one&#x27;s life</span><span class="t" data-l="zh" lang="zh">没有人的人生</span></p>
+      <p><span class="o" lang="ja">人生を定められる者などいない</span><span class="t" data-l="en" lang="en">should be decided by social class.</span><span class="t" data-l="zh" lang="zh">该由社会阶级决定</span></p>
+      <p><span class="o" lang="ja">たとえ前路が見えずとも</span><span class="t" data-l="en" lang="en">Even if you can&#x27;t see ahead,</span><span class="t" data-l="zh" lang="zh">即使看不见前路</span></p>
+      <p><span class="o" lang="ja">世界のルールに押し潰されようとも</span><span class="t" data-l="en" lang="en">even if the world&#x27;s rules crush you,</span><span class="t" data-l="zh" lang="zh">即使被世界的规则压垮</span></p>
+      <p><span class="o" lang="ja">それでも自分の力を信じ</span><span class="t" data-l="en" lang="en">still believe in your strength,</span><span class="t" data-l="zh" lang="zh">也要相信自己的力量</span></p>
+      <p><span class="o" lang="ja">自分の可能性を信じて</span><span class="t" data-l="en" lang="en">believe in what you could be —</span><span class="t" data-l="zh" lang="zh">相信自己的可能性</span></p>
+      <p><span class="o" lang="ja">君が生まれながらに持つ</span><span class="t" data-l="en" lang="en">that small possibility</span><span class="t" data-l="zh" lang="zh">那份你与生俱来的</span></p>
+      <p><span class="o" lang="ja">そのわずかな可能性を</span><span class="t" data-l="en" lang="en">you were born with.</span><span class="t" data-l="zh" lang="zh">微小的可能性</span></p>
+      <p><span class="o" lang="ja">打ち破れ　打ち破れ　打ち破れ</span><span class="t" data-l="en" lang="en">Break it, break it, break it</span><span class="t" data-l="zh" lang="zh">打破 打破 打破</span></p>
+      <p><span class="o" lang="ja">進め　進め　進み続けろ</span><span class="t" data-l="en" lang="en">Go, go, keep going</span><span class="t" data-l="zh" lang="zh">前进 前进 继续前进</span></p>
+      <p><span class="o" lang="ja">打ち破れ　打ち破れ　打ち破れ</span><span class="t" data-l="en" lang="en">Break it, break it, break it</span><span class="t" data-l="zh" lang="zh">打破 打破 打破</span></p>
+      <p><span class="o" lang="ja">進め　進め　進み続けろ</span><span class="t" data-l="en" lang="en">Go, go, keep going</span><span class="t" data-l="zh" lang="zh">前进 前进 继续前进</span></p>
+      <p><span class="o" lang="ja">僕らには誰もが</span><span class="t" data-l="en" lang="en">Every one of us</span><span class="t" data-l="zh" lang="zh">我们每个人</span></p>
+      <p><span class="o" lang="ja">自分の運命を選ぶ権利がある</span><span class="t" data-l="en" lang="en">has the right to choose our own fate.</span><span class="t" data-l="zh" lang="zh">都有选择自己命运的权利</span></p>
+      <p><span class="o" lang="ja">僕らは人間だから</span><span class="t" data-l="en" lang="en">Because we are human.</span><span class="t" data-l="zh" lang="zh">因为我们是人</span></p>
+  </section>
+
+  <div class="foot"><a href="/" style="color:inherit;text-decoration:none">Orphius · orphiusmusic.com</a></div>
+</main>
+
+<script src="/sub.js?v=2"></script>
+<script src="/scene/songs.js?v=9"></script>
+<script src="/scene/scene.js?v=6"></script>
+<script>(function () {   // ?bg=1：首页背景模式，只跑场景，不放音乐
+  var s = document.createElement("script");
+  s.src = /[?&]bg=1/.test(location.search) ? "/scene/bg.js?v=1" : "/scene/player.js?v=3";
+  document.body.appendChild(s);
+})();</script>
+</body>
+</html>
