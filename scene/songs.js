@@ -535,5 +535,53 @@ window.SONGS = [
     coverFill: "50% 45%",
     theme: { night: "#08090c", nightRgb: "8,9,12", glow: "214,220,232", accent: "#b9c2d4" },
     note: []
+    },
+  {
+    id: "30",
+    title: "禁断の果実",
+    subtitle: "禁忌的果实 · Forbidden Fruit",
+    rev: 1,
+    date: "",
+    place: "",
+    scene: "ambient",              // 先用封面色的流动背景（深红），专属特效之后再做
+    coverFill: "50% 30%",
+    theme: { night: "#0c0606", nightRgb: "12,6,6", glow: "236,200,190", accent: "#c61c28" },
+    note: []
+  },
+  {
+    id: "31",
+    title: "洞窟",
+    subtitle: "洞穴 · The Cave",
+    rev: 1,
+    date: "",
+    place: "",
+    scene: "ambient",              // 先用封面色的流动背景（灰白纸色），专属特效之后再做
+    coverFill: "55% 35%",
+    theme: { night: "#0a0909", nightRgb: "10,9,9", glow: "236,230,218", accent: "#d8cfc0" },
+    note: []
+  },
+  {
+    id: "32",
+    title: "僕らは人間だから",
+    subtitle: "因为我们是人 · Because We Are Human",
+    rev: 1,
+    date: "",
+    place: "",
+    scene: "ambient",              // 先用封面色的流动背景（夕阳金），专属特效之后再做
+    coverFill: "60% 35%",
+    theme: { night: "#0d0906", nightRgb: "13,9,6", glow: "255,220,180", accent: "#e8a868" },
+    note: []
+    },
+  {
+    id: "33",
+    title: "この鼓動こそが",
+    subtitle: "正是这心跳 · This Heartbeat",
+    rev: 1,
+    date: "",
+    place: "",
+    scene: "ambient",              // 黑白+心跳红，专属特效之后再做
+    coverFill: "50% 30%",
+    theme: { night: "#0a0909", nightRgb: "10,9,9", glow: "240,236,232", accent: "#d62226" },
+    note: []
   }
 ];
