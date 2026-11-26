@@ -571,5 +571,17 @@ window.SONGS = [
     coverFill: "60% 35%",
     theme: { night: "#0d0906", nightRgb: "13,9,6", glow: "255,220,180", accent: "#e8a868" },
     note: []
+    },
+  {
+    id: "33",
+    title: "この鼓動こそが",
+    subtitle: "正是这心跳 · This Heartbeat",
+    rev: 1,
+    date: "",
+    place: "",
+    scene: "ambient",              // 黑白+心跳红，专属特效之后再做
+    coverFill: "50% 30%",
+    theme: { night: "#0a0909", nightRgb: "10,9,9", glow: "240,236,232", accent: "#d62226" },
+    note: []
   }
 ];

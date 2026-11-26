@@ -1,5 +1,5 @@
 // 首页大图展示哪首歌（填编号）
-window.FEATURED = "32";
+window.FEATURED = "33";
 // YouTube 频道
 window.CHANNEL = "https://www.youtube.com/@Orphius1";
 // 每首歌：yt 填 YouTube 视频 ID（watch?v= 后面那串），没有就不填
@@ -324,6 +324,16 @@ window.SONGS = [
   "rev": 1,
   "accent": "#e8a868",
   "dur": 214,
+  "lyrics": true
+ },
+ {
+  "id": "33",
+  "title": "この鼓動こそが",
+  "sub": "正是这心跳 · This Heartbeat",
+  "date": "",
+  "rev": 1,
+  "accent": "#d62226",
+  "dur": 157,
   "lyrics": true
  }
 ];
